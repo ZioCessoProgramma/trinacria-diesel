@@ -12,7 +12,13 @@ a static class deals with all the opengl and calculations
 
 
 Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Renderer\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classTRCN__CORE__NAMESPACE_1_1Renderer__coll__graph}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -26,7 +32,7 @@ static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_acd29fc8cff8
 \begin{DoxyCompactList}\small\item\em it queues a triangle to be drawn \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a35e1b63a99bd72a6ea5109db0170410b}{End\+Scene}} ()
 \begin{DoxyCompactList}\small\item\em deals with open\+GL buffers \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a9c914b3bf0c121208898a707dc1007db}{Draw}} (\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} \&screen\+Shader)
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a1bd661ee7f9d87b8ae0a541120c3e88c}{Draw}} (\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} \&screen\+Shader, const glm\+::vec2 \&window\+Dimensions, const glm\+::vec2 \&camera\+Pos, float zoom)
 \begin{DoxyCompactList}\small\item\em the function that draws all the quads and triangles queued \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a3963e7ca6e7f12b00a901ac69cd584b5}{Cleanup}} ()
 \begin{DoxyCompactList}\small\item\em the function that delete all the open\+GL objects \end{DoxyCompactList}\item 
@@ -143,11 +149,11 @@ it queues a triangle to be drawn
 {\em triangle\+Data} & data to create a triangle \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a9c914b3bf0c121208898a707dc1007db}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!Draw@{Draw}}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a1bd661ee7f9d87b8ae0a541120c3e88c}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!Draw@{Draw}}
 \index{Draw@{Draw}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
 \doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
-{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a9c914b3bf0c121208898a707dc1007db} 
-void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} \&}]{screen\+Shader}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a1bd661ee7f9d87b8ae0a541120c3e88c} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} \&}]{screen\+Shader}{, }\item[{const glm\+::vec2 \&}]{window\+Dimensions}{, }\item[{const glm\+::vec2 \&}]{camera\+Pos}{, }\item[{float}]{zoom}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -156,6 +162,12 @@ the function that draws all the quads and triangles queued
 
 \begin{DoxyParams}{Parameters}
 {\em screen\+Shader} & the shader used to process the final texture \\
+\hline
+{\em window\+Dimensions} & the dimensions of the window \\
+\hline
+{\em camera\+Pos} & the position of the viewer or camera \\
+\hline
+{\em zoom} & zoom \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a35e1b63a99bd72a6ea5109db0170410b}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!EndScene@{EndScene}}

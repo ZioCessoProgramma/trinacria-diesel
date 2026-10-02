@@ -100,6 +100,11 @@ $(function(){initNavTree('classTRCN__CORE__NAMESPACE_1_1Renderer.html','','class
 Collaboration diagram for TRCN_CORE_NAMESPACE::Renderer:</div>
 <div class="dyncontent">
 <div class="center"><img src="classTRCN__CORE__NAMESPACE_1_1Renderer__coll__graph.png" border="0" usemap="#aTRCN__CORE__NAMESPACE_1_1Renderer_coll__map" loading="lazy" alt="Collaboration graph"/></div>
+<map name="aTRCN__CORE__NAMESPACE_1_1Renderer_coll__map" id="aTRCN__CORE__NAMESPACE_1_1Renderer_coll__map">
+<area shape="rect" title="a static class deals with all the opengl and calculations" alt="" coords="5,123,193,168"/>
+<area shape="rect" href="classTRCN__CORE__NAMESPACE_1_1Shader.html" title="class dealing with shader pipeline, uniforms, linking, etc.." alt="" coords="5,5,193,50"/>
+<area shape="poly" title=" " alt="" coords="101,64,102,123,96,122,97,68"/>
+</map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
@@ -114,8 +119,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:acd29fc8cff86f2e091294b8600e7e115"><td class="mdescLeft">&#160;</td><td class="mdescRight">it queues a triangle to be drawn  <br /></td></tr>
 <tr class="memitem:a35e1b63a99bd72a6ea5109db0170410b" id="r_a35e1b63a99bd72a6ea5109db0170410b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a35e1b63a99bd72a6ea5109db0170410b">EndScene</a> ()</td></tr>
 <tr class="memdesc:a35e1b63a99bd72a6ea5109db0170410b"><td class="mdescLeft">&#160;</td><td class="mdescRight">deals with openGL buffers  <br /></td></tr>
-<tr class="memitem:a9c914b3bf0c121208898a707dc1007db" id="r_a9c914b3bf0c121208898a707dc1007db"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c914b3bf0c121208898a707dc1007db">Draw</a> (<a class="el" href="classTRCN__CORE__NAMESPACE_1_1Shader.html">Shader</a> &amp;screenShader)</td></tr>
-<tr class="memdesc:a9c914b3bf0c121208898a707dc1007db"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function that draws all the quads and triangles queued  <br /></td></tr>
+<tr class="memitem:a1bd661ee7f9d87b8ae0a541120c3e88c" id="r_a1bd661ee7f9d87b8ae0a541120c3e88c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bd661ee7f9d87b8ae0a541120c3e88c">Draw</a> (<a class="el" href="classTRCN__CORE__NAMESPACE_1_1Shader.html">Shader</a> &amp;screenShader, const glm::vec2 &amp;windowDimensions, const glm::vec2 &amp;cameraPos, float zoom)</td></tr>
+<tr class="memdesc:a1bd661ee7f9d87b8ae0a541120c3e88c"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function that draws all the quads and triangles queued  <br /></td></tr>
 <tr class="memitem:a3963e7ca6e7f12b00a901ac69cd584b5" id="r_a3963e7ca6e7f12b00a901ac69cd584b5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3963e7ca6e7f12b00a901ac69cd584b5">Cleanup</a> ()</td></tr>
 <tr class="memdesc:a3963e7ca6e7f12b00a901ac69cd584b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">the function that delete all the openGL objects  <br /></td></tr>
 <tr class="memitem:a30f0310196db838e5758645b5a38ae41" id="r_a30f0310196db838e5758645b5a38ae41"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30f0310196db838e5758645b5a38ae41">FlushBuffers</a> ()</td></tr>
@@ -307,8 +312,8 @@ static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Ma
 
 </div>
 </div>
-<a id="a9c914b3bf0c121208898a707dc1007db" name="a9c914b3bf0c121208898a707dc1007db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c914b3bf0c121208898a707dc1007db">&#9670;&#160;</a></span>Draw()</h2>
+<a id="a1bd661ee7f9d87b8ae0a541120c3e88c" name="a1bd661ee7f9d87b8ae0a541120c3e88c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bd661ee7f9d87b8ae0a541120c3e88c">&#9670;&#160;</a></span>Draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -319,8 +324,22 @@ static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Ma
         <tr>
           <td class="memname">void TRCN_CORE_NAMESPACE::Renderer::Draw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classTRCN__CORE__NAMESPACE_1_1Shader.html">Shader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>screenShader</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="classTRCN__CORE__NAMESPACE_1_1Shader.html">Shader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>screenShader</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const glm::vec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>windowDimensions</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>cameraPos</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>zoom</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -334,6 +353,9 @@ static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Ma
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">screenShader</td><td>the shader used to process the final texture </td></tr>
+    <tr><td class="paramname">windowDimensions</td><td>the dimensions of the window </td></tr>
+    <tr><td class="paramname">cameraPos</td><td>the position of the viewer or camera </td></tr>
+    <tr><td class="paramname">zoom</td><td>zoom </td></tr>
   </table>
   </dd>
 </dl>

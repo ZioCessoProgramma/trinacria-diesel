@@ -318,7 +318,7 @@ void TRCN_CORE_NAMESPACE::Renderer::EndScene()
     glBufferSubData(GL_ARRAY_BUFFER, 0, _triangleBuffer.size() * sizeof(Vertex), _triangleBuffer.data());
 }
 
-void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader)
+void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
 {
     _frameBuffer.Bind();
 
@@ -332,6 +332,14 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader)
 
         element.first->Bind(element.second + GL_TEXTURE0 - 1);
     }
+
+    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
+
+    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
+    viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
+
+    ShaderProgram.Bind();
+    ShaderProgram.SetUniformMat4("u_View", viewProjection);
 
     glBindVertexArray(_vao);
 

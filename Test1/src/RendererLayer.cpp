@@ -147,20 +147,7 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::HUD::EndHUD();
 
-    float zoom = _cameraData.Zoom;
-
-    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
-
-    glm::vec2 widowDimension = Application::Get()->GetWindowDimensions();
-
-    viewProjection = glm::scale(viewProjection, glm::vec3(widowDimension.y / widowDimension.x, 1.f, 1.f));
-    viewProjection = glm::translate(viewProjection, glm::vec3(-_cameraData.CameraPos.x, -_cameraData.CameraPos.y, 0.f));
-
-    Trinacria::DSL::Renderer::ShaderProgram.Bind();
-
-    Trinacria::DSL::Renderer::ShaderProgram.SetUniformMat4("u_View", viewProjection);
-
-    Trinacria::DSL::LightSystem::InitFrame(Trinacria::DSL::LightSystem::DEFAULT_USE_OF_LIGHT);
+     Trinacria::DSL::LightSystem::InitFrame(Trinacria::DSL::LightSystem::DEFAULT_USE_OF_LIGHT);
 
     Trinacria::DSL::PointLightData pointLight( glm::vec3(1.f, 1.f, 1.f),
 	    pointLightTransform.Position, 1.f);
@@ -195,7 +182,7 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::LightSystem::Done();
 
-    Trinacria::DSL::Renderer::Draw(_screenShader);
+    Trinacria::DSL::Renderer::Draw(_screenShader, Application::Get()->GetWindowDimensions(), _cameraData.CameraPos, _cameraData.Zoom);
     Trinacria::DSL::Renderer::FlushBuffers();
     Trinacria::DSL::HUD::FlushBuffers();
 }

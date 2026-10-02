@@ -101,91 +101,76 @@
 \DoxyCodeLine{00190\ \ \ \ \ \{}
 \DoxyCodeLine{00191\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00192\ }
-\DoxyCodeLine{00199\ }
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a9953105c2fe615c2adbaab0d4aec9cdd}{Init}}(\textcolor{keyword}{const}\ std::string\&\ progressBarVertPath,\ \textcolor{keyword}{const}\ std::string\&\ progressBarFragPath);}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ada73644c74ac7da6c7a301ebe0abe271}{Cleanup}}();}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00213\ }
-\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}{EndHUD}}();}
-\DoxyCodeLine{00215\ }
-\DoxyCodeLine{00220\ }
-\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_aa2992fbe5850b4614c4d32e114527989}{CreateHUDQuad}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad);}
-\DoxyCodeLine{00222\ }
-\DoxyCodeLine{00229\ }
-\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a5d7a5945fa2e27fafbc9bad3b19346fa}{CreateButton}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \textcolor{keyword}{const}\ glm::vec4\&\ hoveredColor,\ \textcolor{keyword}{const}\ glm::vec4\&\ pressedColor);}
-\DoxyCodeLine{00231\ }
-\DoxyCodeLine{00238\ }
-\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}{AddOnClickFunction}}(\textcolor{keyword}{const}\ OnClickType\&\ onClick,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transformOfTheQuad);}
-\DoxyCodeLine{00240\ }
-\DoxyCodeLine{00248\ }
-\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab4d8ee43d2cd9f6813be69a21eaa763f}{CreateProgressBar}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ fillTexture,}
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor);}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00256\ }
-\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ add\ overload\ that\ makes\ you\ flush\ only\ a\ part\ of\ the\ buffer}}
-\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac07c74d744d7bfc3470fd8757bf91c07}{FlushBuffers}}();}
-\DoxyCodeLine{00259\ }
-\DoxyCodeLine{00266\ }
-\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a9e8c61cce43275291215ae77ed6ec25b}{UpdateEvents}}(GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
-\DoxyCodeLine{00268\ }
-\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}}\ \_shader;}
-\DoxyCodeLine{00270\ }
-\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDQuads\ \ \ \ =\ \ \ \ \ \ \ \ \ \ \ \ 100;}
-\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDVertices\ =\ MaxHUDQuads\ *\ 4;}
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDIndices\ \ =\ MaxHUDQuads\ *\ 6;}
-\DoxyCodeLine{00274\ }
-\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxProgressBars\ \ \ \ \ \ \ \ \ =\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 100;}
-\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxProgressBarsVertices\ =\ MaxProgressBars\ *\ 4;}
-\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxProgressBarsIndices\ \ =\ MaxProgressBars\ *\ 6;}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a7b7dc6fd99407de45f651cfe0b654566}{Init}}(\textcolor{keyword}{const}\ std::string\&\ progressBarVertPath,\ \textcolor{keyword}{const}\ std::string\&\ progressBarFragPath,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ada73644c74ac7da6c7a301ebe0abe271}{Cleanup}}();}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}{EndHUD}}();}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_aa2992fbe5850b4614c4d32e114527989}{CreateHUDQuad}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab54503644d8af7099851658c7a9ce7c0}{CreateButton}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \textcolor{keyword}{const}\ glm::vec4\&\ hoveredColor,\ \textcolor{keyword}{const}\ glm::vec4\&\ pressedColor,\ GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00239\ }
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}{AddOnClickFunction}}(\textcolor{keyword}{const}\ OnClickType\&\ onClick,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transformOfTheQuad);}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab4d8ee43d2cd9f6813be69a21eaa763f}{CreateProgressBar}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ fillTexture,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ add\ overload\ that\ makes\ you\ flush\ only\ a\ part\ of\ the\ buffer}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac07c74d744d7bfc3470fd8757bf91c07}{FlushBuffers}}();}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a9e8c61cce43275291215ae77ed6ec25b}{UpdateEvents}}(GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}}\ \_shader;}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDQuads\ \ \ \ =\ \ \ \ \ \ \ \ \ \ \ \ 100;}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDVertices\ =\ MaxHUDQuads\ *\ 4;}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDIndices\ \ =\ MaxHUDQuads\ *\ 6;}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }Renderer;}
 \DoxyCodeLine{00278\ }
-\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }Renderer;}
-\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }InputPollerLayer;}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_vao;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_vbo;}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_ebo;}
 \DoxyCodeLine{00282\ }
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_progressBarsVao;}
-\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_progressBarsVbo;}
-\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_progressBarsEbo;}
-\DoxyCodeLine{00286\ }
-\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<ProgressBarVertex>\ \_progressBarVertices;}
-\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \_progressBarIndices;}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<ProgressBarVertex>\ \_vertices;}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \_indices;}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<Texture*,\ uint32\_t>>\ \_textures;}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<std::function<void()>,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}>>\ \_onClickAndTransform;}
 \DoxyCodeLine{00289\ }
-\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_buttonsVao;}
-\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_buttonsVbo;}
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_buttonsEbo;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_lastStateOfLeftMouseButton\ =\ GLFW\_RELEASE;}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \_aspectRatio;}
 \DoxyCodeLine{00293\ }
-\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<ButtonVertex>\ \_buttonVertices;}
-\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \_buttonIndices;}
-\DoxyCodeLine{00296\ }
-\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<Texture*,\ uint32\_t>>\ \_textures;}
-\DoxyCodeLine{00298\ }
-\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<std::function<void()>,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}>>\ \_onClickAndPos;}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ draw();}
+\DoxyCodeLine{00295\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createHUDQuad(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ uint32\_t\ textureIndex,}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ scale,\ glm::mat4\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\&\ coord,}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ fillTextureIndex,\ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ );}
 \DoxyCodeLine{00300\ }
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_lastStateOfLeftMouseButton\ =\ GLFW\_RELEASE;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ findTextureIndex(uint32\_t\&\ outIndex,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texToFind);}
 \DoxyCodeLine{00302\ }
-\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ draw();}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ setupTexture(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texture);}
 \DoxyCodeLine{00304\ }
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createProgressBar(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ uint32\_t\ textureIndex,}
-\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ scale,\ \textcolor{keyword}{const}\ glm::mat4\&\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\&\ coord,}
-\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ fillTextureIndex,\ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor}
-\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00309\ }
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createHUDQuad(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ uint32\_t\ textureIndex,}
-\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ scale,\ \textcolor{keyword}{const}\ glm::mat4\&\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\&\ coord,}
-\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec4\&\ hoveredColor,\ \textcolor{keyword}{const}\ glm::vec4\&\ pressedColor}
-\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00314\ }
-\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ findTextureIndex(uint32\_t\&\ outIndex,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texToFind);}
-\DoxyCodeLine{00316\ }
-\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ setupTexture(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texture);}
-\DoxyCodeLine{00318\ }
-\DoxyCodeLine{00319\ }
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isInRange(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transform,\ GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
-\DoxyCodeLine{00321\ }
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setupProgressBars();}
-\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setupButtons();}
-\DoxyCodeLine{00324\ \ \ \ \ \};}
-\DoxyCodeLine{00325\ \}}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isInRange(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transform,\ GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setupProgressBars();}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onResize(\textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00310\ \ \ \ \ \};}
+\DoxyCodeLine{00311\ \}}
 
 \end{DoxyCode}

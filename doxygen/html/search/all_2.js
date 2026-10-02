@@ -10,7 +10,7 @@ var searchData=
   ['coord1_7',['Coord1',['../structTRCN__CORE__NAMESPACE_1_1QuadTexCoords.html#a481cea32dd4df9a338850ff06d3b7406',1,'TRCN_CORE_NAMESPACE::QuadTexCoords::Coord1'],['../structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords.html#a42d5b8a9a6c9cbb93e06d5cc6e0ac984',1,'TRCN_CORE_NAMESPACE::TriangleTexCoords::Coord1']]],
   ['coord2_8',['Coord2',['../structTRCN__CORE__NAMESPACE_1_1QuadTexCoords.html#ab3786ab40ee7b3d991ac06330ca65642',1,'TRCN_CORE_NAMESPACE::QuadTexCoords::Coord2'],['../structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords.html#ae1b9b82c601b27b5506cce93bb537eaa',1,'TRCN_CORE_NAMESPACE::TriangleTexCoords::Coord2']]],
   ['coord3_9',['Coord3',['../structTRCN__CORE__NAMESPACE_1_1QuadTexCoords.html#aed76135afea33d32d4db52d8a02d3125',1,'TRCN_CORE_NAMESPACE::QuadTexCoords']]],
-  ['createbutton_10',['CreateButton',['../classTRCN__CORE__NAMESPACE_1_1HUD.html#a5d7a5945fa2e27fafbc9bad3b19346fa',1,'TRCN_CORE_NAMESPACE::HUD']]],
+  ['createbutton_10',['CreateButton',['../classTRCN__CORE__NAMESPACE_1_1HUD.html#ab54503644d8af7099851658c7a9ce7c0',1,'TRCN_CORE_NAMESPACE::HUD']]],
   ['createhudquad_11',['CreateHUDQuad',['../classTRCN__CORE__NAMESPACE_1_1HUD.html#aa2992fbe5850b4614c4d32e114527989',1,'TRCN_CORE_NAMESPACE::HUD']]],
   ['createprogressbar_12',['CreateProgressBar',['../classTRCN__CORE__NAMESPACE_1_1HUD.html#ab4d8ee43d2cd9f6813be69a21eaa763f',1,'TRCN_CORE_NAMESPACE::HUD']]],
   ['createquad_13',['CreateQuad',['../classTRCN__CORE__NAMESPACE_1_1Renderer.html#a156f9c0c378f4f6b17b04bf7a8937904',1,'TRCN_CORE_NAMESPACE::Renderer']]],

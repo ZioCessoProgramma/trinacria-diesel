@@ -20,6 +20,7 @@ std::array<float, TRCN_CORE_NAMESPACE::LightSystem::MAX_DIRECTIONAL_LIGHTS * 8> 
 
 void Trinacria::DSL::LightSystem::InitFrame(float strength)
 {
+    Renderer::ShaderProgram.Bind();
     Renderer::ShaderProgram.SetUniformFloat("u_AmbientStrength", strength);
 
     memset(_pointLights.data(), 0, sizeof(_pointLights));

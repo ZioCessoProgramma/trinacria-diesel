@@ -1,0 +1,5 @@
+<map id="TRCN_CORE_NAMESPACE::Renderer" name="TRCN_CORE_NAMESPACE::Renderer">
+<area shape="rect" id="Node000001" title="a static class deals with all the opengl and calculations" alt="" coords="5,123,193,168"/>
+<area shape="rect" id="Node000002" href="$classTRCN__CORE__NAMESPACE_1_1Shader.html" title="class dealing with shader pipeline, uniforms, linking, etc.." alt="" coords="5,5,193,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="101,64,102,123,96,122,97,68"/>
+</map>

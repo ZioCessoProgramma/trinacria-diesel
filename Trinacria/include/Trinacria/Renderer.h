@@ -161,9 +161,12 @@ namespace TRCN_CORE_NAMESPACE
 		/**
 		 * @brief the function that draws all the quads and triangles queued
 		 * @param screenShader the shader used to process the final texture
+                 * @param windowDimensions the dimensions of the window
+                 * @param cameraPos the position of the viewer or camera
+                 * @param zoom zoom
 		 */
 
-		static void Draw(Shader& screenShader);
+		static void Draw(Shader& screenShader, const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom);
 
 		/**
 		 * @brief the function that delete all the openGL objects
