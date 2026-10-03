@@ -15,6 +15,7 @@ var dir_d29449d5c6b443dc20ec159942ceee72 =
     [ "Shader.h", "Shader_8h_source.html", null ],
     [ "ShapesData.h", "ShapesData_8h_source.html", null ],
     [ "Sprite.h", "Sprite_8h_source.html", null ],
+    [ "Text.h", "Text_8h_source.html", null ],
     [ "Texture.h", "Texture_8h_source.html", null ],
     [ "Transform.h", "Transform_8h_source.html", null ]
 ];

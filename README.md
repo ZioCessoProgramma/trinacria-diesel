@@ -16,6 +16,8 @@ Trinacria Diesel (Trinacria::DSL) is a simple batch renderer made for flexibilit
 
 - **documentation library:** [doxygen](https://github.com/doxygen/doxygen)
 
+- **text library:** [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen)
+
 ## Theory
 
 Trinacria Diesel is a system standing using 2 major static classes:

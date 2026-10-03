@@ -5,4 +5,4 @@ set_source_files_properties(${HEADERS} PROPERTIES HEADER_FILE_ONLY TRUE)
 
 add_library(Trinacria ${SRC} ${HEADERS})
 target_include_directories(Trinacria PUBLIC include)
-target_link_libraries(Trinacria stb_image glad glm::glm glfw stb_image)
+target_link_libraries(Trinacria stb_image glad glm::glm glfw stb_image msdf-atlas-gen)

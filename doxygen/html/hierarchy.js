@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "TRCN_CORE_NAMESPACE::Animation&lt; SpriteNum &gt;", "classTRCN__CORE__NAMESPACE_1_1Animation.html", null ],
+    [ "TRCN_CORE_NAMESPACE::Atlas", "classTRCN__CORE__NAMESPACE_1_1Atlas.html", null ],
     [ "TRCN_CORE_NAMESPACE::ButtonVertex", "structTRCN__CORE__NAMESPACE_1_1ButtonVertex.html", null ],
     [ "TRCN_CORE_NAMESPACE::DirectionalLightData", "structTRCN__CORE__NAMESPACE_1_1DirectionalLightData.html", null ],
     [ "TRCN_CORE_NAMESPACE::Event&lt; Category &gt;", "classTRCN__CORE__NAMESPACE_1_1Event.html", null ],

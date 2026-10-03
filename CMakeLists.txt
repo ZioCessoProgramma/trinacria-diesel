@@ -34,6 +34,7 @@ add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/glfw")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/glm")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/glad")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/stb_image")
+add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/msdf-atlas-gen")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/Test1")
 
 set_target_properties(glfw PROPERTIES FOLDER "Dependencies")
