@@ -88,7 +88,7 @@ namespace TRCN_CORE_NAMESPACE
      * @brief ProgressBarVertex is the vertex that is used by the HUD to make progress bars
      */
 
-    struct ProgressBarVertex
+    struct HUDVertex
     {
         /**
          * @brief position in screen in range [0, 1] [0, 1], pivot is at bottom left
@@ -137,51 +137,6 @@ namespace TRCN_CORE_NAMESPACE
          */
 
         glm::vec4 FillColor;
-    };
-
-    /**
-     * @brief ButtonVertex is the vertex that is used by the HUD to make buttons
-     */
-
-    struct ButtonVertex
-    {
-        /**
-         * @brief position in screen in range [0, 1] [0, 1], pivot is at bottom left
-         */
-
-        glm::vec2 Position;
-
-        /**
-         * @brief the color the vertex should have
-         */
-
-        glm::vec4 Color;
-
-        /**
-         * @brief texture index in texture array
-         * @note 0 for none
-         * @note the texture array for the HUD is different from the one of the Renderer
-         */
-
-        uint32_t TextureIndex;
-
-        /**
-         * @brief the tex coordinate (range [0; 1] [0; 1]) associated with this vertex
-         */
-
-        glm::vec2 TexCoord;
-
-        /**
-         * @brief the color to show when the cursor is on top
-         */
-
-        glm::vec4 HoveredColor;
-
-        /**
-         * @brief the color to when the button is being pressed
-         */
-
-        glm::vec4 PressedColor;
     };
 
     using OnClickType = std::function<void()>;
@@ -280,7 +235,7 @@ namespace TRCN_CORE_NAMESPACE
         inline static uint32_t _vbo;
         inline static uint32_t _ebo;
 
-        inline static std::vector<ProgressBarVertex> _vertices;
+        inline static std::vector<HUDVertex> _vertices;
         inline static std::vector<uint32_t> _indices;
 
         inline static std::vector<std::pair<Texture*, uint32_t>> _textures;

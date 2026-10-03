@@ -55,7 +55,7 @@ namespace TRCN_CORE_NAMESPACE
 
         Glyph(Atlas* owner) : _owner(owner) { }
 
-        void LoadGlyph(char c) ;
+        void SetGlyph(char c) ;
 
     private:
         Atlas* _owner;

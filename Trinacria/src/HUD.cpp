@@ -29,7 +29,7 @@ void TRCN_CORE_NAMESPACE::HUD::Cleanup()
 void TRCN_CORE_NAMESPACE::HUD::EndHUD()
 {
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(ProgressBarVertex) * _vertices.size(), _vertices.data());
+    glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(HUDVertex) * _vertices.size(), _vertices.data());
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
     glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(uint32_t) * _indices.size(), _indices.data());
@@ -221,37 +221,37 @@ void Trinacria::DSL::HUD::setupProgressBars()
 
     glGenBuffers(1, &_vbo);
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(ProgressBarVertex) * MaxHUDVertices, nullptr, GL_DYNAMIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(HUDVertex) * MaxHUDVertices, nullptr, GL_DYNAMIC_DRAW);
 
     glGenBuffers(1, &_ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint32_t) * MaxHUDIndices, nullptr, GL_DYNAMIC_DRAW);
 
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(ProgressBarVertex),
-        (void*)offsetof(ProgressBarVertex, Position));
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(HUDVertex),
+        (void*)offsetof(HUDVertex, Position));
 
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(ProgressBarVertex),
-       (void*)offsetof(ProgressBarVertex, Color));
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(HUDVertex),
+       (void*)offsetof(HUDVertex, Color));
 
     glEnableVertexAttribArray(1);
 
-    glVertexAttribIPointer(2, 1, GL_UNSIGNED_INT, sizeof(ProgressBarVertex),
-        (void*)offsetof(ProgressBarVertex, TextureIndex));
+    glVertexAttribIPointer(2, 1, GL_UNSIGNED_INT, sizeof(HUDVertex),
+        (void*)offsetof(HUDVertex, TextureIndex));
 
     glEnableVertexAttribArray(2);
 
-    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(ProgressBarVertex), (void*)offsetof(ProgressBarVertex, TexCoord));
+    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(HUDVertex), (void*)offsetof(HUDVertex, TexCoord));
     glEnableVertexAttribArray(3);
 
-    glVertexAttribIPointer(4, 1, GL_UNSIGNED_INT, sizeof(ProgressBarVertex), (void*)(offsetof(ProgressBarVertex, FillTextureIndex)));
+    glVertexAttribIPointer(4, 1, GL_UNSIGNED_INT, sizeof(HUDVertex), (void*)(offsetof(HUDVertex, FillTextureIndex)));
     glEnableVertexAttribArray(4);
 
-    glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, sizeof(ProgressBarVertex), (void*)offsetof(ProgressBarVertex, Progress));
+    glVertexAttribPointer(5, 1, GL_FLOAT, GL_FALSE, sizeof(HUDVertex), (void*)offsetof(HUDVertex, Progress));
     glEnableVertexAttribArray(5);
 
-    glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(ProgressBarVertex), (void*)offsetof(ProgressBarVertex, FillColor));
+    glVertexAttribPointer(6, 4, GL_FLOAT, GL_FALSE, sizeof(HUDVertex), (void*)offsetof(HUDVertex, FillColor));
     glEnableVertexAttribArray(6);
 }
 

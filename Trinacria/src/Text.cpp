@@ -80,7 +80,8 @@ const msdf_atlas::GlyphGeometry* Trinacria::DSL::Atlas::GetGlyph(char c)
 {
     return _fontGeometry->getGlyph(c);
 }
-void Trinacria::DSL::Glyph::LoadGlyph(char c)
+
+void Trinacria::DSL::Glyph::SetGlyph(char c)
 {
     const msdf_atlas::GlyphGeometry* glyph = _owner->GetGlyph(c);
 
