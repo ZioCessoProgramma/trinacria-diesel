@@ -6,20 +6,51 @@
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Macros.h"{}}}
-\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}msdf-\/atlas-\/gen/msdf-\/atlas-\/gen.h"{}}}
-\DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keyword}{namespace\ }TRCN\_CORE\_NAMESPACE}
-\DoxyCodeLine{00008\ \{}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas}{Atlas}}}
-\DoxyCodeLine{00010\ \ \ \ \ \{}
-\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Width,\ Height;}
-\DoxyCodeLine{00013\ }
-\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a647d51f99ed3c674f9ac3ef0293a2fbf}{LoadAtlas}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fontPath,\ msdf\_atlas::Charset\ charSet);}
-\DoxyCodeLine{00020\ }
-\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ std::unique\_ptr<msdf\_atlas::FontGeometry>\ \_fontGeometry;}
-\DoxyCodeLine{00023\ \ \ \ \ \};}
-\DoxyCodeLine{00024\ \}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }msdf\_atlas}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }Charset;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }GlyphGeometry;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }FontGeometry;}
+\DoxyCodeLine{00011\ \}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }TRCN\_CORE\_NAMESPACE}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas}{Atlas}}}
+\DoxyCodeLine{00016\ \ \ \ \ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Width,\ Height;}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a5ddc07bff29598563797dd2706d33692}{LoadAtlas}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fontPath,\ \textcolor{keyword}{const}\ msdf\_atlas::Charset\&\ charSet);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ msdf\_atlas::GlyphGeometry*\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a1a5d87b893714234f7b7d92d1690fbfd}{GetGlyph}}(\textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a4b8e93b289f2b1705dff87e0d2d96cc8}{GetTexture}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_atlasTexture;\ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ std::unique\_ptr<msdf\_atlas::FontGeometry>\ \_fontGeometry;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ uint32\_t\ \_atlasTexture\ =\ 0;}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_alreadyLoaded\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00047\ \ \ \ \ \};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_a9e9c0651b66b7104d517eff84b21bbae}{Glyph}}}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_a9e9c0651b66b7104d517eff84b21bbae}{Glyph}}(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas}{Atlas}}*\ owner)\ :\ \_owner(owner)\ \{\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ LoadGlyph(\textcolor{keywordtype}{char}\ c)\ ;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas}{Atlas}}*\ \_owner;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \_bound0\ =\ 0,\ \_bound1\ =\ 0,\ \_bound2\ =\ 0,\ \_bound3\ =\ 0;}
+\DoxyCodeLine{00064\ \ \ \ \ \};}
+\DoxyCodeLine{00065\ \}}
 
 \end{DoxyCode}

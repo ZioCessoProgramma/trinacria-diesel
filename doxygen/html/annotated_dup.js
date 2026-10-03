@@ -28,6 +28,7 @@ var annotated_dup =
       [ "SpriteSheet", "classTRCN__CORE__NAMESPACE_1_1SpriteSheet.html", "classTRCN__CORE__NAMESPACE_1_1SpriteSheet" ],
       [ "Sprite", "classTRCN__CORE__NAMESPACE_1_1Sprite.html", "classTRCN__CORE__NAMESPACE_1_1Sprite" ],
       [ "Atlas", "classTRCN__CORE__NAMESPACE_1_1Atlas.html", "classTRCN__CORE__NAMESPACE_1_1Atlas" ],
+      [ "Glyph", "classTRCN__CORE__NAMESPACE_1_1Glyph.html", "classTRCN__CORE__NAMESPACE_1_1Glyph" ],
       [ "Texture", "classTRCN__CORE__NAMESPACE_1_1Texture.html", "classTRCN__CORE__NAMESPACE_1_1Texture" ],
       [ "Transform", "classTRCN__CORE__NAMESPACE_1_1Transform.html", "classTRCN__CORE__NAMESPACE_1_1Transform" ]
     ] ]

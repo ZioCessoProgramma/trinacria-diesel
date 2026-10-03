@@ -94,7 +94,10 @@ $(function(){initNavTree('classTRCN__CORE__NAMESPACE_1_1Atlas.html','','classTRC
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a647d51f99ed3c674f9ac3ef0293a2fbf" id="r_a647d51f99ed3c674f9ac3ef0293a2fbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a647d51f99ed3c674f9ac3ef0293a2fbf">LoadAtlas</a> (const char *fontPath, msdf_atlas::Charset charSet)</td></tr>
+<tr class="memitem:a5ddc07bff29598563797dd2706d33692" id="r_a5ddc07bff29598563797dd2706d33692"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ddc07bff29598563797dd2706d33692">LoadAtlas</a> (const char *fontPath, const msdf_atlas::Charset &amp;charSet)</td></tr>
+<tr class="memitem:a1a5d87b893714234f7b7d92d1690fbfd" id="r_a1a5d87b893714234f7b7d92d1690fbfd"><td class="memItemLeft" align="right" valign="top">const msdf_atlas::GlyphGeometry *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a5d87b893714234f7b7d92d1690fbfd">GetGlyph</a> (char c)</td></tr>
+<tr class="memitem:a4b8e93b289f2b1705dff87e0d2d96cc8" id="r_a4b8e93b289f2b1705dff87e0d2d96cc8"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b8e93b289f2b1705dff87e0d2d96cc8">GetTexture</a> () const</td></tr>
+<tr class="memdesc:a4b8e93b289f2b1705dff87e0d2d96cc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the underlying openGL texture  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -104,8 +107,60 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Width</b></td></tr>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>Height</b></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a647d51f99ed3c674f9ac3ef0293a2fbf" name="a647d51f99ed3c674f9ac3ef0293a2fbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a647d51f99ed3c674f9ac3ef0293a2fbf">&#9670;&#160;</a></span>LoadAtlas()</h2>
+<a id="a1a5d87b893714234f7b7d92d1690fbfd" name="a1a5d87b893714234f7b7d92d1690fbfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a5d87b893714234f7b7d92d1690fbfd">&#9670;&#160;</a></span>GetGlyph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const msdf_atlas::GlyphGeometry * TRCN_CORE_NAMESPACE::Atlas::GetGlyph </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>c</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">c</td><td>the char the of the glyph </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a msdf_atlas::GlyphGeometry representing the glyph </dd></dl>
+
+</div>
+</div>
+<a id="a4b8e93b289f2b1705dff87e0d2d96cc8" name="a4b8e93b289f2b1705dff87e0d2d96cc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b8e93b289f2b1705dff87e0d2d96cc8">&#9670;&#160;</a></span>GetTexture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t TRCN_CORE_NAMESPACE::Atlas::GetTexture </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get the underlying openGL texture </p>
+<dl class="section return"><dt>Returns</dt><dd>the underlying openGL texture </dd></dl>
+
+</div>
+</div>
+<a id="a5ddc07bff29598563797dd2706d33692" name="a5ddc07bff29598563797dd2706d33692"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ddc07bff29598563797dd2706d33692">&#9670;&#160;</a></span>LoadAtlas()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -118,7 +173,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>Height</b></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">msdf_atlas::Charset</td>          <td class="paramname"><span class="paramname"><em>charSet</em></span>&#160;)</td>
+          <td class="paramtype">const msdf_atlas::Charset &amp;</td>          <td class="paramname"><span class="paramname"><em>charSet</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">

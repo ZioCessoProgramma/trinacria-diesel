@@ -3,8 +3,12 @@
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a647d51f99ed3c674f9ac3ef0293a2fbf}{Load\+Atlas}} (const char \texorpdfstring{$\ast$}{*}font\+Path, msdf\+\_\+atlas\+::\+Charset char\+Set)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a5ddc07bff29598563797dd2706d33692}{Load\+Atlas}} (const char \texorpdfstring{$\ast$}{*}font\+Path, const msdf\+\_\+atlas\+::\+Charset \&char\+Set)
+\item 
+const msdf\+\_\+atlas\+::\+Glyph\+Geometry \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a1a5d87b893714234f7b7d92d1690fbfd}{Get\+Glyph}} (char c)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Atlas_a4b8e93b289f2b1705dff87e0d2d96cc8}{Get\+Texture}} () const
+\begin{DoxyCompactList}\small\item\em get the underlying open\+GL texture \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -19,11 +23,38 @@ int {\bfseries Height}
 \label{doc-func-members}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1Atlas_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Atlas_a647d51f99ed3c674f9ac3ef0293a2fbf}\index{TRCN\_CORE\_NAMESPACE::Atlas@{TRCN\_CORE\_NAMESPACE::Atlas}!LoadAtlas@{LoadAtlas}}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Atlas_a1a5d87b893714234f7b7d92d1690fbfd}\index{TRCN\_CORE\_NAMESPACE::Atlas@{TRCN\_CORE\_NAMESPACE::Atlas}!GetGlyph@{GetGlyph}}
+\index{GetGlyph@{GetGlyph}!TRCN\_CORE\_NAMESPACE::Atlas@{TRCN\_CORE\_NAMESPACE::Atlas}}
+\doxysubsubsection{\texorpdfstring{GetGlyph()}{GetGlyph()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Atlas_a1a5d87b893714234f7b7d92d1690fbfd} 
+const msdf\+\_\+atlas\+::\+Glyph\+Geometry \texorpdfstring{$\ast$}{*} TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Atlas\+::\+Get\+Glyph (\begin{DoxyParamCaption}\item[{char}]{c}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & the char the of the glyph \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a msdf\+\_\+atlas\+::\+Glyph\+Geometry representing the glyph 
+\end{DoxyReturn}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Atlas_a4b8e93b289f2b1705dff87e0d2d96cc8}\index{TRCN\_CORE\_NAMESPACE::Atlas@{TRCN\_CORE\_NAMESPACE::Atlas}!GetTexture@{GetTexture}}
+\index{GetTexture@{GetTexture}!TRCN\_CORE\_NAMESPACE::Atlas@{TRCN\_CORE\_NAMESPACE::Atlas}}
+\doxysubsubsection{\texorpdfstring{GetTexture()}{GetTexture()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Atlas_a4b8e93b289f2b1705dff87e0d2d96cc8} 
+uint32\+\_\+t TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Atlas\+::\+Get\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the underlying open\+GL texture 
+
+\begin{DoxyReturn}{Returns}
+the underlying open\+GL texture 
+\end{DoxyReturn}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Atlas_a5ddc07bff29598563797dd2706d33692}\index{TRCN\_CORE\_NAMESPACE::Atlas@{TRCN\_CORE\_NAMESPACE::Atlas}!LoadAtlas@{LoadAtlas}}
 \index{LoadAtlas@{LoadAtlas}!TRCN\_CORE\_NAMESPACE::Atlas@{TRCN\_CORE\_NAMESPACE::Atlas}}
 \doxysubsubsection{\texorpdfstring{LoadAtlas()}{LoadAtlas()}}
-{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Atlas_a647d51f99ed3c674f9ac3ef0293a2fbf} 
-void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Atlas\+::\+Load\+Atlas (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{font\+Path}{, }\item[{msdf\+\_\+atlas\+::\+Charset}]{char\+Set}{}\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Atlas_a5ddc07bff29598563797dd2706d33692} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Atlas\+::\+Load\+Atlas (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{font\+Path}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{char\+Set}{}\end{DoxyParamCaption})}
 
 
 \begin{DoxyParams}{Parameters}
