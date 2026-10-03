@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['buttonvertex_0',['ButtonVertex',['../structTRCN__CORE__NAMESPACE_1_1ButtonVertex.html',1,'TRCN_CORE_NAMESPACE']]]
+  ['directionallightdata_0',['DirectionalLightData',['../structTRCN__CORE__NAMESPACE_1_1DirectionalLightData.html',1,'TRCN_CORE_NAMESPACE']]]
 ];

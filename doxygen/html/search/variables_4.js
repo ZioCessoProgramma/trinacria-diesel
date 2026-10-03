@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hoveredcolor_0',['HoveredColor',['../structTRCN__CORE__NAMESPACE_1_1ButtonVertex.html#aebf23078ae90076c3d7f9c4b6911afa6',1,'TRCN_CORE_NAMESPACE::ButtonVertex']]]
+  ['innerangleindegrees_0',['InnerAngleInDegrees',['../structTRCN__CORE__NAMESPACE_1_1SpotLightData.html#ae3cc45290954583be326f8720c6014b1',1,'TRCN_CORE_NAMESPACE::SpotLightData']]]
 ];

@@ -14,6 +14,8 @@ Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::HUD\+:\nopagebrea
 \item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a7b7dc6fd99407de45f651cfe0b654566}{Init}} (const std\+::string \&progress\+Bar\+Vert\+Path, const std\+::string \&progress\+Bar\+Frag\+Path, const glm\+::vec2 \&window\+Dimensions)
 \begin{DoxyCompactList}\small\item\em initializes the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a5db94fb7c423a9aa34eaffbd606fb4f2}{Add\+Font}} (const char \texorpdfstring{$\ast$}{*}font\+Path, const msdf\+\_\+atlas\+::\+Charset \&charset)
+\begin{DoxyCompactList}\small\item\em loads an atlas made up of characters in a charset \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ada73644c74ac7da6c7a301ebe0abe271}{Cleanup}} ()
 \begin{DoxyCompactList}\small\item\em cleans up the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}{End\+HUD}} ()
@@ -56,6 +58,23 @@ class {\bfseries Renderer}
 \label{doc-func-members}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_doc-func-members}
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a5db94fb7c423a9aa34eaffbd606fb4f2}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!AddFont@{AddFont}}
+\index{AddFont@{AddFont}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
+\doxysubsubsection{\texorpdfstring{AddFont()}{AddFont()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_a5db94fb7c423a9aa34eaffbd606fb4f2} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Add\+Font (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{font\+Path}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+loads an atlas made up of characters in a charset 
+
+
+\begin{DoxyParams}{Parameters}
+{\em font\+Path} & the path where the desired font is located \\
+\hline
+{\em charset} & the charset to load characters from for example Charset\+::\+ASCII \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!AddOnClickFunction@{AddOnClickFunction}}
 \index{AddOnClickFunction@{AddOnClickFunction}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
 \doxysubsubsection{\texorpdfstring{AddOnClickFunction()}{AddOnClickFunction()}}

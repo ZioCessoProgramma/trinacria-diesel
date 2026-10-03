@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['scale_0',['Scale',['../classTRCN__CORE__NAMESPACE_1_1Transform.html#a04c2956ef0d63fc67056e945361d2df4',1,'TRCN_CORE_NAMESPACE::Transform']]],
-  ['shaderprogram_1',['ShaderProgram',['../classTRCN__CORE__NAMESPACE_1_1Renderer.html#a1d545d8c44ce53a50a0cbeb6ad2367a3',1,'TRCN_CORE_NAMESPACE::Renderer']]],
-  ['shininess_2',['Shininess',['../classTRCN__CORE__NAMESPACE_1_1Material.html#a988a61488931ab75e49a34bfdfda8644',1,'TRCN_CORE_NAMESPACE::Material']]],
-  ['specular_3',['Specular',['../classTRCN__CORE__NAMESPACE_1_1Material.html#a71119ec08761f1cce3b74a031f1f29a8',1,'TRCN_CORE_NAMESPACE::Material']]],
-  ['sprite_4',['sprite',['../structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html#ae57a7f9c427219cf0eb907d670f237af',1,'TRCN_CORE_NAMESPACE::HUDQuadData::sprite'],['../structTRCN__CORE__NAMESPACE_1_1QuadData.html#a1f1356d6eda96487eb21fad20b41f68a',1,'TRCN_CORE_NAMESPACE::QuadData::sprite'],['../structTRCN__CORE__NAMESPACE_1_1TriangleData.html#a8e5554a53bbf2ad7861408a531d67bfa',1,'TRCN_CORE_NAMESPACE::TriangleData::sprite']]]
+  ['texcoord_0',['TexCoord',['../structTRCN__CORE__NAMESPACE_1_1HUDVertex.html#ab2a20a014eee3e002b1e72c42e32028f',1,'TRCN_CORE_NAMESPACE::HUDVertex']]],
+  ['texcoords_1',['TexCoords',['../structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html#a708c4f8b01a8bf5cfde6f68fa4f0427d',1,'TRCN_CORE_NAMESPACE::HUDQuadData::TexCoords'],['../structTRCN__CORE__NAMESPACE_1_1QuadData.html#a79af84b45714e275df9c507974595b77',1,'TRCN_CORE_NAMESPACE::QuadData::TexCoords'],['../structTRCN__CORE__NAMESPACE_1_1TriangleData.html#a6d48917185974c24b654318aa0857854',1,'TRCN_CORE_NAMESPACE::TriangleData::TexCoords']]],
+  ['texture_2',['texture',['../structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html#aec57152b9192094b680a5e47cbec553d',1,'TRCN_CORE_NAMESPACE::HUDQuadData::texture'],['../structTRCN__CORE__NAMESPACE_1_1QuadData.html#a39854c583203c663dcf021ddda2fc266',1,'TRCN_CORE_NAMESPACE::QuadData::texture'],['../structTRCN__CORE__NAMESPACE_1_1TriangleData.html#a99b1d4a682b42c700c0d05e3ac48aae5',1,'TRCN_CORE_NAMESPACE::TriangleData::texture']]],
+  ['textureindex_3',['TextureIndex',['../structTRCN__CORE__NAMESPACE_1_1HUDVertex.html#a1b7b29a3caba173a08dce297a49aa377',1,'TRCN_CORE_NAMESPACE::HUDVertex']]],
+  ['transform_4',['transform',['../structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html#a44154594a3ba9bb8f8803a417c7db212',1,'TRCN_CORE_NAMESPACE::HUDQuadData::transform'],['../structTRCN__CORE__NAMESPACE_1_1QuadData.html#a435aa1a521cc9fa5d4faf934bb44547b',1,'TRCN_CORE_NAMESPACE::QuadData::transform'],['../structTRCN__CORE__NAMESPACE_1_1TriangleData.html#ab9afc1705a35002a2d8094d8de8f766a',1,'TRCN_CORE_NAMESPACE::TriangleData::transform']]]
 ];

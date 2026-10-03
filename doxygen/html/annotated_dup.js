@@ -6,8 +6,7 @@ var annotated_dup =
       [ "EventDispatcher", "classTRCN__CORE__NAMESPACE_1_1EventDispatcher.html", "classTRCN__CORE__NAMESPACE_1_1EventDispatcher" ],
       [ "FrameBuffer", "classTRCN__CORE__NAMESPACE_1_1FrameBuffer.html", "classTRCN__CORE__NAMESPACE_1_1FrameBuffer" ],
       [ "HUDQuadData", "structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html", "structTRCN__CORE__NAMESPACE_1_1HUDQuadData" ],
-      [ "ProgressBarVertex", "structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex.html", "structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex" ],
-      [ "ButtonVertex", "structTRCN__CORE__NAMESPACE_1_1ButtonVertex.html", "structTRCN__CORE__NAMESPACE_1_1ButtonVertex" ],
+      [ "HUDVertex", "structTRCN__CORE__NAMESPACE_1_1HUDVertex.html", "structTRCN__CORE__NAMESPACE_1_1HUDVertex" ],
       [ "HUD", "classTRCN__CORE__NAMESPACE_1_1HUD.html", null ],
       [ "KeyboardEvent", "classTRCN__CORE__NAMESPACE_1_1KeyboardEvent.html", "classTRCN__CORE__NAMESPACE_1_1KeyboardEvent" ],
       [ "MouseKeyEvent", "classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent.html", "classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent" ],
@@ -27,7 +26,7 @@ var annotated_dup =
       [ "TriangleData", "structTRCN__CORE__NAMESPACE_1_1TriangleData.html", "structTRCN__CORE__NAMESPACE_1_1TriangleData" ],
       [ "SpriteSheet", "classTRCN__CORE__NAMESPACE_1_1SpriteSheet.html", "classTRCN__CORE__NAMESPACE_1_1SpriteSheet" ],
       [ "Sprite", "classTRCN__CORE__NAMESPACE_1_1Sprite.html", "classTRCN__CORE__NAMESPACE_1_1Sprite" ],
-      [ "Atlas", "classTRCN__CORE__NAMESPACE_1_1Atlas.html", "classTRCN__CORE__NAMESPACE_1_1Atlas" ],
+      [ "TextAtlas", "classTRCN__CORE__NAMESPACE_1_1TextAtlas.html", "classTRCN__CORE__NAMESPACE_1_1TextAtlas" ],
       [ "Glyph", "classTRCN__CORE__NAMESPACE_1_1Glyph.html", "classTRCN__CORE__NAMESPACE_1_1Glyph" ],
       [ "Texture", "classTRCN__CORE__NAMESPACE_1_1Texture.html", "classTRCN__CORE__NAMESPACE_1_1Texture" ],
       [ "Transform", "classTRCN__CORE__NAMESPACE_1_1Transform.html", "classTRCN__CORE__NAMESPACE_1_1Transform" ]

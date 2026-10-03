@@ -6,7 +6,12 @@
 
 #include <msdf-atlas-gen/msdf-atlas-gen.h>
 
-void TRCN_CORE_NAMESPACE::Atlas::LoadAtlas(const char* fontPath, const msdf_atlas::Charset& charSet)
+Trinacria::DSL::TextAtlas::TextAtlas(const char* fontPath, const msdf_atlas::Charset& charSet)
+{
+    LoadAtlas(fontPath, charSet);
+}
+
+void TRCN_CORE_NAMESPACE::TextAtlas::LoadAtlas(const char* fontPath, const msdf_atlas::Charset& charSet)
 {
     if (_alreadyLoaded)
     {
@@ -76,7 +81,7 @@ void TRCN_CORE_NAMESPACE::Atlas::LoadAtlas(const char* fontPath, const msdf_atla
 
     msdfgen::deinitializeFreetype(ft);
 }
-const msdf_atlas::GlyphGeometry* Trinacria::DSL::Atlas::GetGlyph(char c)
+const msdf_atlas::GlyphGeometry* Trinacria::DSL::TextAtlas::GetGlyph(char c)
 {
     return _fontGeometry->getGlyph(c);
 }

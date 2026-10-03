@@ -19,6 +19,11 @@ void TRCN_CORE_NAMESPACE::HUD::Init(const std::string& progressBarVertPath, cons
     _indices.reserve(MaxHUDIndices);
 }
 
+void Trinacria::DSL::HUD::AddFont(const char* fontPath, const msdf_atlas::Charset& charset)
+{
+    _textAtlases.emplace_back(fontPath, charset);
+}
+
 void TRCN_CORE_NAMESPACE::HUD::Cleanup()
 {
     glDeleteVertexArrays(1, &_vao);

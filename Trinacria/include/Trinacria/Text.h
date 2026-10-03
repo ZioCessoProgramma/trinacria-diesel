@@ -12,10 +12,19 @@ namespace msdf_atlas
 
 namespace TRCN_CORE_NAMESPACE
 {
-    class Atlas
+    class TextAtlas
     {
     public:
         int Width, Height;
+
+        TextAtlas() = default;
+
+        /**
+        * @param fontPath the path of the font
+        * @param charSet the charset for example Charset::ASCII
+        */
+
+        TextAtlas(const char* fontPath, const msdf_atlas::Charset& charSet);
 
         /**
          * @param fontPath the path of the font
@@ -53,12 +62,12 @@ namespace TRCN_CORE_NAMESPACE
          * @param owner the atlas that contains the glyph
          */
 
-        Glyph(Atlas* owner) : _owner(owner) { }
+        Glyph(TextAtlas* owner) : _owner(owner) { }
 
         void SetGlyph(char c) ;
 
     private:
-        Atlas* _owner;
+        TextAtlas* _owner;
 
         float _bound0 = 0, _bound1 = 0, _bound2 = 0, _bound3 = 0;
     };

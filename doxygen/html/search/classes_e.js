@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['shader_0',['Shader',['../classTRCN__CORE__NAMESPACE_1_1Shader.html',1,'TRCN_CORE_NAMESPACE']]],
-  ['spotlightdata_1',['SpotLightData',['../structTRCN__CORE__NAMESPACE_1_1SpotLightData.html',1,'TRCN_CORE_NAMESPACE']]],
-  ['sprite_2',['Sprite',['../classTRCN__CORE__NAMESPACE_1_1Sprite.html',1,'TRCN_CORE_NAMESPACE']]],
-  ['spritesheet_3',['SpriteSheet',['../classTRCN__CORE__NAMESPACE_1_1SpriteSheet.html',1,'TRCN_CORE_NAMESPACE']]]
+  ['textatlas_0',['TextAtlas',['../classTRCN__CORE__NAMESPACE_1_1TextAtlas.html',1,'TRCN_CORE_NAMESPACE']]],
+  ['texture_1',['Texture',['../classTRCN__CORE__NAMESPACE_1_1Texture.html',1,'TRCN_CORE_NAMESPACE']]],
+  ['transform_2',['Transform',['../classTRCN__CORE__NAMESPACE_1_1Transform.html',1,'TRCN_CORE_NAMESPACE']]],
+  ['triangledata_3',['TriangleData',['../structTRCN__CORE__NAMESPACE_1_1TriangleData.html',1,'TRCN_CORE_NAMESPACE']]],
+  ['triangletexcoords_4',['TriangleTexCoords',['../structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords.html',1,'TRCN_CORE_NAMESPACE']]]
 ];

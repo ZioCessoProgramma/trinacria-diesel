@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['pivot_0',['Pivot',['../classTRCN__CORE__NAMESPACE_1_1Transform.html#a495b2939a2d3298aa9528c81b67ec0a3',1,'TRCN_CORE_NAMESPACE::Transform']]],
-  ['position_1',['Position',['../structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex.html#a762fd5edebd47f19fa0f12c0c574cad0',1,'TRCN_CORE_NAMESPACE::ProgressBarVertex::Position'],['../structTRCN__CORE__NAMESPACE_1_1ButtonVertex.html#a4ccbd3d8c566f55e38281cf64a5f3b1b',1,'TRCN_CORE_NAMESPACE::ButtonVertex::Position'],['../classTRCN__CORE__NAMESPACE_1_1Transform.html#aad53c8af56c663aaf43641603981ae66',1,'TRCN_CORE_NAMESPACE::Transform::Position']]],
-  ['pressedcolor_2',['PressedColor',['../structTRCN__CORE__NAMESPACE_1_1ButtonVertex.html#a682bb228042c125ab5bcb7d1b1d91b79',1,'TRCN_CORE_NAMESPACE::ButtonVertex']]],
-  ['progress_3',['Progress',['../structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex.html#a89e59e5b10cc5dd544e44f767dcb5aa6',1,'TRCN_CORE_NAMESPACE::ProgressBarVertex']]]
+  ['scale_0',['Scale',['../classTRCN__CORE__NAMESPACE_1_1Transform.html#a04c2956ef0d63fc67056e945361d2df4',1,'TRCN_CORE_NAMESPACE::Transform']]],
+  ['shaderprogram_1',['ShaderProgram',['../classTRCN__CORE__NAMESPACE_1_1Renderer.html#a1d545d8c44ce53a50a0cbeb6ad2367a3',1,'TRCN_CORE_NAMESPACE::Renderer']]],
+  ['shininess_2',['Shininess',['../classTRCN__CORE__NAMESPACE_1_1Material.html#a988a61488931ab75e49a34bfdfda8644',1,'TRCN_CORE_NAMESPACE::Material']]],
+  ['specular_3',['Specular',['../classTRCN__CORE__NAMESPACE_1_1Material.html#a71119ec08761f1cce3b74a031f1f29a8',1,'TRCN_CORE_NAMESPACE::Material']]],
+  ['sprite_4',['sprite',['../structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html#ae57a7f9c427219cf0eb907d670f237af',1,'TRCN_CORE_NAMESPACE::HUDQuadData::sprite'],['../structTRCN__CORE__NAMESPACE_1_1QuadData.html#a1f1356d6eda96487eb21fad20b41f68a',1,'TRCN_CORE_NAMESPACE::QuadData::sprite'],['../structTRCN__CORE__NAMESPACE_1_1TriangleData.html#a8e5554a53bbf2ad7861408a531d67bfa',1,'TRCN_CORE_NAMESPACE::TriangleData::sprite']]]
 ];

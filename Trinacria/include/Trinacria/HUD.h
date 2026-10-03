@@ -1,14 +1,15 @@
 #pragma once
 
-#include <cstdint>
-
 #include "Macros.h"
 #include "Renderer.h"
 #include "Shader.h"
+#include "Text.h"
 #include "Texture.h"
 #include "Transform.h"
 #include "Trinacria/InputEvents.h"
 #include "glm/glm.hpp"
+
+#include <msdf-atlas-gen/msdf-atlas-gen.h>
 
 namespace TRCN_CORE_NAMESPACE
 {
@@ -156,6 +157,14 @@ namespace TRCN_CORE_NAMESPACE
         static void Init(const std::string& progressBarVertPath, const std::string& progressBarFragPath, const glm::vec2& windowDimensions);
 
         /**
+         * @brief loads an atlas made up of characters in a charset
+         * @param fontPath the path where the desired font is located
+         * @param charset the charset to load characters from for example Charset::ASCII
+         */
+
+        static void AddFont(const char* fontPath, const msdf_atlas::Charset& charset);
+
+        /**
         * @brief cleans up the HUD
         * @note to call once at the end of the application
         */
@@ -245,6 +254,8 @@ namespace TRCN_CORE_NAMESPACE
         inline static int _lastStateOfLeftMouseButton = GLFW_RELEASE;
 
         inline static float _aspectRatio;
+
+        inline static std::vector<TextAtlas> _textAtlases;
 
         static void draw();
 
