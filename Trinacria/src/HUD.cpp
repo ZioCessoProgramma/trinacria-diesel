@@ -1,5 +1,4 @@
 #include "Trinacria/HUD.h"
-#include <cstring>
 #include <glad/glad.h>
 
 #include "GLFW/glfw3.h"
@@ -9,7 +8,8 @@
 
 void TRCN_CORE_NAMESPACE::HUD::Init(const std::string& progressBarVertPath, const std::string& progressBarFragPath, const glm::vec2& windowDimensions)
 {
-    setupProgressBars();
+    setupQuads();
+    setupText();
 
     _shader.LoadCoreShader(progressBarVertPath, progressBarFragPath);
 
@@ -125,6 +125,32 @@ void TRCN_CORE_NAMESPACE::HUD::createHUDQuad(const glm::vec2& position, const gl
     _indices.push_back(offset);
 }
 
+void Trinacria::DSL::HUD::createText(const glm::vec2& position, const glm::vec4& color,
+                                     uint32_t textureIndex, const glm::vec2& scale, glm::mat4 matrix,
+                                     const QuadTexCoords& coord)
+{
+    matrix[3][0] *= _aspectRatio;
+
+    glm::vec2 p0 = glm::vec2(matrix * glm::vec4(position, 0.f, 1.f));
+    glm::vec2 p1 = glm::vec2(matrix * glm::vec4(position + glm::vec2(scale.x, 0.f), 0.f, 1.f));
+    glm::vec2 p2 = glm::vec2(matrix * glm::vec4(position + glm::vec2(scale.x, scale.y), 0.f, 1.f));
+    glm::vec2 p3 = glm::vec2(matrix * glm::vec4(position + glm::vec2(0.f, scale.y), 0.f, 1.f));
+
+    _textVertices.emplace_back(p0, color, coord.Coord0, textureIndex);
+    _textVertices.emplace_back(p1, color, coord.Coord1, textureIndex);
+    _textVertices.emplace_back(p2, color, coord.Coord2, textureIndex);
+    _textVertices.emplace_back(p3, color, coord.Coord3, textureIndex);
+
+    size_t offset = _textVertices.size() - 4;
+
+    _textIndices.push_back(offset);
+    _textIndices.push_back(offset + 1);
+    _textIndices.push_back(offset + 2);
+    _textIndices.push_back(offset + 2);
+    _textIndices.push_back(offset + 3);
+    _textIndices.push_back(offset);
+}
+
 bool TRCN_CORE_NAMESPACE::HUD::findTextureIndex(uint32_t& out, const Texture* textureToFind)
 {
     for (auto& tex : _textures)
@@ -219,7 +245,7 @@ bool Trinacria::DSL::HUD::isInRange(const Transform& transform, GLFWwindow* wind
     return b && b1;
 }
 
-void Trinacria::DSL::HUD::setupProgressBars()
+void Trinacria::DSL::HUD::setupQuads()
 {
     glGenVertexArrays(1, &_vao);
     glBindVertexArray(_vao);
@@ -260,6 +286,35 @@ void Trinacria::DSL::HUD::setupProgressBars()
     glEnableVertexAttribArray(6);
 }
 
+void Trinacria::DSL::HUD::setupText()
+{
+    glGenVertexArrays(1, &_textVao);
+    glBindVertexArray(_textVao);
+
+    glGenBuffers(1, &_textVbo);
+    glBindBuffer(GL_ARRAY_BUFFER, _textVbo);
+
+    glBufferData(GL_ARRAY_BUFFER, sizeof(TextVertex) * MaxTextVertices,
+        nullptr, GL_DYNAMIC_DRAW);
+
+    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(TextVertex), nullptr);
+    glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(TextVertex), (void*)offsetof(TextVertex, Color));
+    glEnableVertexAttribArray(1);
+
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(TextVertex), (void*)offsetof(TextVertex, TexCoord));
+    glEnableVertexAttribArray(2);
+
+    glVertexAttribIPointer(3, 1, GL_UNSIGNED_INT, sizeof(TextVertex), (void*)offsetof(TextVertex, TextureIndex));
+    glEnableVertexAttribArray(3);
+
+    glGenBuffers(1, &_textEbo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _textEbo);
+
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint32_t) * MaxTextIndices, nullptr, GL_DYNAMIC_DRAW);
+}
+
 void Trinacria::DSL::HUD::onResize(const glm::vec2& windowDimensions)
 {
     glm::mat4 proj = glm::scale(glm::mat4(1.f), glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
@@ -293,4 +348,13 @@ void TRCN_CORE_NAMESPACE::HUD::CreateButton(const HUDQuadData& HUDQuad, const gl
     }
 
     createHUDQuad(-HUDQuad.transform.Pivot, color, index, glm::vec2(1.f), HUDQuad.transform.GetMatrix(), HUDQuad.TexCoords, 0, 0, glm::vec4(0.f));
+}
+
+void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color)
+{
+    TRCN_DEPEND_START("Create Text");
+
+    TRCN_DEPEND_RETURN_ASSERT_VOID(_textVertices.size() < MaxTextVertices);
+    TRCN_DEPEND_RETURN_ASSERT_VOID(_textIndices.size() < MaxTextIndices);
+
 }

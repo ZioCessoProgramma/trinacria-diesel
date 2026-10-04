@@ -87,6 +87,7 @@ namespace TRCN_CORE_NAMESPACE
 
     /**
      * @brief ProgressBarVertex is the vertex that is used by the HUD to make progress bars
+     * @note don't worry about it
      */
 
     struct HUDVertex
@@ -138,6 +139,38 @@ namespace TRCN_CORE_NAMESPACE
          */
 
         glm::vec4 FillColor;
+    };
+
+    /**
+     * @brief the vertex used by the text
+     * @note don't worry about it
+     */
+
+    struct TextVertex
+    {
+        /**
+         * @brief the position on the screen of the vertex
+         */
+
+        glm::vec2 Position;
+
+        /**
+         * @brief the color of the vertex
+         */
+
+        glm::vec4 Color;
+
+        /**
+         * @brief the texture coordinate in the atlas of the vertex
+         */
+
+        glm::vec2 TexCoord;
+
+        /**
+         * @brief the index of the texture in an internal array
+         */
+
+        uint32_t TextureIndex;
     };
 
     using OnClickType = std::function<void()>;
@@ -195,6 +228,15 @@ namespace TRCN_CORE_NAMESPACE
         static void CreateButton(const HUDQuadData& HUDQuad, const glm::vec4& hoveredColor, const glm::vec4& pressedColor, GLFWwindow* window, const glm::vec2& windowDimensions);
 
         /**
+         * @brief queues some text to draw
+         * @param text the string to write in the text
+         * @param transform the position, scale ..etc to draw the text
+         * @param color the color of the text
+         */
+
+        static void CreateText(const std::string& text, const Transform& transform, const glm::vec4& color);
+
+        /**
          * @brief it adds the specified call to a private array
          * @note to be called once per button
          * @param onClick the onClick function
@@ -237,6 +279,10 @@ namespace TRCN_CORE_NAMESPACE
         static constexpr size_t MaxHUDVertices = MaxHUDQuads * 4;
         static constexpr size_t MaxHUDIndices  = MaxHUDQuads * 6;
 
+        static constexpr size_t MaxGlyphs       =          2000;
+        static constexpr size_t MaxTextVertices = MaxGlyphs * 4;
+        static constexpr size_t MaxTextIndices  = MaxGlyphs * 6;
+
     private:
         friend class Renderer;
 
@@ -244,8 +290,15 @@ namespace TRCN_CORE_NAMESPACE
         inline static uint32_t _vbo;
         inline static uint32_t _ebo;
 
+        inline static uint32_t _textVao;
+        inline static uint32_t _textVbo;
+        inline static uint32_t _textEbo;
+
         inline static std::vector<HUDVertex> _vertices;
         inline static std::vector<uint32_t> _indices;
+
+        inline static std::vector<TextVertex> _textVertices;
+        inline static std::vector<uint32_t> _textIndices;
 
         inline static std::vector<std::pair<Texture*, uint32_t>> _textures;
 
@@ -262,7 +315,11 @@ namespace TRCN_CORE_NAMESPACE
         static void createHUDQuad(const glm::vec2& position, const glm::vec4& color, uint32_t textureIndex,
                                   const glm::vec2& scale, glm::mat4 matrix, const QuadTexCoords& coord,
                                   uint32_t fillTextureIndex, float progress, const glm::vec4& fillColor
-        );
+            );
+
+        static void createText(const glm::vec2& position, const glm::vec4& color, uint32_t textureIndex,
+                               const glm::vec2& scale, glm::mat4 matrix, const QuadTexCoords& coord
+            );
 
         static bool findTextureIndex(uint32_t& outIndex, const Texture* texToFind);
 
@@ -270,7 +327,9 @@ namespace TRCN_CORE_NAMESPACE
 
         static bool isInRange(const Transform& transform, GLFWwindow* window, const glm::vec2& windowDimensions);
 
-        static void setupProgressBars();
+        static void setupQuads();
+
+        static void setupText();
 
         static void onResize(const glm::vec2& windowDimensions);
     };
