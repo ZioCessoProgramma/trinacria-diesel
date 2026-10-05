@@ -190,14 +190,6 @@ namespace TRCN_CORE_NAMESPACE
         static void Init(const std::string& progressBarVertPath, const std::string& progressBarFragPath, const glm::vec2& windowDimensions);
 
         /**
-         * @brief loads an atlas made up of characters in a charset
-         * @param fontPath the path where the desired font is located
-         * @param charset the charset to load characters from for example Charset::ASCII
-         */
-
-        static void AddFont(const char* fontPath, const msdf_atlas::Charset& charset);
-
-        /**
         * @brief cleans up the HUD
         * @note to call once at the end of the application
         */
@@ -232,9 +224,12 @@ namespace TRCN_CORE_NAMESPACE
          * @param text the string to write in the text
          * @param transform the position, scale ..etc to draw the text
          * @param color the color of the text
+         * @param fontPath the path of the font
+         * @param charset the charset to use for example msdf_atlas::Charset:ASCII
          */
 
-        static void CreateText(const std::string& text, const Transform& transform, const glm::vec4& color);
+        static void CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, const std::string &fontPath, const
+                               msdf_atlas::Charset &charset);
 
         /**
          * @brief it adds the specified call to a private array
@@ -332,5 +327,9 @@ namespace TRCN_CORE_NAMESPACE
         static void setupText();
 
         static void onResize(const glm::vec2& windowDimensions);
+
+        static uint32_t setupAtlas(const std::string& path, const msdf_atlas::Charset &charset);
+
+        static bool findAtlasIndex(const std::string& path, uint32_t &outIndex);
     };
 }

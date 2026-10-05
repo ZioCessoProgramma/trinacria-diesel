@@ -7,6 +7,7 @@ var annotated_dup =
       [ "FrameBuffer", "classTRCN__CORE__NAMESPACE_1_1FrameBuffer.html", "classTRCN__CORE__NAMESPACE_1_1FrameBuffer" ],
       [ "HUDQuadData", "structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html", "structTRCN__CORE__NAMESPACE_1_1HUDQuadData" ],
       [ "HUDVertex", "structTRCN__CORE__NAMESPACE_1_1HUDVertex.html", "structTRCN__CORE__NAMESPACE_1_1HUDVertex" ],
+      [ "TextVertex", "structTRCN__CORE__NAMESPACE_1_1TextVertex.html", "structTRCN__CORE__NAMESPACE_1_1TextVertex" ],
       [ "HUD", "classTRCN__CORE__NAMESPACE_1_1HUD.html", null ],
       [ "KeyboardEvent", "classTRCN__CORE__NAMESPACE_1_1KeyboardEvent.html", "classTRCN__CORE__NAMESPACE_1_1KeyboardEvent" ],
       [ "MouseKeyEvent", "classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent.html", "classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent" ],

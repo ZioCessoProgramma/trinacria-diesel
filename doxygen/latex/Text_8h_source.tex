@@ -35,27 +35,36 @@
 \DoxyCodeLine{00047\ }
 \DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a93d8f7c4e010f09dd3f50bd269be0af6}{GetTexture}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_atlasTexture;\ \}}
 \DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ std::unique\_ptr<msdf\_atlas::FontGeometry>\ \_fontGeometry;}
-\DoxyCodeLine{00052\ }
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ uint32\_t\ \_atlasTexture\ =\ 0;}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::string\ GetName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_name;\ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::unique\_ptr<msdf\_atlas::FontGeometry>\ \_fontGeometry;}
 \DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_alreadyLoaded\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00056\ \ \ \ \ \};}
-\DoxyCodeLine{00057\ }
-\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}}
-\DoxyCodeLine{00059\ \ \ \ \ \{}
-\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00064\ }
-\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas}{TextAtlas}}*\ owner)\ :\ \_owner(owner)\ \{\ \}}
-\DoxyCodeLine{00066\ }
-\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetGlyph(\textcolor{keywordtype}{char}\ c)\ ;}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ uint32\_t\ \_atlasTexture\ =\ 0;}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::string\ \_name;}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_alreadyLoaded\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00060\ \ \ \ \ \};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}}
+\DoxyCodeLine{00063\ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{public}:}
 \DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas}{TextAtlas}}*\ \_owner;}
-\DoxyCodeLine{00071\ }
-\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \_bound0\ =\ 0,\ \_bound1\ =\ 0,\ \_bound2\ =\ 0,\ \_bound3\ =\ 0;}
-\DoxyCodeLine{00073\ \ \ \ \ \};}
-\DoxyCodeLine{00074\ \}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas}{TextAtlas}}*\ owner)\ :\ \_owner(owner)\ \{\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetGlyph(\textcolor{keywordtype}{char}\ c)\ ;}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound0()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound0;\ \}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound1()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound1;\ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound2()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound2;\ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound3()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound3;\ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ TextAtlas*\ \_owner;}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \_bound0\ =\ 0,\ \_bound1\ =\ 0,\ \_bound2\ =\ 0,\ \_bound3\ =\ 0;}
+\DoxyCodeLine{00082\ \ \ \ \ \};}
+\DoxyCodeLine{00083\ \}}
 
 \end{DoxyCode}

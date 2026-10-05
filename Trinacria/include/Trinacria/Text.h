@@ -47,10 +47,14 @@ namespace TRCN_CORE_NAMESPACE
 
         uint32_t GetTexture() const { return _atlasTexture; }
 
+        std::string GetName() const { return _name; }
+
     private:
         std::unique_ptr<msdf_atlas::FontGeometry> _fontGeometry;
 
         uint32_t _atlasTexture = 0;
+
+        std::string _name;
 
         bool _alreadyLoaded = false;
     };
@@ -65,6 +69,11 @@ namespace TRCN_CORE_NAMESPACE
         Glyph(TextAtlas* owner) : _owner(owner) { }
 
         void SetGlyph(char c) ;
+
+        float GetBound0() const { return _bound0; }
+        float GetBound1() const { return _bound1; }
+        float GetBound2() const { return _bound2; }
+        float GetBound3() const { return _bound3; }
 
     private:
         TextAtlas* _owner;

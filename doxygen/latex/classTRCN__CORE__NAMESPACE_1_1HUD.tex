@@ -14,8 +14,6 @@ Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::HUD\+:\nopagebrea
 \item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a7b7dc6fd99407de45f651cfe0b654566}{Init}} (const std\+::string \&progress\+Bar\+Vert\+Path, const std\+::string \&progress\+Bar\+Frag\+Path, const glm\+::vec2 \&window\+Dimensions)
 \begin{DoxyCompactList}\small\item\em initializes the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a5db94fb7c423a9aa34eaffbd606fb4f2}{Add\+Font}} (const char \texorpdfstring{$\ast$}{*}font\+Path, const msdf\+\_\+atlas\+::\+Charset \&charset)
-\begin{DoxyCompactList}\small\item\em loads an atlas made up of characters in a charset \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ada73644c74ac7da6c7a301ebe0abe271}{Cleanup}} ()
 \begin{DoxyCompactList}\small\item\em cleans up the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}{End\+HUD}} ()
@@ -24,6 +22,8 @@ static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_aa2992fbe5850b461
 \begin{DoxyCompactList}\small\item\em creates a quad that will be later drawn \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab54503644d8af7099851658c7a9ce7c0}{Create\+Button}} (const \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuad\+Data}} \&HUDQuad, const glm\+::vec4 \&hovered\+Color, const glm\+::vec4 \&pressed\+Color, GLFWwindow \texorpdfstring{$\ast$}{*}window, const glm\+::vec2 \&window\+Dimensions)
 \begin{DoxyCompactList}\small\item\em creates a button that will be later drawn \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a0e70cb241ba87972f09807076ff9982c}{Create\+Text}} (const std\+::string \&text, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform, const glm\+::vec4 \&color, const std\+::string \&font\+Path, const msdf\+\_\+atlas\+::\+Charset \&charset)
+\begin{DoxyCompactList}\small\item\em queues some text to draw \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}{Add\+On\+Click\+Function}} (const On\+Click\+Type \&on\+Click, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform\+Of\+The\+Quad)
 \begin{DoxyCompactList}\small\item\em it adds the specified call to a private array \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab4d8ee43d2cd9f6813be69a21eaa763f}{Create\+Progress\+Bar}} (const \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuad\+Data}} \&HUDQuad, \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}} \texorpdfstring{$\ast$}{*}fill\+Texture, float progress, const glm\+::vec4 \&fill\+Color)
@@ -46,6 +46,15 @@ static constexpr size\+\_\+t {\bfseries Max\+HUDVertices} = Max\+HUDQuads \texor
 \item 
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_afe130e91ddc98258de25eb9887defc52}\label{classTRCN__CORE__NAMESPACE_1_1HUD_afe130e91ddc98258de25eb9887defc52} 
 static constexpr size\+\_\+t {\bfseries Max\+HUDIndices} = Max\+HUDQuads \texorpdfstring{$\ast$}{*} 6
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_ae411c8bdb7fc6c08523bd66e249091ef}\label{classTRCN__CORE__NAMESPACE_1_1HUD_ae411c8bdb7fc6c08523bd66e249091ef} 
+static constexpr size\+\_\+t {\bfseries Max\+Glyphs} = 2000
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_abe1a1b7b4a833329bb853f25f109978c}\label{classTRCN__CORE__NAMESPACE_1_1HUD_abe1a1b7b4a833329bb853f25f109978c} 
+static constexpr size\+\_\+t {\bfseries Max\+Text\+Vertices} = Max\+Glyphs \texorpdfstring{$\ast$}{*} 4
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a0c2c6d62a557cf91557802f6d866fb16}\label{classTRCN__CORE__NAMESPACE_1_1HUD_a0c2c6d62a557cf91557802f6d866fb16} 
+static constexpr size\+\_\+t {\bfseries Max\+Text\+Indices} = Max\+Glyphs \texorpdfstring{$\ast$}{*} 6
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Friends}
 \begin{DoxyCompactItemize}
@@ -58,23 +67,6 @@ class {\bfseries Renderer}
 \label{doc-func-members}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_doc-func-members}
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a5db94fb7c423a9aa34eaffbd606fb4f2}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!AddFont@{AddFont}}
-\index{AddFont@{AddFont}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
-\doxysubsubsection{\texorpdfstring{AddFont()}{AddFont()}}
-{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_a5db94fb7c423a9aa34eaffbd606fb4f2} 
-void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Add\+Font (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{font\+Path}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
-
-
-
-loads an atlas made up of characters in a charset 
-
-
-\begin{DoxyParams}{Parameters}
-{\em font\+Path} & the path where the desired font is located \\
-\hline
-{\em charset} & the charset to load characters from for example Charset\+::\+ASCII \\
-\hline
-\end{DoxyParams}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!AddOnClickFunction@{AddOnClickFunction}}
 \index{AddOnClickFunction@{AddOnClickFunction}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
 \doxysubsubsection{\texorpdfstring{AddOnClickFunction()}{AddOnClickFunction()}}
@@ -161,6 +153,29 @@ creates a quad that can be filled like a progress bar
 {\em progress} & the progress in range \mbox{[}0, 1\mbox{]} \\
 \hline
 {\em fill\+Color} & the color to use when filling the progress bar \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a0e70cb241ba87972f09807076ff9982c}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!CreateText@{CreateText}}
+\index{CreateText@{CreateText}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
+\doxysubsubsection{\texorpdfstring{CreateText()}{CreateText()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_a0e70cb241ba87972f09807076ff9982c} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Create\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{const glm\+::vec4 \&}]{color}{, }\item[{const std\+::string \&}]{font\+Path}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+queues some text to draw 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & the string to write in the text \\
+\hline
+{\em transform} & the position, scale ..etc to draw the text \\
+\hline
+{\em color} & the color of the text \\
+\hline
+{\em font\+Path} & the path of the font \\
+\hline
+{\em charset} & the charset to use for example msdf\+\_\+atlas\+::\+Charset\+:ASCII \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!EndHUD@{EndHUD}}

@@ -19,9 +19,37 @@ void TRCN_CORE_NAMESPACE::HUD::Init(const std::string& progressBarVertPath, cons
     _indices.reserve(MaxHUDIndices);
 }
 
-void Trinacria::DSL::HUD::AddFont(const char* fontPath, const msdf_atlas::Charset& charset)
+uint32_t Trinacria::DSL::HUD::setupAtlas(const std::string& path, const msdf_atlas::Charset &charset)
 {
-    _textAtlases.emplace_back(fontPath, charset);
+    uint32_t index = 0;
+
+    if (_textAtlases.empty())
+    {
+        _textAtlases.emplace_back(path.c_str(), charset);
+    }
+    else if (!findAtlasIndex(path, index))
+    {
+        _textAtlases.emplace_back(path.c_str(), charset);
+        index = _textAtlases.size() - 1;
+    }
+
+    return index;
+}
+
+bool Trinacria::DSL::HUD::findAtlasIndex(const std::string& path, uint32_t& outIndex)
+{
+    for (int i = 0; i < _textAtlases.size(); i++)
+    {
+        if (_textAtlases[i].GetName() == path)
+        {
+            outIndex = i;
+            return true;
+        }
+    }
+
+    outIndex = 0;
+
+    return false;
 }
 
 void TRCN_CORE_NAMESPACE::HUD::Cleanup()
@@ -350,11 +378,28 @@ void TRCN_CORE_NAMESPACE::HUD::CreateButton(const HUDQuadData& HUDQuad, const gl
     createHUDQuad(-HUDQuad.transform.Pivot, color, index, glm::vec2(1.f), HUDQuad.transform.GetMatrix(), HUDQuad.TexCoords, 0, 0, glm::vec4(0.f));
 }
 
-void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color)
+void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, const std::string &fontPath, const
+                                     msdf_atlas::Charset &charset)
 {
     TRCN_DEPEND_START("Create Text");
 
-    TRCN_DEPEND_RETURN_ASSERT_VOID(_textVertices.size() < MaxTextVertices);
-    TRCN_DEPEND_RETURN_ASSERT_VOID(_textIndices.size() < MaxTextIndices);
+    uint32_t atlasIndex = setupAtlas(fontPath, charset);
 
+    for (char c : text)
+    {
+        TRCN_DEPEND_RETURN_ASSERT_VOID(_textVertices.size() < MaxTextVertices);
+        TRCN_DEPEND_RETURN_ASSERT_VOID(_textIndices.size() < MaxTextIndices);
+
+        Glyph glyph(&_textAtlases[atlasIndex]);
+        glyph.SetGlyph(c);
+
+        QuadTexCoords texCoords {
+            { glyph.GetBound0(), glyph.GetBound1() },
+            { glyph.GetBound2(), glyph.GetBound1() },
+            { glyph.GetBound2(), glyph.GetBound3() },
+            {glyph.GetBound0(), glyph.GetBound3() },
+        };
+
+        createText(-transform.Pivot, color, atlasIndex, glm::vec2(1.f), transform.GetMatrix(), texCoords);
+    }
 }

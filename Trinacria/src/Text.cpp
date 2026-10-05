@@ -77,6 +77,8 @@ void TRCN_CORE_NAMESPACE::TextAtlas::LoadAtlas(const char* fontPath, const msdf_
     Width = width;
     Height = height;
 
+    _name = fontPath;
+
     msdfgen::destroyFont(font);
 
     msdfgen::deinitializeFreetype(ft);

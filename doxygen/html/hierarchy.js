@@ -29,6 +29,7 @@ var hierarchy =
     [ "TRCN_CORE_NAMESPACE::Texture", "classTRCN__CORE__NAMESPACE_1_1Texture.html", [
       [ "TRCN_CORE_NAMESPACE::SpriteSheet", "classTRCN__CORE__NAMESPACE_1_1SpriteSheet.html", null ]
     ] ],
+    [ "TRCN_CORE_NAMESPACE::TextVertex", "structTRCN__CORE__NAMESPACE_1_1TextVertex.html", null ],
     [ "TRCN_CORE_NAMESPACE::Transform", "classTRCN__CORE__NAMESPACE_1_1Transform.html", null ],
     [ "TRCN_CORE_NAMESPACE::TriangleData", "structTRCN__CORE__NAMESPACE_1_1TriangleData.html", null ],
     [ "TRCN_CORE_NAMESPACE::TriangleTexCoords", "structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords.html", null ],

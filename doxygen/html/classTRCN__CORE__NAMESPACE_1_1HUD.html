@@ -106,8 +106,6 @@ Collaboration diagram for TRCN_CORE_NAMESPACE::HUD:</div>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a7b7dc6fd99407de45f651cfe0b654566" id="r_a7b7dc6fd99407de45f651cfe0b654566"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b7dc6fd99407de45f651cfe0b654566">Init</a> (const std::string &amp;progressBarVertPath, const std::string &amp;progressBarFragPath, const glm::vec2 &amp;windowDimensions)</td></tr>
 <tr class="memdesc:a7b7dc6fd99407de45f651cfe0b654566"><td class="mdescLeft">&#160;</td><td class="mdescRight">initializes the <a class="el" href="classTRCN__CORE__NAMESPACE_1_1HUD.html">HUD</a>  <br /></td></tr>
-<tr class="memitem:a5db94fb7c423a9aa34eaffbd606fb4f2" id="r_a5db94fb7c423a9aa34eaffbd606fb4f2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5db94fb7c423a9aa34eaffbd606fb4f2">AddFont</a> (const char *fontPath, const msdf_atlas::Charset &amp;charset)</td></tr>
-<tr class="memdesc:a5db94fb7c423a9aa34eaffbd606fb4f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">loads an atlas made up of characters in a charset  <br /></td></tr>
 <tr class="memitem:ada73644c74ac7da6c7a301ebe0abe271" id="r_ada73644c74ac7da6c7a301ebe0abe271"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ada73644c74ac7da6c7a301ebe0abe271">Cleanup</a> ()</td></tr>
 <tr class="memdesc:ada73644c74ac7da6c7a301ebe0abe271"><td class="mdescLeft">&#160;</td><td class="mdescRight">cleans up the <a class="el" href="classTRCN__CORE__NAMESPACE_1_1HUD.html">HUD</a>  <br /></td></tr>
 <tr class="memitem:ac063a609472c831b97ade13af42c9529" id="r_ac063a609472c831b97ade13af42c9529"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac063a609472c831b97ade13af42c9529">EndHUD</a> ()</td></tr>
@@ -116,6 +114,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa2992fbe5850b4614c4d32e114527989"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates a quad that will be later drawn  <br /></td></tr>
 <tr class="memitem:ab54503644d8af7099851658c7a9ce7c0" id="r_ab54503644d8af7099851658c7a9ce7c0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab54503644d8af7099851658c7a9ce7c0">CreateButton</a> (const <a class="el" href="structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html">HUDQuadData</a> &amp;HUDQuad, const glm::vec4 &amp;hoveredColor, const glm::vec4 &amp;pressedColor, GLFWwindow *window, const glm::vec2 &amp;windowDimensions)</td></tr>
 <tr class="memdesc:ab54503644d8af7099851658c7a9ce7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates a button that will be later drawn  <br /></td></tr>
+<tr class="memitem:a0e70cb241ba87972f09807076ff9982c" id="r_a0e70cb241ba87972f09807076ff9982c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e70cb241ba87972f09807076ff9982c">CreateText</a> (const std::string &amp;text, const <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Transform.html">Transform</a> &amp;transform, const glm::vec4 &amp;color, const std::string &amp;fontPath, const msdf_atlas::Charset &amp;charset)</td></tr>
+<tr class="memdesc:a0e70cb241ba87972f09807076ff9982c"><td class="mdescLeft">&#160;</td><td class="mdescRight">queues some text to draw  <br /></td></tr>
 <tr class="memitem:ac4794341715ec51dbb92ee5d02dd36c2" id="r_ac4794341715ec51dbb92ee5d02dd36c2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4794341715ec51dbb92ee5d02dd36c2">AddOnClickFunction</a> (const OnClickType &amp;onClick, const <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Transform.html">Transform</a> &amp;transformOfTheQuad)</td></tr>
 <tr class="memdesc:ac4794341715ec51dbb92ee5d02dd36c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">it adds the specified call to a private array  <br /></td></tr>
 <tr class="memitem:ab4d8ee43d2cd9f6813be69a21eaa763f" id="r_ab4d8ee43d2cd9f6813be69a21eaa763f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4d8ee43d2cd9f6813be69a21eaa763f">CreateProgressBar</a> (const <a class="el" href="structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html">HUDQuadData</a> &amp;HUDQuad, <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Texture.html">Texture</a> *fillTexture, float progress, const glm::vec4 &amp;fillColor)</td></tr>
@@ -135,6 +135,12 @@ static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>Ma
 static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MaxHUDVertices</b> = MaxHUDQuads * 4</td></tr>
 <tr class="memitem:afe130e91ddc98258de25eb9887defc52" id="r_afe130e91ddc98258de25eb9887defc52"><td class="memItemLeft" align="right" valign="top"><a id="afe130e91ddc98258de25eb9887defc52" name="afe130e91ddc98258de25eb9887defc52"></a>
 static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MaxHUDIndices</b> = MaxHUDQuads * 6</td></tr>
+<tr class="memitem:ae411c8bdb7fc6c08523bd66e249091ef" id="r_ae411c8bdb7fc6c08523bd66e249091ef"><td class="memItemLeft" align="right" valign="top"><a id="ae411c8bdb7fc6c08523bd66e249091ef" name="ae411c8bdb7fc6c08523bd66e249091ef"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MaxGlyphs</b> = 2000</td></tr>
+<tr class="memitem:abe1a1b7b4a833329bb853f25f109978c" id="r_abe1a1b7b4a833329bb853f25f109978c"><td class="memItemLeft" align="right" valign="top"><a id="abe1a1b7b4a833329bb853f25f109978c" name="abe1a1b7b4a833329bb853f25f109978c"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MaxTextVertices</b> = MaxGlyphs * 4</td></tr>
+<tr class="memitem:a0c2c6d62a557cf91557802f6d866fb16" id="r_a0c2c6d62a557cf91557802f6d866fb16"><td class="memItemLeft" align="right" valign="top"><a id="a0c2c6d62a557cf91557802f6d866fb16" name="a0c2c6d62a557cf91557802f6d866fb16"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MaxTextIndices</b> = MaxGlyphs * 6</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -142,44 +148,6 @@ Friends</h2></td></tr>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a5db94fb7c423a9aa34eaffbd606fb4f2" name="a5db94fb7c423a9aa34eaffbd606fb4f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5db94fb7c423a9aa34eaffbd606fb4f2">&#9670;&#160;</a></span>AddFont()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void TRCN_CORE_NAMESPACE::HUD::AddFont </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>fontPath</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const msdf_atlas::Charset &amp;</td>          <td class="paramname"><span class="paramname"><em>charset</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>loads an atlas made up of characters in a charset </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fontPath</td><td>the path where the desired font is located </td></tr>
-    <tr><td class="paramname">charset</td><td>the charset to load characters from for example Charset::ASCII </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ac4794341715ec51dbb92ee5d02dd36c2" name="ac4794341715ec51dbb92ee5d02dd36c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac4794341715ec51dbb92ee5d02dd36c2">&#9670;&#160;</a></span>AddOnClickFunction()</h2>
 
@@ -378,6 +346,62 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b></td></t
     <tr><td class="paramname">fillTexture</td><td>the texture that contains in magenta the pixels to fill </td></tr>
     <tr><td class="paramname">progress</td><td>the progress in range [0, 1] </td></tr>
     <tr><td class="paramname">fillColor</td><td>the color to use when filling the progress bar </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0e70cb241ba87972f09807076ff9982c" name="a0e70cb241ba87972f09807076ff9982c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e70cb241ba87972f09807076ff9982c">&#9670;&#160;</a></span>CreateText()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TRCN_CORE_NAMESPACE::HUD::CreateText </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Transform.html">Transform</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>transform</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const glm::vec4 &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>fontPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const msdf_atlas::Charset &amp;</td>          <td class="paramname"><span class="paramname"><em>charset</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>queues some text to draw </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>the string to write in the text </td></tr>
+    <tr><td class="paramname">transform</td><td>the position, scale ..etc to draw the text </td></tr>
+    <tr><td class="paramname">color</td><td>the color of the text </td></tr>
+    <tr><td class="paramname">fontPath</td><td>the path of the font </td></tr>
+    <tr><td class="paramname">charset</td><td>the charset to use for example msdf_atlas::Charset:ASCII </td></tr>
   </table>
   </dd>
 </dl>
