@@ -85,7 +85,7 @@ namespace TRCN_CORE_NAMESPACE
 		 * @param filter the filter to use. See khronos openGL documentation to know more of the filters
 		 */
 
-		static void TexImage(uint32_t internalFormat, uint32_t format, uint32_t width, uint32_t height, uint32_t type, void* data, uint32_t filter);
+		void TexImage(uint32_t internalFormat, uint32_t format, uint32_t width, uint32_t height, uint32_t type, void* data, uint32_t filter);
 
 
 		/**

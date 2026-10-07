@@ -28,14 +28,13 @@ void TRCN_CORE_NAMESPACE::TextAtlas::LoadAtlas(const char* fontPath, const msdf_
 
     _alreadyLoaded = true;
 
-    std::vector<msdf_atlas::GlyphGeometry> glyphs;
 
-    _fontGeometry = std::make_unique<msdf_atlas::FontGeometry>(&glyphs);
+    _fontGeometry = std::make_unique<msdf_atlas::FontGeometry>(&_glyphs);
     _fontGeometry->loadCharset(font, 1.0, charSet);
 
     constexpr float maxCornerAngle = 3.f;
 
-    for (msdf_atlas::GlyphGeometry& glyph : glyphs)
+    for (msdf_atlas::GlyphGeometry& glyph : _glyphs)
         glyph.edgeColoring(&msdfgen::edgeColoringInkTrap, maxCornerAngle, 0);
 
     msdf_atlas::TightAtlasPacker packer;
@@ -44,7 +43,7 @@ void TRCN_CORE_NAMESPACE::TextAtlas::LoadAtlas(const char* fontPath, const msdf_
     packer.setMinimumScale(24.0);
     packer.setPixelRange(2.0);
     packer.setMiterLimit(1.0);
-    packer.pack(glyphs.data(), glyphs.size());
+    packer.pack(_glyphs.data(), _glyphs.size());
 
     int width = 0, height = 0;
     packer.getDimensions(width, height);
@@ -59,20 +58,15 @@ void TRCN_CORE_NAMESPACE::TextAtlas::LoadAtlas(const char* fontPath, const msdf_
 
     generator.setAttributes(attributes);
     generator.setThreadCount(4);
-    generator.generate(glyphs.data(), glyphs.size());
+    generator.generate(_glyphs.data(), _glyphs.size());
 
-    glGenTextures(1, &_atlasTexture);
-    glBindTexture(GL_TEXTURE_2D, _atlasTexture);
+    _atlasTexture.GenerateTexture();
+    _atlasTexture.Bind();
 
-    const msdfgen::BitmapConstRef<unsigned char, 4> bitmap;
+    const msdfgen::BitmapConstRef<unsigned char, 4> bitmap = generator.atlasStorage();
 
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA,
-        width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, bitmap.pixels);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    _atlasTexture.TexImage(GL_RGBA, GL_RGBA, width, height,
+        GL_UNSIGNED_BYTE, (void*) bitmap.pixels, GL_LINEAR);
 
     Width = width;
     Height = height;
@@ -95,8 +89,8 @@ void Trinacria::DSL::Glyph::SetGlyph(char c)
     double bound0, bound1, bound2, bound3;
     glyph->getQuadAtlasBounds(bound0, bound1, bound2, bound3);
 
-    _bound0 = (float)bound0;
-    _bound1 = (float)bound1;
-    _bound2 = (float)bound2;
-    _bound3 = (float)bound3;
+    _bound0 = (float)bound0 / _owner->GetTexture().GetWidth();
+    _bound1 = (float)bound1 / _owner->GetTexture().GetHeight();
+    _bound2 = (float)bound2 / _owner->GetTexture().GetWidth();
+    _bound3 = (float)bound3 / _owner->GetTexture().GetHeight();
 }

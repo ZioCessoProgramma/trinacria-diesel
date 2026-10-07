@@ -350,7 +350,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& 
 
     Texture::ClearTextureSlots();
 
-    HUD::draw();
+    HUD::draw(windowDimensions, cameraPos, zoom);
 
     drawInScreen(screenShader);
 }

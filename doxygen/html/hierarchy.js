@@ -12,6 +12,7 @@ var hierarchy =
     [ "TRCN_CORE_NAMESPACE::Glyph", "classTRCN__CORE__NAMESPACE_1_1Glyph.html", null ],
     [ "TRCN_CORE_NAMESPACE::HUD", "classTRCN__CORE__NAMESPACE_1_1HUD.html", null ],
     [ "TRCN_CORE_NAMESPACE::HUDQuadData", "structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html", null ],
+    [ "TRCN_CORE_NAMESPACE::HUDShaderSet", "structTRCN__CORE__NAMESPACE_1_1HUDShaderSet.html", null ],
     [ "TRCN_CORE_NAMESPACE::HUDVertex", "structTRCN__CORE__NAMESPACE_1_1HUDVertex.html", null ],
     [ "TRCN_CORE_NAMESPACE::Layer", "classTRCN__CORE__NAMESPACE_1_1Layer.html", [
       [ "TRCN_CORE_NAMESPACE::InputPollerLayer", "classTRCN__CORE__NAMESPACE_1_1InputPollerLayer.html", null ]

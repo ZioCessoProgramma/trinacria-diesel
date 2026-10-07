@@ -83,6 +83,9 @@ void Trinacria::DSL::Texture::TexImage(uint32_t internalFormat, uint32_t format,
 {
 	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, type, data);
 
+    _width = width;
+    _height = height;
+
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filter);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter);
 }

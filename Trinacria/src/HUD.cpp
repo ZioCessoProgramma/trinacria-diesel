@@ -6,17 +6,21 @@
 #include "Trinacria/Macros.h"
 #include "Trinacria/Renderer.h"
 
-void TRCN_CORE_NAMESPACE::HUD::Init(const std::string& progressBarVertPath, const std::string& progressBarFragPath, const glm::vec2& windowDimensions)
+void TRCN_CORE_NAMESPACE::HUD::Init(const HUDShaderSet& shaderSet, const glm::vec2& windowDimensions)
 {
     setupQuads();
     setupText();
 
-    _shader.LoadCoreShader(progressBarVertPath, progressBarFragPath);
+    _shader.LoadCoreShader(shaderSet.HUDQuadVertPath, shaderSet.HUDQuadFragPath);
+    _textShader.LoadCoreShader(shaderSet.TextVertPath, shaderSet.TextFragPath);
 
     onResize(windowDimensions);
 
     _vertices.reserve(MaxHUDVertices);
     _indices.reserve(MaxHUDIndices);
+
+    _textVertices.reserve(MaxTextVertices);
+    _textIndices.reserve(MaxTextIndices);
 }
 
 uint32_t Trinacria::DSL::HUD::setupAtlas(const std::string& path, const msdf_atlas::Charset &charset)
@@ -65,7 +69,19 @@ void TRCN_CORE_NAMESPACE::HUD::EndHUD()
     glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(HUDVertex) * _vertices.size(), _vertices.data());
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
-    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(uint32_t) * _indices.size(), _indices.data());
+
+    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0, sizeof(uint32_t) * _indices.size(),
+        _indices.data());
+
+    glBindBuffer(GL_ARRAY_BUFFER, _textVbo);
+
+    glBufferSubData(GL_ARRAY_BUFFER, 0,
+        sizeof(TextVertex) * _textVertices.size(), _textVertices.data());
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _textEbo);
+
+    glBufferSubData(GL_ELEMENT_ARRAY_BUFFER, 0,
+        sizeof(uint32_t) * _textIndices.size(), _textIndices.data());
 }
 
 void TRCN_CORE_NAMESPACE::HUD::CreateHUDQuad(const HUDQuadData& HUDQuad)
@@ -93,7 +109,7 @@ void TRCN_CORE_NAMESPACE::HUD::CreateProgressBar(const HUDQuadData& HUDQuad, Tex
     TRCN_DEPEND_RETURN_ASSERT_VOID(_vertices.size() < MaxHUDVertices);
     TRCN_DEPEND_RETURN_ASSERT_VOID(_indices.size() < MaxHUDIndices);
 
-     uint32_t index = setupTexture(HUDQuad.texture);
+    uint32_t index = setupTexture(HUDQuad.texture);
     uint32_t fillTexIndex = setupTexture(fillTexture);
 
     createHUDQuad(-HUDQuad.transform.Pivot, HUDQuad.Color, index, glm::vec2(1),
@@ -104,9 +120,11 @@ void TRCN_CORE_NAMESPACE::HUD::FlushBuffers()
 {
     _vertices.clear();
     _indices.clear();
+    _textVertices.clear();
+    _textIndices.clear();
 }
 
-void TRCN_CORE_NAMESPACE::HUD::draw()
+void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
 {
     _shader.Bind();
 
@@ -120,8 +138,30 @@ void TRCN_CORE_NAMESPACE::HUD::draw()
     }
 
     glBindVertexArray(_vao);
-
     glDrawElements(GL_TRIANGLES, _indices.size(), GL_UNSIGNED_INT, nullptr);
+
+    Texture::ClearTextureSlots();
+
+    _textShader.Bind();
+
+    for (int i = 0; i < _textAtlases.size(); i++)
+    {
+        std::string format = std::format("u_Textures[{}]", i);
+
+        _textShader.SetUniformInt(format.c_str(), i);
+
+        _textAtlases[i].GetTexture().Bind(i + GL_TEXTURE0);
+    }
+
+    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
+
+    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
+    viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
+
+    _textShader.SetUniformMat4("u_View", glm::mat4(1.f));
+
+    glBindVertexArray(_textVao);
+    glDrawElements(GL_TRIANGLES, _textIndices.size(), GL_UNSIGNED_INT, nullptr);
 
     Texture::ClearTextureSlots();
 }
@@ -378,8 +418,8 @@ void TRCN_CORE_NAMESPACE::HUD::CreateButton(const HUDQuadData& HUDQuad, const gl
     createHUDQuad(-HUDQuad.transform.Pivot, color, index, glm::vec2(1.f), HUDQuad.transform.GetMatrix(), HUDQuad.TexCoords, 0, 0, glm::vec4(0.f));
 }
 
-void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, const std::string &fontPath, const
-                                     msdf_atlas::Charset &charset)
+void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, bool inWorld, const std::string &fontPath, const
+                                     msdf_atlas::Charset& charset)
 {
     TRCN_DEPEND_START("Create Text");
 

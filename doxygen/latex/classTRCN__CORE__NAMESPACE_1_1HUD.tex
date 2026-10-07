@@ -1,18 +1,9 @@
 \doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::HUD Class Reference}
 \hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD}{}\label{classTRCN__CORE__NAMESPACE_1_1HUD}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
-
-
-Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::HUD\+:\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=249pt]{classTRCN__CORE__NAMESPACE_1_1HUD__coll__graph}
-\end{center}
-\end{figure}
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a7b7dc6fd99407de45f651cfe0b654566}{Init}} (const std\+::string \&progress\+Bar\+Vert\+Path, const std\+::string \&progress\+Bar\+Frag\+Path, const glm\+::vec2 \&window\+Dimensions)
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_af0a7bd87674100940ad4bdb3bdad1e89}{Init}} (const \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShader\+Set}} \&shader\+Set, const glm\+::vec2 \&window\+Dimensions)
 \begin{DoxyCompactList}\small\item\em initializes the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ada73644c74ac7da6c7a301ebe0abe271}{Cleanup}} ()
 \begin{DoxyCompactList}\small\item\em cleans up the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \end{DoxyCompactList}\item 
@@ -22,7 +13,7 @@ static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_aa2992fbe5850b461
 \begin{DoxyCompactList}\small\item\em creates a quad that will be later drawn \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab54503644d8af7099851658c7a9ce7c0}{Create\+Button}} (const \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuad\+Data}} \&HUDQuad, const glm\+::vec4 \&hovered\+Color, const glm\+::vec4 \&pressed\+Color, GLFWwindow \texorpdfstring{$\ast$}{*}window, const glm\+::vec2 \&window\+Dimensions)
 \begin{DoxyCompactList}\small\item\em creates a button that will be later drawn \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a0e70cb241ba87972f09807076ff9982c}{Create\+Text}} (const std\+::string \&text, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform, const glm\+::vec4 \&color, const std\+::string \&font\+Path, const msdf\+\_\+atlas\+::\+Charset \&charset)
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a48050af98fff42ec6274958d73f8b6f6}{Create\+Text}} (const std\+::string \&text, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform, const glm\+::vec4 \&color, bool in\+World, const std\+::string \&font\+Path, const msdf\+\_\+atlas\+::\+Charset \&charset)
 \begin{DoxyCompactList}\small\item\em queues some text to draw \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}{Add\+On\+Click\+Function}} (const On\+Click\+Type \&on\+Click, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform\+Of\+The\+Quad)
 \begin{DoxyCompactList}\small\item\em it adds the specified call to a private array \end{DoxyCompactList}\item 
@@ -34,9 +25,6 @@ static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a9e8c61cce4327529
 \begin{DoxyCompactList}\small\item\em it check for button clicking and other events \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
-\item 
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a36b186649e95aced332c9bb59ad82cb2}\label{classTRCN__CORE__NAMESPACE_1_1HUD_a36b186649e95aced332c9bb59ad82cb2} 
-static \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} {\bfseries \+\_\+shader}
 \item 
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_aec67cb50753e628c6b15b82e44c56acc}\label{classTRCN__CORE__NAMESPACE_1_1HUD_aec67cb50753e628c6b15b82e44c56acc} 
 static constexpr size\+\_\+t {\bfseries Max\+HUDQuads} = 100
@@ -155,11 +143,11 @@ creates a quad that can be filled like a progress bar
 {\em fill\+Color} & the color to use when filling the progress bar \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a0e70cb241ba87972f09807076ff9982c}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!CreateText@{CreateText}}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a48050af98fff42ec6274958d73f8b6f6}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!CreateText@{CreateText}}
 \index{CreateText@{CreateText}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
 \doxysubsubsection{\texorpdfstring{CreateText()}{CreateText()}}
-{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_a0e70cb241ba87972f09807076ff9982c} 
-void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Create\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{const glm\+::vec4 \&}]{color}{, }\item[{const std\+::string \&}]{font\+Path}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_a48050af98fff42ec6274958d73f8b6f6} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Create\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{const glm\+::vec4 \&}]{color}{, }\item[{bool}]{in\+World}{, }\item[{const std\+::string \&}]{font\+Path}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -173,9 +161,13 @@ queues some text to draw
 \hline
 {\em color} & the color of the text \\
 \hline
+{\em in\+World} & should the text scale, translates, etc.. based on the world? \\
+\hline
 {\em font\+Path} & the path of the font \\
 \hline
 {\em charset} & the charset to use for example msdf\+\_\+atlas\+::\+Charset\+:ASCII \\
+\hline
+{\em window\+Dimensions} & \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!EndHUD@{EndHUD}}
@@ -204,11 +196,11 @@ flushes all the buffers
 \begin{DoxyNote}{Note}
 call it at the end of the frame after Renderer\+::\+Draw 
 \end{DoxyNote}
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a7b7dc6fd99407de45f651cfe0b654566}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!Init@{Init}}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_af0a7bd87674100940ad4bdb3bdad1e89}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!Init@{Init}}
 \index{Init@{Init}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
 \doxysubsubsection{\texorpdfstring{Init()}{Init()}}
-{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_a7b7dc6fd99407de45f651cfe0b654566} 
-void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Init (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{progress\+Bar\+Vert\+Path}{, }\item[{const std\+::string \&}]{progress\+Bar\+Frag\+Path}{, }\item[{const glm\+::vec2 \&}]{window\+Dimensions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_af0a7bd87674100940ad4bdb3bdad1e89} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShader\+Set}} \&}]{shader\+Set}{, }\item[{const glm\+::vec2 \&}]{window\+Dimensions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -216,9 +208,7 @@ initializes the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD}
 
 
 \begin{DoxyParams}{Parameters}
-{\em progress\+Bar\+Vert\+Path} & the path to the vertex shader that draws the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \\
-\hline
-{\em progress\+Bar\+Frag\+Path} & the path to the fragment shader that draws the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} \\
+{\em shader\+Set} & the set of the shader to generate \\
 \hline
 {\em window\+Dimensions} & \\
 \hline

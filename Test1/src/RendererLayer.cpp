@@ -41,6 +41,8 @@ void RendererLayer::OnUpdate(float deltaTime)
     Trinacria::DSL::HUD::CreateProgressBar(progressBar1, &_healthBarFillMap, (glm::cos(glfwGetTime()) + 1) / 2,
 	    glm::vec4(0.2f, 0.2f, 0.6f, 1.f));
 
+
+
     // Ground
 
     Trinacria::DSL::Transform ground(glm::vec2(0.f), glm::vec2(100.f));
@@ -145,6 +147,11 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::Renderer::EndScene();
 
+    Trinacria::DSL::HUD::CreateText("A", {glm::vec2(0.f)},
+                                    glm::vec4(1.f, 0.f, 0.f, 0.7f),
+                                    true, "assets/fonts/Orbitron/Orbitron-Medium.ttf",
+                                    msdf_atlas::Charset::ASCII);
+
     Trinacria::DSL::HUD::EndHUD();
 
      Trinacria::DSL::LightSystem::InitFrame(Trinacria::DSL::LightSystem::DEFAULT_USE_OF_LIGHT);
@@ -227,7 +234,10 @@ void RendererLayer::OnAttach()
     _screenShader.LoadShader("assets/shaders/Screen.vert", "assets/shaders/Screen.frag");
 
     Trinacria::DSL::LightSystem::Init();
-    Trinacria::DSL::HUD::Init("assets/shaders/HUD.vert", "assets/shaders/HUD.frag",
+
+    Trinacria::DSL::HUD::Init({"assets/shaders/HUD.vert",
+        "assets/shaders/HUD.frag", "assets/shaders/Text.vert",
+        "assets/shaders/Text.frag"},
         Application::Get()->GetWindowDimensions());
 
     Trinacria::DSL::HUD::AddOnClickFunction([] {TRCN_LOG("Hello Guys!");}, _buttonTransform);

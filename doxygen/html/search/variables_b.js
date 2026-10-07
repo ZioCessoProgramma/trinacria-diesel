@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['scale_0',['Scale',['../classTRCN__CORE__NAMESPACE_1_1Transform.html#a04c2956ef0d63fc67056e945361d2df4',1,'TRCN_CORE_NAMESPACE::Transform']]],
-  ['shaderprogram_1',['ShaderProgram',['../classTRCN__CORE__NAMESPACE_1_1Renderer.html#a1d545d8c44ce53a50a0cbeb6ad2367a3',1,'TRCN_CORE_NAMESPACE::Renderer']]],
-  ['shininess_2',['Shininess',['../classTRCN__CORE__NAMESPACE_1_1Material.html#a988a61488931ab75e49a34bfdfda8644',1,'TRCN_CORE_NAMESPACE::Material']]],
-  ['specular_3',['Specular',['../classTRCN__CORE__NAMESPACE_1_1Material.html#a71119ec08761f1cce3b74a031f1f29a8',1,'TRCN_CORE_NAMESPACE::Material']]],
-  ['sprite_4',['sprite',['../structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html#ae57a7f9c427219cf0eb907d670f237af',1,'TRCN_CORE_NAMESPACE::HUDQuadData::sprite'],['../structTRCN__CORE__NAMESPACE_1_1QuadData.html#a1f1356d6eda96487eb21fad20b41f68a',1,'TRCN_CORE_NAMESPACE::QuadData::sprite'],['../structTRCN__CORE__NAMESPACE_1_1TriangleData.html#a8e5554a53bbf2ad7861408a531d67bfa',1,'TRCN_CORE_NAMESPACE::TriangleData::sprite']]]
+  ['pivot_0',['Pivot',['../classTRCN__CORE__NAMESPACE_1_1Transform.html#a495b2939a2d3298aa9528c81b67ec0a3',1,'TRCN_CORE_NAMESPACE::Transform']]],
+  ['position_1',['Position',['../structTRCN__CORE__NAMESPACE_1_1HUDVertex.html#a0e6fdd49901ab99b996d7b323dda5fec',1,'TRCN_CORE_NAMESPACE::HUDVertex::Position'],['../structTRCN__CORE__NAMESPACE_1_1TextVertex.html#aa46fc450d303fdd834af44fdfca777d4',1,'TRCN_CORE_NAMESPACE::TextVertex::Position'],['../classTRCN__CORE__NAMESPACE_1_1Transform.html#aad53c8af56c663aaf43641603981ae66',1,'TRCN_CORE_NAMESPACE::Transform::Position']]],
+  ['progress_2',['Progress',['../structTRCN__CORE__NAMESPACE_1_1HUDVertex.html#a74dd4606c0251eb739ea4a4fc46541fe',1,'TRCN_CORE_NAMESPACE::HUDVertex']]]
 ];

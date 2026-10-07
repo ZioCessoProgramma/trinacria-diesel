@@ -5,66 +5,72 @@
 \DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
 \DoxyCodeLine{00002\ }
 \DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <memory>}}
-\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Macros.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
 \DoxyCodeLine{00005\ }
-\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }msdf\_atlas}
-\DoxyCodeLine{00007\ \{}
-\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{class\ }Charset;}
-\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{class\ }GlyphGeometry;}
-\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{class\ }FontGeometry;}
-\DoxyCodeLine{00011\ \}}
-\DoxyCodeLine{00012\ }
-\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }TRCN\_CORE\_NAMESPACE}
-\DoxyCodeLine{00014\ \{}
-\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }TextAtlas}
-\DoxyCodeLine{00016\ \ \ \ \ \{}
-\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Width,\ Height;}
-\DoxyCodeLine{00019\ }
-\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ TextAtlas()\ =\ \textcolor{keywordflow}{default};}
-\DoxyCodeLine{00021\ }
-\DoxyCodeLine{00026\ }
-\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a1318db716f613307831cb9e76c846c8d}{TextAtlas}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fontPath,\ \textcolor{keyword}{const}\ msdf\_atlas::Charset\&\ charSet);}
-\DoxyCodeLine{00028\ }
-\DoxyCodeLine{00033\ }
-\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a0fb93be1168886869e53b0edf2438a01}{LoadAtlas}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fontPath,\ \textcolor{keyword}{const}\ msdf\_atlas::Charset\&\ charSet);}
-\DoxyCodeLine{00035\ }
-\DoxyCodeLine{00040\ }
-\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ msdf\_atlas::GlyphGeometry*\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a2d149acd8a00bb710e2740391e377b5f}{GetGlyph}}(\textcolor{keywordtype}{char}\ c);}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a93d8f7c4e010f09dd3f50bd269be0af6}{GetTexture}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_atlasTexture;\ \}}
-\DoxyCodeLine{00049\ }
-\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ std::string\ GetName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_name;\ \}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Macros.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Texture.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }msdf\_atlas}
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }Charset;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }GlyphGeometry;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }FontGeometry;}
+\DoxyCodeLine{00015\ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }TRCN\_CORE\_NAMESPACE}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{class\ }TextAtlas}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ Width,\ Height;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ TextAtlas()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a1318db716f613307831cb9e76c846c8d}{TextAtlas}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fontPath,\ \textcolor{keyword}{const}\ msdf\_atlas::Charset\&\ charSet);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a0fb93be1168886869e53b0edf2438a01}{LoadAtlas}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fontPath,\ \textcolor{keyword}{const}\ msdf\_atlas::Charset\&\ charSet);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ msdf\_atlas::GlyphGeometry*\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a2d149acd8a00bb710e2740391e377b5f}{GetGlyph}}(\textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00046\ }
 \DoxyCodeLine{00051\ }
-\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ std::unique\_ptr<msdf\_atlas::FontGeometry>\ \_fontGeometry;}
-\DoxyCodeLine{00054\ }
-\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ uint32\_t\ \_atlasTexture\ =\ 0;}
-\DoxyCodeLine{00056\ }
-\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::string\ \_name;}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas_a00817e440dfc284014da1698c7a317b1}{GetTexture}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_atlasTexture;\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ std::string\ GetName()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_name;\ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ std::unique\_ptr<msdf\_atlas::FontGeometry>\ \_fontGeometry;}
 \DoxyCodeLine{00058\ }
-\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_alreadyLoaded\ =\ \textcolor{keyword}{false};}
-\DoxyCodeLine{00060\ \ \ \ \ \};}
-\DoxyCodeLine{00061\ }
-\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}}
-\DoxyCodeLine{00063\ \ \ \ \ \{}
-\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00068\ }
-\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas}{TextAtlas}}*\ owner)\ :\ \_owner(owner)\ \{\ \}}
-\DoxyCodeLine{00070\ }
-\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetGlyph(\textcolor{keywordtype}{char}\ c)\ ;}
-\DoxyCodeLine{00072\ }
-\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound0()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound0;\ \}}
-\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound1()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound1;\ \}}
-\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound2()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound2;\ \}}
-\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound3()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound3;\ \}}
-\DoxyCodeLine{00077\ }
-\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ TextAtlas*\ \_owner;}
-\DoxyCodeLine{00080\ }
-\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \_bound0\ =\ 0,\ \_bound1\ =\ 0,\ \_bound2\ =\ 0,\ \_bound3\ =\ 0;}
-\DoxyCodeLine{00082\ \ \ \ \ \};}
-\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ Texture\ \_atlasTexture;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ std::vector<msdf\_atlas::GlyphGeometry>\ \_glyphs;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::string\ \_name;}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_alreadyLoaded\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}}
+\DoxyCodeLine{00069\ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Glyph_ac5c1ce495e1f2c62f33856f2a4ad07a0}{Glyph}}(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1TextAtlas}{TextAtlas}}*\ owner)\ :\ \_owner(owner)\ \{\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ SetGlyph(\textcolor{keywordtype}{char}\ c);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound0()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound0;\ \}}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound1()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound1;\ \}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound2()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound2;\ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ GetBound3()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_bound3;\ \}}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ TextAtlas*\ \_owner;}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \_bound0\ =\ 0,\ \_bound1\ =\ 0,\ \_bound2\ =\ 0,\ \_bound3\ =\ 0;}
+\DoxyCodeLine{00088\ \ \ \ \ \};}
+\DoxyCodeLine{00089\ \}}
 
 \end{DoxyCode}

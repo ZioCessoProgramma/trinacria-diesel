@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['lightcolor_0',['LightColor',['../structTRCN__CORE__NAMESPACE_1_1PointLightData.html#af5758c94ed4d85023779942bb766d8f7',1,'TRCN_CORE_NAMESPACE::PointLightData::LightColor'],['../structTRCN__CORE__NAMESPACE_1_1SpotLightData.html#a74964adcdc7e5e46a607ad4fe56adeb4',1,'TRCN_CORE_NAMESPACE::SpotLightData::LightColor'],['../structTRCN__CORE__NAMESPACE_1_1DirectionalLightData.html#a1584787bad73dfe7cc322c723f8c596d',1,'TRCN_CORE_NAMESPACE::DirectionalLightData::LightColor']]],
-  ['lightdirection_1',['LightDirection',['../structTRCN__CORE__NAMESPACE_1_1SpotLightData.html#aaaa2ee45a8dabc17e7c4616b70fb6aac',1,'TRCN_CORE_NAMESPACE::SpotLightData::LightDirection'],['../structTRCN__CORE__NAMESPACE_1_1DirectionalLightData.html#aaf56566cd34098365c2919e44a15b4a9',1,'TRCN_CORE_NAMESPACE::DirectionalLightData::LightDirection']]],
-  ['lightheight_2',['LightHeight',['../structTRCN__CORE__NAMESPACE_1_1PointLightData.html#a1b1a60f7ec95a1670e3d233394e72018',1,'TRCN_CORE_NAMESPACE::PointLightData::LightHeight'],['../structTRCN__CORE__NAMESPACE_1_1SpotLightData.html#a20dcfcf2caaa17f9c473c4577babe262',1,'TRCN_CORE_NAMESPACE::SpotLightData::LightHeight']]],
-  ['lightposition_3',['LightPosition',['../structTRCN__CORE__NAMESPACE_1_1PointLightData.html#a2601b95e0a80949893ab6dfd1f6e1747',1,'TRCN_CORE_NAMESPACE::PointLightData::LightPosition'],['../structTRCN__CORE__NAMESPACE_1_1SpotLightData.html#a520e44f37c9279895e0f8c33271a4b17',1,'TRCN_CORE_NAMESPACE::SpotLightData::LightPosition']]]
+  ['keyboarddispatcher_0',['KeyBoardDispatcher',['../classTRCN__CORE__NAMESPACE_1_1InputPollerLayer.html#a899618ee2dd2eff05839789e37055042',1,'TRCN_CORE_NAMESPACE::InputPollerLayer']]]
 ];

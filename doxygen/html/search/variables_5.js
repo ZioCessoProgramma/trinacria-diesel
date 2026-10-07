@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keyboarddispatcher_0',['KeyBoardDispatcher',['../classTRCN__CORE__NAMESPACE_1_1InputPollerLayer.html#a899618ee2dd2eff05839789e37055042',1,'TRCN_CORE_NAMESPACE::InputPollerLayer']]]
+  ['innerangleindegrees_0',['InnerAngleInDegrees',['../structTRCN__CORE__NAMESPACE_1_1SpotLightData.html#ae3cc45290954583be326f8720c6014b1',1,'TRCN_CORE_NAMESPACE::SpotLightData']]]
 ];

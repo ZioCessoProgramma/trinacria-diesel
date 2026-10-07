@@ -44,6 +44,8 @@ virtual void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_aa40efbd5ef2
 \begin{DoxyCompactList}\small\item\em it loads the texture from a specified path \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_ad22e7eabae9c3a723ec53143d96179e7}{Generate\+Texture}} ()
 \begin{DoxyCompactList}\small\item\em it generates the open\+GL texture \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a4be2954b19b9955e17942807d941e2f0}{Tex\+Image}} (uint32\+\_\+t internal\+Format, uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t filter)
+\begin{DoxyCompactList}\small\item\em static function that allocates the data of the texture \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a8ee48d1276813287e479155078e10731}{Bound\+Tex\+Image}} (uint32\+\_\+t internal\+Format, uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t filter)
 \begin{DoxyCompactList}\small\item\em static function that allocates the data of the texture \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_af64f6dba505f3dfbbbafd2a93a75dea0}{Bound\+Sub\+Image}} (uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data)
@@ -63,8 +65,6 @@ uint32\+\_\+t \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a5aa6dba350
 \doxysubsubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a4223cd93495c7166ab628b5e2476490e}{Tex\+Image}} (uint32\+\_\+t internal\+Format, uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t filter)
-\begin{DoxyCompactList}\small\item\em static function that allocates the data of the texture \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_ae3c489e97ac0d7795a66a1816a45d47a}{Sub\+Image}} (uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data)
 \begin{DoxyCompactList}\small\item\em static function that changes the data of the texture \end{DoxyCompactList}\item 
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_af81a570e083612990c0f1ff6802a1c12}\label{classTRCN__CORE__NAMESPACE_1_1Texture_af81a570e083612990c0f1ff6802a1c12} 
@@ -305,11 +305,11 @@ static function that changes the data of the texture
 {\em data} & the data to store in the texture \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a4223cd93495c7166ab628b5e2476490e}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!TexImage@{TexImage}}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a4be2954b19b9955e17942807d941e2f0}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!TexImage@{TexImage}}
 \index{TexImage@{TexImage}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
 \doxysubsubsection{\texorpdfstring{TexImage()}{TexImage()}}
-{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a4223cd93495c7166ab628b5e2476490e} 
-void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Tex\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{internal\+Format}{, }\item[{uint32\+\_\+t}]{format}{, }\item[{uint32\+\_\+t}]{width}{, }\item[{uint32\+\_\+t}]{height}{, }\item[{uint32\+\_\+t}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{filter}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a4be2954b19b9955e17942807d941e2f0} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Tex\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{internal\+Format}{, }\item[{uint32\+\_\+t}]{format}{, }\item[{uint32\+\_\+t}]{width}{, }\item[{uint32\+\_\+t}]{height}{, }\item[{uint32\+\_\+t}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{filter}{}\end{DoxyParamCaption})}
 
 
 

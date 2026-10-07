@@ -1,7 +1,11 @@
 #pragma once
 
 #include <memory>
+#include <vector>
+
 #include "Macros.h"
+#include "Texture.h"
+#include <glm/glm.hpp>
 
 namespace msdf_atlas
 {
@@ -45,14 +49,16 @@ namespace TRCN_CORE_NAMESPACE
          * @return the underlying openGL texture
          */
 
-        uint32_t GetTexture() const { return _atlasTexture; }
+        Texture GetTexture() const { return _atlasTexture; }
 
         std::string GetName() const { return _name; }
 
     private:
         std::unique_ptr<msdf_atlas::FontGeometry> _fontGeometry;
 
-        uint32_t _atlasTexture = 0;
+        Texture _atlasTexture;
+
+        std::vector<msdf_atlas::GlyphGeometry> _glyphs;
 
         std::string _name;
 
@@ -68,7 +74,7 @@ namespace TRCN_CORE_NAMESPACE
 
         Glyph(TextAtlas* owner) : _owner(owner) { }
 
-        void SetGlyph(char c) ;
+        void SetGlyph(char c);
 
         float GetBound0() const { return _bound0; }
         float GetBound1() const { return _bound1; }

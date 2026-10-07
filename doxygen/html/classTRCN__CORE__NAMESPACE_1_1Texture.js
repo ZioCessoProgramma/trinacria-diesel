@@ -13,5 +13,6 @@ var classTRCN__CORE__NAMESPACE_1_1Texture =
     [ "GetTextureChosenSlot", "classTRCN__CORE__NAMESPACE_1_1Texture.html#a5aa6dba3501f3affebc818c4514f39e2", null ],
     [ "GetWidth", "classTRCN__CORE__NAMESPACE_1_1Texture.html#ae9b7027f6466017074d4c35d82e217c9", null ],
     [ "LoadTexture", "classTRCN__CORE__NAMESPACE_1_1Texture.html#aa40efbd5ef21d12a7a446e5081b3a402", null ],
+    [ "TexImage", "classTRCN__CORE__NAMESPACE_1_1Texture.html#a4be2954b19b9955e17942807d941e2f0", null ],
     [ "Unbind", "classTRCN__CORE__NAMESPACE_1_1Texture.html#a47447853a2672a493593610dfef66131", null ]
 ];

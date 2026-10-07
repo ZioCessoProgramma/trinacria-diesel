@@ -9,10 +9,12 @@ uniform mat4 u_View;
 
 out vec4 Color;
 out vec2 TexCoord;
+flat out uint TexIndex;
 
 void main() {
     gl_Position = u_View * vec4(a_Pos, 0.f, 1.f);
 
     Color = a_Color;
     TexCoord = a_TexCoord;
+    TexIndex = a_TexIndex;
 }

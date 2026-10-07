@@ -12,7 +12,7 @@ var searchData=
   ['getparent_9',['GetParent',['../classTRCN__CORE__NAMESPACE_1_1Sprite.html#a17ba4ec924670c3aa5f1c99d2141ab25',1,'TRCN_CORE_NAMESPACE::Sprite']]],
   ['getshaderprogram_10',['GetShaderProgram',['../classTRCN__CORE__NAMESPACE_1_1Shader.html#ad53d9b5c77b79abe866729c455f4b984',1,'TRCN_CORE_NAMESPACE::Shader']]],
   ['gettexcoords_11',['GetTexCoords',['../classTRCN__CORE__NAMESPACE_1_1Sprite.html#a92edbf7a4f2a97977e9391ce4d1686dc',1,'TRCN_CORE_NAMESPACE::Sprite']]],
-  ['gettexture_12',['GetTexture',['../classTRCN__CORE__NAMESPACE_1_1TextAtlas.html#a93d8f7c4e010f09dd3f50bd269be0af6',1,'TRCN_CORE_NAMESPACE::TextAtlas']]],
+  ['gettexture_12',['GetTexture',['../classTRCN__CORE__NAMESPACE_1_1TextAtlas.html#a00817e440dfc284014da1698c7a317b1',1,'TRCN_CORE_NAMESPACE::TextAtlas']]],
   ['gettexturechosenslot_13',['GetTextureChosenSlot',['../classTRCN__CORE__NAMESPACE_1_1Texture.html#a5aa6dba3501f3affebc818c4514f39e2',1,'TRCN_CORE_NAMESPACE::Texture']]],
   ['gettriangletexcoords_14',['GetTriangleTexCoords',['../classTRCN__CORE__NAMESPACE_1_1Sprite.html#aac03c86c4aa1c46d52d34c86c30daa58',1,'TRCN_CORE_NAMESPACE::Sprite']]],
   ['gettype_15',['GetType',['../classTRCN__CORE__NAMESPACE_1_1Event.html#ab9a57149e2e33c299251441c83f62a79',1,'TRCN_CORE_NAMESPACE::Event']]],

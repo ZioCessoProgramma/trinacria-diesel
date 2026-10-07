@@ -173,6 +173,37 @@ namespace TRCN_CORE_NAMESPACE
         uint32_t TextureIndex;
     };
 
+    struct HUDShaderSet
+    {
+        /**
+         * the path to the vertex shader that batches the HUD
+         */
+
+        std::string HUDQuadVertPath;
+
+        /**
+         * the path to the fragment shader that batches the HUD
+         */
+
+        std::string HUDQuadFragPath;
+
+        /**
+        * the path to the vertex shader that batches the text
+        */
+
+        std::string TextVertPath;
+
+        /**
+         * the path to the fragment shader that batches the text
+         */
+
+        std::string TextFragPath;
+
+        // TODO: Define
+
+        static const HUDShaderSet DEFAULT;
+    };
+
     using OnClickType = std::function<void()>;
 
     class HUD
@@ -181,13 +212,12 @@ namespace TRCN_CORE_NAMESPACE
 
         /**
          * @brief initializes the HUD
-         * @param progressBarVertPath the path to the vertex shader that draws the HUD
-         * @param progressBarFragPath the path to the fragment shader that draws the HUD
+         * @param shaderSet the set of the shader to generate
          * @param windowDimensions
          * @note to call once at the start of the application
          */
 
-        static void Init(const std::string& progressBarVertPath, const std::string& progressBarFragPath, const glm::vec2& windowDimensions);
+        static void Init(const HUDShaderSet& shaderSet, const glm::vec2& windowDimensions);
 
         /**
         * @brief cleans up the HUD
@@ -224,11 +254,13 @@ namespace TRCN_CORE_NAMESPACE
          * @param text the string to write in the text
          * @param transform the position, scale ..etc to draw the text
          * @param color the color of the text
+         * @param inWorld should the text scale, translates, etc.. based on the world?
          * @param fontPath the path of the font
          * @param charset the charset to use for example msdf_atlas::Charset:ASCII
+         * @param windowDimensions
          */
 
-        static void CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, const std::string &fontPath, const
+        static void CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, bool inWorld, const std::string &fontPath, const
                                msdf_atlas::Charset &charset);
 
         /**
@@ -268,7 +300,6 @@ namespace TRCN_CORE_NAMESPACE
 
         static void UpdateEvents(GLFWwindow* window, const glm::vec2& windowDimensions);
 
-        inline static Shader _shader;
 
         static constexpr size_t MaxHUDQuads    =            100;
         static constexpr size_t MaxHUDVertices = MaxHUDQuads * 4;
@@ -280,6 +311,9 @@ namespace TRCN_CORE_NAMESPACE
 
     private:
         friend class Renderer;
+
+        inline static Shader _shader;
+        inline static Shader _textShader;
 
         inline static uint32_t _vao;
         inline static uint32_t _vbo;
@@ -305,7 +339,7 @@ namespace TRCN_CORE_NAMESPACE
 
         inline static std::vector<TextAtlas> _textAtlases;
 
-        static void draw();
+        static void draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom);
 
         static void createHUDQuad(const glm::vec2& position, const glm::vec4& color, uint32_t textureIndex,
                                   const glm::vec2& scale, glm::mat4 matrix, const QuadTexCoords& coord,

@@ -132,6 +132,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa40efbd5ef21d12a7a446e5081b3a402"><td class="mdescLeft">&#160;</td><td class="mdescRight">it loads the texture from a specified path  <br /></td></tr>
 <tr class="memitem:ad22e7eabae9c3a723ec53143d96179e7" id="r_ad22e7eabae9c3a723ec53143d96179e7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad22e7eabae9c3a723ec53143d96179e7">GenerateTexture</a> ()</td></tr>
 <tr class="memdesc:ad22e7eabae9c3a723ec53143d96179e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">it generates the openGL texture  <br /></td></tr>
+<tr class="memitem:a4be2954b19b9955e17942807d941e2f0" id="r_a4be2954b19b9955e17942807d941e2f0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4be2954b19b9955e17942807d941e2f0">TexImage</a> (uint32_t internalFormat, uint32_t format, uint32_t width, uint32_t height, uint32_t type, void *data, uint32_t filter)</td></tr>
+<tr class="memdesc:a4be2954b19b9955e17942807d941e2f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function that allocates the data of the texture  <br /></td></tr>
 <tr class="memitem:a8ee48d1276813287e479155078e10731" id="r_a8ee48d1276813287e479155078e10731"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ee48d1276813287e479155078e10731">BoundTexImage</a> (uint32_t internalFormat, uint32_t format, uint32_t width, uint32_t height, uint32_t type, void *data, uint32_t filter)</td></tr>
 <tr class="memdesc:a8ee48d1276813287e479155078e10731"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function that allocates the data of the texture  <br /></td></tr>
 <tr class="memitem:af64f6dba505f3dfbbbafd2a93a75dea0" id="r_af64f6dba505f3dfbbbafd2a93a75dea0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af64f6dba505f3dfbbbafd2a93a75dea0">BoundSubImage</a> (uint32_t format, uint32_t width, uint32_t height, uint32_t type, void *data)</td></tr>
@@ -151,8 +153,6 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>Cleanup</b> (
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a4223cd93495c7166ab628b5e2476490e" id="r_a4223cd93495c7166ab628b5e2476490e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4223cd93495c7166ab628b5e2476490e">TexImage</a> (uint32_t internalFormat, uint32_t format, uint32_t width, uint32_t height, uint32_t type, void *data, uint32_t filter)</td></tr>
-<tr class="memdesc:a4223cd93495c7166ab628b5e2476490e"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function that allocates the data of the texture  <br /></td></tr>
 <tr class="memitem:ae3c489e97ac0d7795a66a1816a45d47a" id="r_ae3c489e97ac0d7795a66a1816a45d47a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3c489e97ac0d7795a66a1816a45d47a">SubImage</a> (uint32_t format, uint32_t width, uint32_t height, uint32_t type, void *data)</td></tr>
 <tr class="memdesc:ae3c489e97ac0d7795a66a1816a45d47a"><td class="mdescLeft">&#160;</td><td class="mdescRight">static function that changes the data of the texture  <br /></td></tr>
 <tr class="memitem:af81a570e083612990c0f1ff6802a1c12" id="r_af81a570e083612990c0f1ff6802a1c12"><td class="memItemLeft" align="right" valign="top"><a id="af81a570e083612990c0f1ff6802a1c12" name="af81a570e083612990c0f1ff6802a1c12"></a>
@@ -618,14 +618,11 @@ static constexpr <a class="el" href="#a68bf51dc04eb164e87ae0e2f4f462953">Texture
 
 </div>
 </div>
-<a id="a4223cd93495c7166ab628b5e2476490e" name="a4223cd93495c7166ab628b5e2476490e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4223cd93495c7166ab628b5e2476490e">&#9670;&#160;</a></span>TexImage()</h2>
+<a id="a4be2954b19b9955e17942807d941e2f0" name="a4be2954b19b9955e17942807d941e2f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be2954b19b9955e17942807d941e2f0">&#9670;&#160;</a></span>TexImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void TRCN_CORE_NAMESPACE::Texture::TexImage </td>
@@ -663,11 +660,6 @@ static constexpr <a class="el" href="#a68bf51dc04eb164e87ae0e2f4f462953">Texture
           <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>filter</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>static function that allocates the data of the texture </p>
