@@ -150,9 +150,10 @@ namespace TRCN_CORE_NAMESPACE
     {
         /**
          * @brief the position on the screen of the vertex
+         * @note the z axis is like a bool if the text lives in the world is more than zero if it lives in the screen is 0 or less
          */
 
-        glm::vec2 Position;
+        glm::vec3 Position;
 
         /**
          * @brief the color of the vertex
@@ -346,7 +347,7 @@ namespace TRCN_CORE_NAMESPACE
                                   uint32_t fillTextureIndex, float progress, const glm::vec4& fillColor
             );
 
-        static void createText(const glm::vec2& position, const glm::vec4& color, uint32_t textureIndex,
+        static void createText(const glm::vec3& position, const glm::vec4& color, uint32_t textureIndex,
                                const glm::vec2& scale, glm::mat4 matrix, const QuadTexCoords& coord
             );
 

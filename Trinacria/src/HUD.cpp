@@ -158,7 +158,7 @@ void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm
     viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
     viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
 
-    _textShader.SetUniformMat4("u_View", glm::mat4(1.f));
+    _textShader.SetUniformMat4("u_View", viewProjection);
 
     glBindVertexArray(_textVao);
     glDrawElements(GL_TRIANGLES, _textIndices.size(), GL_UNSIGNED_INT, nullptr);
@@ -193,16 +193,16 @@ void TRCN_CORE_NAMESPACE::HUD::createHUDQuad(const glm::vec2& position, const gl
     _indices.push_back(offset);
 }
 
-void Trinacria::DSL::HUD::createText(const glm::vec2& position, const glm::vec4& color,
+void Trinacria::DSL::HUD::createText(const glm::vec3& position, const glm::vec4& color,
                                      uint32_t textureIndex, const glm::vec2& scale, glm::mat4 matrix,
                                      const QuadTexCoords& coord)
 {
     matrix[3][0] *= _aspectRatio;
 
-    glm::vec2 p0 = glm::vec2(matrix * glm::vec4(position, 0.f, 1.f));
-    glm::vec2 p1 = glm::vec2(matrix * glm::vec4(position + glm::vec2(scale.x, 0.f), 0.f, 1.f));
-    glm::vec2 p2 = glm::vec2(matrix * glm::vec4(position + glm::vec2(scale.x, scale.y), 0.f, 1.f));
-    glm::vec2 p3 = glm::vec2(matrix * glm::vec4(position + glm::vec2(0.f, scale.y), 0.f, 1.f));
+    glm::vec3 p0 = matrix * glm::vec4(position, 1.f);
+    glm::vec3 p1 = matrix * glm::vec4(position + glm::vec3(scale.x, 0.f, 0.f), 1.f);
+    glm::vec3 p2 = matrix * glm::vec4(position + glm::vec3(scale.x, scale.y, 0.f), 1.f);
+    glm::vec3 p3 = matrix * glm::vec4(position + glm::vec3(0.f, scale.y, 0.f), 1.f);
 
     _textVertices.emplace_back(p0, color, coord.Coord0, textureIndex);
     _textVertices.emplace_back(p1, color, coord.Coord1, textureIndex);
@@ -365,7 +365,7 @@ void Trinacria::DSL::HUD::setupText()
     glBufferData(GL_ARRAY_BUFFER, sizeof(TextVertex) * MaxTextVertices,
         nullptr, GL_DYNAMIC_DRAW);
 
-    glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, sizeof(TextVertex), nullptr);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(TextVertex), nullptr);
     glEnableVertexAttribArray(0);
 
     glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(TextVertex), (void*)offsetof(TextVertex, Color));
@@ -440,6 +440,6 @@ void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& t
             {glyph.GetBound0(), glyph.GetBound3() },
         };
 
-        createText(-transform.Pivot, color, atlasIndex, glm::vec2(1.f), transform.GetMatrix(), texCoords);
+        createText({-transform.Pivot, inWorld}, color, atlasIndex, glm::vec2(1.f), transform.GetMatrix(), texCoords);
     }
 }

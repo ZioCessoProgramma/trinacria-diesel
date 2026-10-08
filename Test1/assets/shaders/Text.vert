@@ -1,6 +1,6 @@
 #version 330 core
 
-layout(location = 0) in vec2 a_Pos;
+layout(location = 0) in vec3 a_Pos;
 layout(location = 1) in vec4 a_Color;
 layout(location = 2) in vec2 a_TexCoord;
 layout(location = 3) in uint a_TexIndex;
@@ -12,7 +12,10 @@ out vec2 TexCoord;
 flat out uint TexIndex;
 
 void main() {
-    gl_Position = u_View * vec4(a_Pos, 0.f, 1.f);
+    if(a_Pos.z > 0)
+        gl_Position = u_View * vec4(a_Pos.xy, 0.f, 1.f);
+    else
+        gl_Position = vec4(a_Pos.xy, 0.f, 1.f);
 
     Color = a_Color;
     TexCoord = a_TexCoord;

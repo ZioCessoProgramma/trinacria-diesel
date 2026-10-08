@@ -149,7 +149,7 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::HUD::CreateText("A", {glm::vec2(0.f)},
                                     glm::vec4(1.f, 0.f, 0.f, 0.7f),
-                                    true, "assets/fonts/Orbitron/Orbitron-Medium.ttf",
+                                    false, "assets/fonts/Orbitron/Orbitron-Medium.ttf",
                                     msdf_atlas::Charset::ASCII);
 
     Trinacria::DSL::HUD::EndHUD();
