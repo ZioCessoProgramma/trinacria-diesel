@@ -77,143 +77,144 @@
 \DoxyCodeLine{00148\ }
 \DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex}{TextVertex}}}
 \DoxyCodeLine{00150\ \ \ \ \ \{}
-\DoxyCodeLine{00154\ }
-\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_aa46fc450d303fdd834af44fdfca777d4}{Position}};}
-\DoxyCodeLine{00156\ }
-\DoxyCodeLine{00160\ }
-\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ glm::vec4\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_a4fca69a333f978e8889faf78ea90c39c}{Color}};}
-\DoxyCodeLine{00162\ }
-\DoxyCodeLine{00166\ }
-\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_a9179d838810e51d0af13ffd92db4b908}{TexCoord}};}
-\DoxyCodeLine{00168\ }
-\DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_af7b71733d284f99bc79e5254cb03a55f}{TextureIndex}};}
-\DoxyCodeLine{00174\ \ \ \ \ \};}
-\DoxyCodeLine{00175\ }
-\DoxyCodeLine{00176\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShaderSet}}}
-\DoxyCodeLine{00177\ \ \ \ \ \{}
-\DoxyCodeLine{00181\ }
-\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a8e8da7cbc34c066bccc0638f8e72dad3}{HUDQuadVertPath}};}
-\DoxyCodeLine{00183\ }
-\DoxyCodeLine{00187\ }
-\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a969e69647ef42baf45a3bb3566a465b0}{HUDQuadFragPath}};}
-\DoxyCodeLine{00189\ }
-\DoxyCodeLine{00193\ }
-\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a93bb7581363c69213a76a692fafb9f31}{TextVertPath}};}
-\DoxyCodeLine{00195\ }
-\DoxyCodeLine{00199\ }
-\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a90cc32afa6f78cd547b764c68c38ceba}{TextFragPath}};}
-\DoxyCodeLine{00201\ }
-\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Define}}
-\DoxyCodeLine{00203\ }
-\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShaderSet}}\ DEFAULT;}
-\DoxyCodeLine{00205\ \ \ \ \ \};}
-\DoxyCodeLine{00206\ }
-\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keyword}{using\ }OnClickType\ =\ std::function<void()>;}
-\DoxyCodeLine{00208\ }
-\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD}}}
-\DoxyCodeLine{00210\ \ \ \ \ \{}
-\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keyword}{public}:}
-\DoxyCodeLine{00212\ }
-\DoxyCodeLine{00219\ }
-\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_af0a7bd87674100940ad4bdb3bdad1e89}{Init}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShaderSet}}\&\ shaderSet,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
-\DoxyCodeLine{00221\ }
-\DoxyCodeLine{00226\ }
-\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ada73644c74ac7da6c7a301ebe0abe271}{Cleanup}}();}
-\DoxyCodeLine{00228\ }
-\DoxyCodeLine{00233\ }
-\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}{EndHUD}}();}
-\DoxyCodeLine{00235\ }
-\DoxyCodeLine{00240\ }
-\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_aa2992fbe5850b4614c4d32e114527989}{CreateHUDQuad}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad);}
-\DoxyCodeLine{00242\ }
-\DoxyCodeLine{00249\ }
-\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab54503644d8af7099851658c7a9ce7c0}{CreateButton}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \textcolor{keyword}{const}\ glm::vec4\&\ hoveredColor,\ \textcolor{keyword}{const}\ glm::vec4\&\ pressedColor,\ GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
-\DoxyCodeLine{00251\ }
-\DoxyCodeLine{00262\ }
-\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a48050af98fff42ec6274958d73f8b6f6}{CreateText}}(\textcolor{keyword}{const}\ std::string\&\ text,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transform,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ \textcolor{keywordtype}{bool}\ inWorld,\ \textcolor{keyword}{const}\ std::string\ \&fontPath,\ \textcolor{keyword}{const}}
-\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ msdf\_atlas::Charset\ \&charset);}
-\DoxyCodeLine{00265\ }
-\DoxyCodeLine{00272\ }
-\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}{AddOnClickFunction}}(\textcolor{keyword}{const}\ OnClickType\&\ onClick,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transformOfTheQuad);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_a6f489a8341a9739e8016889d11aa0a9e}{Position}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ glm::vec4\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_a4fca69a333f978e8889faf78ea90c39c}{Color}};}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_a9179d838810e51d0af13ffd92db4b908}{TexCoord}};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ uint32\_t\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TextVertex_af7b71733d284f99bc79e5254cb03a55f}{TextureIndex}};}
+\DoxyCodeLine{00175\ \ \ \ \ \};}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShaderSet}}}
+\DoxyCodeLine{00178\ \ \ \ \ \{}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a8e8da7cbc34c066bccc0638f8e72dad3}{HUDQuadVertPath}};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a969e69647ef42baf45a3bb3566a465b0}{HUDQuadFragPath}};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a93bb7581363c69213a76a692fafb9f31}{TextVertPath}};}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ std::string\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet_a90cc32afa6f78cd547b764c68c38ceba}{TextFragPath}};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ Define}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShaderSet}}\ DEFAULT;}
+\DoxyCodeLine{00206\ \ \ \ \ \};}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{using\ }OnClickType\ =\ std::function<void()>;}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD}}}
+\DoxyCodeLine{00211\ \ \ \ \ \{}
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_af0a7bd87674100940ad4bdb3bdad1e89}{Init}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDShaderSet}{HUDShaderSet}}\&\ shaderSet,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ada73644c74ac7da6c7a301ebe0abe271}{Cleanup}}();}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}{EndHUD}}();}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_aa2992fbe5850b4614c4d32e114527989}{CreateHUDQuad}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad);}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab54503644d8af7099851658c7a9ce7c0}{CreateButton}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \textcolor{keyword}{const}\ glm::vec4\&\ hoveredColor,\ \textcolor{keyword}{const}\ glm::vec4\&\ pressedColor,\ GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_af5507e7df10ccde92184e5b7d8d079d5}{CreateText}}(\textcolor{keyword}{const}\ std::string\&\ text,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transform,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ \textcolor{keywordtype}{bool}\ inWorld,\ \textcolor{keyword}{const}\ std::string\ \&fontPath,\ \textcolor{keyword}{const}}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\&\ spacing,\ \textcolor{keyword}{const}}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ msdf\_atlas::Charset\ \&charset);}
+\DoxyCodeLine{00267\ }
 \DoxyCodeLine{00274\ }
-\DoxyCodeLine{00282\ }
-\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab4d8ee43d2cd9f6813be69a21eaa763f}{CreateProgressBar}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ fillTexture,}
-\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor);}
-\DoxyCodeLine{00285\ }
-\DoxyCodeLine{00290\ }
-\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ add\ overload\ that\ makes\ you\ flush\ only\ a\ part\ of\ the\ buffer}}
-\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac07c74d744d7bfc3470fd8757bf91c07}{FlushBuffers}}();}
-\DoxyCodeLine{00293\ }
-\DoxyCodeLine{00300\ }
-\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a9e8c61cce43275291215ae77ed6ec25b}{UpdateEvents}}(GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}{AddOnClickFunction}}(\textcolor{keyword}{const}\ OnClickType\&\ onClick,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transformOfTheQuad);}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab4d8ee43d2cd9f6813be69a21eaa763f}{CreateProgressBar}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuadData}}\&\ HUDQuad,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ fillTexture,}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor);}
+\DoxyCodeLine{00287\ }
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ TODO:\ add\ overload\ that\ makes\ you\ flush\ only\ a\ part\ of\ the\ buffer}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac07c74d744d7bfc3470fd8757bf91c07}{FlushBuffers}}();}
+\DoxyCodeLine{00295\ }
 \DoxyCodeLine{00302\ }
-\DoxyCodeLine{00303\ }
-\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDQuads\ \ \ \ =\ \ \ \ \ \ \ \ \ \ \ \ 100;}
-\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDVertices\ =\ MaxHUDQuads\ *\ 4;}
-\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDIndices\ \ =\ MaxHUDQuads\ *\ 6;}
-\DoxyCodeLine{00307\ }
-\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxGlyphs\ \ \ \ \ \ \ =\ \ \ \ \ \ \ \ \ \ 2000;}
-\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxTextVertices\ =\ MaxGlyphs\ *\ 4;}
-\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxTextIndices\ \ =\ MaxGlyphs\ *\ 6;}
-\DoxyCodeLine{00311\ }
-\DoxyCodeLine{00312\ \ \ \ \ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }Renderer;}
-\DoxyCodeLine{00314\ }
-\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}}\ \_shader;}
-\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}}\ \_textShader;}
-\DoxyCodeLine{00317\ }
-\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_vao;}
-\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_vbo;}
-\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_ebo;}
-\DoxyCodeLine{00321\ }
-\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_textVao;}
-\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_textVbo;}
-\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_textEbo;}
-\DoxyCodeLine{00325\ }
-\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<HUDVertex>\ \_vertices;}
-\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \_indices;}
-\DoxyCodeLine{00328\ }
-\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<TextVertex>\ \_textVertices;}
-\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \_textIndices;}
-\DoxyCodeLine{00331\ }
-\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<Texture*,\ uint32\_t>>\ \_textures;}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a9e8c61cce43275291215ae77ed6ec25b}{UpdateEvents}}(GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ }
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDQuads\ \ \ \ =\ \ \ \ \ \ \ \ \ \ \ \ 100;}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDVertices\ =\ MaxHUDQuads\ *\ 4;}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxHUDIndices\ \ =\ MaxHUDQuads\ *\ 6;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxGlyphs\ \ \ \ \ \ \ =\ \ \ \ \ \ \ \ \ \ 2000;}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxTextVertices\ =\ MaxGlyphs\ *\ 4;}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{size\_t}\ MaxTextIndices\ \ =\ MaxGlyphs\ *\ 6;}
+\DoxyCodeLine{00313\ }
+\DoxyCodeLine{00314\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }Renderer;}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}}\ \_shader;}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}}\ \_textShader;}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_vao;}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_vbo;}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_ebo;}
+\DoxyCodeLine{00323\ }
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_textVao;}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_textVbo;}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ uint32\_t\ \_textEbo;}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<HUDVertex>\ \_vertices;}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \_indices;}
+\DoxyCodeLine{00330\ }
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<TextVertex>\ \_textVertices;}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<uint32\_t>\ \_textIndices;}
 \DoxyCodeLine{00333\ }
-\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<std::function<void()>,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}>>\ \_onClickAndTransform;}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<Texture*,\ uint32\_t>>\ \_textures;}
 \DoxyCodeLine{00335\ }
-\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_lastStateOfLeftMouseButton\ =\ GLFW\_RELEASE;}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<std::pair<std::function<void()>,\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}>>\ \_onClickAndTransform;}
 \DoxyCodeLine{00337\ }
-\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \_aspectRatio;}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_lastStateOfLeftMouseButton\ =\ GLFW\_RELEASE;}
 \DoxyCodeLine{00339\ }
-\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<TextAtlas>\ \_textAtlases;}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{float}\ \_aspectRatio;}
 \DoxyCodeLine{00341\ }
-\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ draw(\textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions,\ \textcolor{keyword}{const}\ glm::vec2\&\ cameraPos,\ \textcolor{keywordtype}{float}\ zoom);}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::vector<TextAtlas>\ \_textAtlases;}
 \DoxyCodeLine{00343\ }
-\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createHUDQuad(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ uint32\_t\ textureIndex,}
-\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ scale,\ glm::mat4\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\&\ coord,}
-\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ fillTextureIndex,\ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor}
-\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00348\ }
-\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createText(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ uint32\_t\ textureIndex,}
-\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ scale,\ glm::mat4\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\&\ coord}
-\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ );}
-\DoxyCodeLine{00352\ }
-\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ findTextureIndex(uint32\_t\&\ outIndex,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texToFind);}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ draw(\textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions,\ \textcolor{keyword}{const}\ glm::vec2\&\ cameraPos,\ \textcolor{keywordtype}{float}\ zoom);}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createHUDQuad(\textcolor{keyword}{const}\ glm::vec2\&\ position,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ uint32\_t\ textureIndex,}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ scale,\ glm::mat4\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\&\ coord,}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ uint32\_t\ fillTextureIndex,\ \textcolor{keywordtype}{float}\ progress,\ \textcolor{keyword}{const}\ glm::vec4\&\ fillColor}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00350\ }
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ createText(\textcolor{keyword}{const}\ glm::vec3\&\ position,\ \textcolor{keyword}{const}\ glm::vec4\&\ color,\ uint32\_t\ textureIndex,}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ glm::vec2\&\ scale,\ glm::mat4\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\&\ coord}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ );}
 \DoxyCodeLine{00354\ }
-\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ setupTexture(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texture);}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ findTextureIndex(uint32\_t\&\ outIndex,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texToFind);}
 \DoxyCodeLine{00356\ }
-\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isInRange(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transform,\ GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ setupTexture(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}*\ texture);}
 \DoxyCodeLine{00358\ }
-\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setupQuads();}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ isInRange(\textcolor{keyword}{const}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}}\&\ transform,\ GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
 \DoxyCodeLine{00360\ }
-\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setupText();}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setupQuads();}
 \DoxyCodeLine{00362\ }
-\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onResize(\textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ setupText();}
 \DoxyCodeLine{00364\ }
-\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ setupAtlas(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ msdf\_atlas::Charset\ \&charset);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ onResize(\textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions);}
 \DoxyCodeLine{00366\ }
-\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ findAtlasIndex(\textcolor{keyword}{const}\ std::string\&\ path,\ uint32\_t\ \&outIndex);}
-\DoxyCodeLine{00368\ \ \ \ \ \};}
-\DoxyCodeLine{00369\ \}}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ uint32\_t\ setupAtlas(\textcolor{keyword}{const}\ std::string\&\ path,\ \textcolor{keyword}{const}\ msdf\_atlas::Charset\ \&charset);}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ findAtlasIndex(\textcolor{keyword}{const}\ std::string\&\ path,\ uint32\_t\ \&outIndex);}
+\DoxyCodeLine{00370\ \ \ \ \ \};}
+\DoxyCodeLine{00371\ \}}
 
 \end{DoxyCode}

@@ -13,7 +13,7 @@ static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_aa2992fbe5850b461
 \begin{DoxyCompactList}\small\item\em creates a quad that will be later drawn \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ab54503644d8af7099851658c7a9ce7c0}{Create\+Button}} (const \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1HUDQuadData}{HUDQuad\+Data}} \&HUDQuad, const glm\+::vec4 \&hovered\+Color, const glm\+::vec4 \&pressed\+Color, GLFWwindow \texorpdfstring{$\ast$}{*}window, const glm\+::vec2 \&window\+Dimensions)
 \begin{DoxyCompactList}\small\item\em creates a button that will be later drawn \end{DoxyCompactList}\item 
-static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_a48050af98fff42ec6274958d73f8b6f6}{Create\+Text}} (const std\+::string \&text, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform, const glm\+::vec4 \&color, bool in\+World, const std\+::string \&font\+Path, const msdf\+\_\+atlas\+::\+Charset \&charset)
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_af5507e7df10ccde92184e5b7d8d079d5}{Create\+Text}} (const std\+::string \&text, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform, const glm\+::vec4 \&color, bool in\+World, const std\+::string \&font\+Path, const glm\+::vec2 \&spacing, const msdf\+\_\+atlas\+::\+Charset \&charset)
 \begin{DoxyCompactList}\small\item\em queues some text to draw \end{DoxyCompactList}\item 
 static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1HUD_ac4794341715ec51dbb92ee5d02dd36c2}{Add\+On\+Click\+Function}} (const On\+Click\+Type \&on\+Click, const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&transform\+Of\+The\+Quad)
 \begin{DoxyCompactList}\small\item\em it adds the specified call to a private array \end{DoxyCompactList}\item 
@@ -143,11 +143,11 @@ creates a quad that can be filled like a progress bar
 {\em fill\+Color} & the color to use when filling the progress bar \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_a48050af98fff42ec6274958d73f8b6f6}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!CreateText@{CreateText}}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_af5507e7df10ccde92184e5b7d8d079d5}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!CreateText@{CreateText}}
 \index{CreateText@{CreateText}!TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}}
 \doxysubsubsection{\texorpdfstring{CreateText()}{CreateText()}}
-{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_a48050af98fff42ec6274958d73f8b6f6} 
-void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Create\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{const glm\+::vec4 \&}]{color}{, }\item[{bool}]{in\+World}{, }\item[{const std\+::string \&}]{font\+Path}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1HUD_af5507e7df10ccde92184e5b7d8d079d5} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+HUD\+::\+Create\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text}{, }\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{const glm\+::vec4 \&}]{color}{, }\item[{bool}]{in\+World}{, }\item[{const std\+::string \&}]{font\+Path}{, }\item[{const glm\+::vec2 \&}]{spacing}{, }\item[{const msdf\+\_\+atlas\+::\+Charset \&}]{charset}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
 
 
 
@@ -165,9 +165,9 @@ queues some text to draw
 \hline
 {\em font\+Path} & the path of the font \\
 \hline
-{\em charset} & the charset to use for example msdf\+\_\+atlas\+::\+Charset\+:ASCII \\
+{\em spacing} & the spacing between letters \\
 \hline
-{\em window\+Dimensions} & \\
+{\em charset} & the charset to use for example msdf\+\_\+atlas\+::\+Charset\+:ASCII \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classTRCN__CORE__NAMESPACE_1_1HUD_ac063a609472c831b97ade13af42c9529}\index{TRCN\_CORE\_NAMESPACE::HUD@{TRCN\_CORE\_NAMESPACE::HUD}!EndHUD@{EndHUD}}

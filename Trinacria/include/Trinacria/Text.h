@@ -74,7 +74,7 @@ namespace TRCN_CORE_NAMESPACE
 
         Glyph(TextAtlas* owner) : _owner(owner) { }
 
-        void SetGlyph(char c);
+        bool SetGlyph(char c);
 
         float GetBound0() const { return _bound0; }
         float GetBound1() const { return _bound1; }

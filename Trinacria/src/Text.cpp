@@ -82,9 +82,11 @@ const msdf_atlas::GlyphGeometry* Trinacria::DSL::TextAtlas::GetGlyph(char c)
     return _fontGeometry->getGlyph(c);
 }
 
-void Trinacria::DSL::Glyph::SetGlyph(char c)
+bool Trinacria::DSL::Glyph::SetGlyph(char c)
 {
     const msdf_atlas::GlyphGeometry* glyph = _owner->GetGlyph(c);
+
+    if (!glyph) return false;
 
     double bound0, bound1, bound2, bound3;
     glyph->getQuadAtlasBounds(bound0, bound1, bound2, bound3);
@@ -93,4 +95,6 @@ void Trinacria::DSL::Glyph::SetGlyph(char c)
     _bound1 = (float)bound1 / _owner->GetTexture().GetHeight();
     _bound2 = (float)bound2 / _owner->GetTexture().GetWidth();
     _bound3 = (float)bound3 / _owner->GetTexture().GetHeight();
+
+    return true;
 }

@@ -60,7 +60,7 @@ private:
 	Trinacria::DSL::Shader _screenShader;
 
     Trinacria::DSL::Transform _buttonTransform = Trinacria::DSL::Transform(glm::vec2(-0.9f, 0.f),
-        glm::vec2(0.1f, 0.1f),0, glm::vec2(0.f, 0.f));
+        glm::vec2(0.1f, 0.1f),0, glm::vec2(0.5f, 0.5f));
 
     Trinacria::DSL::Transform _buttonTransform1 = Trinacria::DSL::Transform(glm::vec2(0.9f, 0.f),
     glm::vec2(0.1f, 0.1f), 0, glm::vec2(1.f, 0.f));

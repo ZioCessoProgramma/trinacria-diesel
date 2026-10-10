@@ -257,11 +257,12 @@ namespace TRCN_CORE_NAMESPACE
          * @param color the color of the text
          * @param inWorld should the text scale, translates, etc.. based on the world?
          * @param fontPath the path of the font
+         * @param spacing the spacing between letters
          * @param charset the charset to use for example msdf_atlas::Charset:ASCII
-         * @param windowDimensions
          */
 
         static void CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, bool inWorld, const std::string &fontPath, const
+                               glm::vec2& spacing, const
                                msdf_atlas::Charset &charset);
 
         /**

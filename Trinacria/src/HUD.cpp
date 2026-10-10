@@ -137,6 +137,10 @@ void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm
         tex.first->Bind(tex.second + GL_TEXTURE0 - 1);
     }
 
+    glm::mat4 proj = glm::scale(glm::mat4(1.f), glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
+
+    _shader.SetUniformMat4("u_Transform", proj);
+
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES, _indices.size(), GL_UNSIGNED_INT, nullptr);
 
@@ -155,10 +159,10 @@ void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm
 
     glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
 
-    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
     viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
 
     _textShader.SetUniformMat4("u_View", viewProjection);
+    _textShader.SetUniformMat4("u_Transform", proj);
 
     glBindVertexArray(_textVao);
     glDrawElements(GL_TRIANGLES, _textIndices.size(), GL_UNSIGNED_INT, nullptr);
@@ -385,10 +389,6 @@ void Trinacria::DSL::HUD::setupText()
 
 void Trinacria::DSL::HUD::onResize(const glm::vec2& windowDimensions)
 {
-    glm::mat4 proj = glm::scale(glm::mat4(1.f), glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
-
-    _shader.Bind();
-    _shader.SetUniformMat4("u_Transform", proj);
 
     _aspectRatio = windowDimensions.x / windowDimensions.y;
 }
@@ -419,11 +419,14 @@ void TRCN_CORE_NAMESPACE::HUD::CreateButton(const HUDQuadData& HUDQuad, const gl
 }
 
 void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, bool inWorld, const std::string &fontPath, const
+                                     glm::vec2 &spacing, const
                                      msdf_atlas::Charset& charset)
 {
     TRCN_DEPEND_START("Create Text");
 
     uint32_t atlasIndex = setupAtlas(fontPath, charset);
+
+    glm::vec2 glyphAdvance(0.f);
 
     for (char c : text)
     {
@@ -431,15 +434,29 @@ void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& t
         TRCN_DEPEND_RETURN_ASSERT_VOID(_textIndices.size() < MaxTextIndices);
 
         Glyph glyph(&_textAtlases[atlasIndex]);
-        glyph.SetGlyph(c);
 
-        QuadTexCoords texCoords {
-            { glyph.GetBound0(), glyph.GetBound1() },
-            { glyph.GetBound2(), glyph.GetBound1() },
-            { glyph.GetBound2(), glyph.GetBound3() },
-            {glyph.GetBound0(), glyph.GetBound3() },
-        };
+        if (bool isPrintable = glyph.SetGlyph(c))
+        {
+            QuadTexCoords texCoords {
+                { glyph.GetBound0(), glyph.GetBound1() },
+                { glyph.GetBound2(), glyph.GetBound1() },
+                { glyph.GetBound2(), glyph.GetBound3() },
+                {glyph.GetBound0(), glyph.GetBound3() },
+            };
 
-        createText({-transform.Pivot, inWorld}, color, atlasIndex, glm::vec2(1.f), transform.GetMatrix(), texCoords);
+            createText({-transform.Pivot + glyphAdvance, inWorld}, color, atlasIndex,
+                glm::vec2(1.f), transform.GetMatrix(), texCoords);
+
+            glyphAdvance.x += spacing.x;
+        }
+        else if (c == '\n')
+        {
+            glyphAdvance.y -= spacing.y;
+            glyphAdvance.x = 0.f;
+        }
+        else
+        {
+            TRCN_LOG("TRINACRIA_ERROR: Invalid character");
+        }
     }
 }

@@ -104,8 +104,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa2992fbe5850b4614c4d32e114527989"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates a quad that will be later drawn  <br /></td></tr>
 <tr class="memitem:ab54503644d8af7099851658c7a9ce7c0" id="r_ab54503644d8af7099851658c7a9ce7c0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab54503644d8af7099851658c7a9ce7c0">CreateButton</a> (const <a class="el" href="structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html">HUDQuadData</a> &amp;HUDQuad, const glm::vec4 &amp;hoveredColor, const glm::vec4 &amp;pressedColor, GLFWwindow *window, const glm::vec2 &amp;windowDimensions)</td></tr>
 <tr class="memdesc:ab54503644d8af7099851658c7a9ce7c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates a button that will be later drawn  <br /></td></tr>
-<tr class="memitem:a48050af98fff42ec6274958d73f8b6f6" id="r_a48050af98fff42ec6274958d73f8b6f6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48050af98fff42ec6274958d73f8b6f6">CreateText</a> (const std::string &amp;text, const <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Transform.html">Transform</a> &amp;transform, const glm::vec4 &amp;color, bool inWorld, const std::string &amp;fontPath, const msdf_atlas::Charset &amp;charset)</td></tr>
-<tr class="memdesc:a48050af98fff42ec6274958d73f8b6f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">queues some text to draw  <br /></td></tr>
+<tr class="memitem:af5507e7df10ccde92184e5b7d8d079d5" id="r_af5507e7df10ccde92184e5b7d8d079d5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5507e7df10ccde92184e5b7d8d079d5">CreateText</a> (const std::string &amp;text, const <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Transform.html">Transform</a> &amp;transform, const glm::vec4 &amp;color, bool inWorld, const std::string &amp;fontPath, const glm::vec2 &amp;spacing, const msdf_atlas::Charset &amp;charset)</td></tr>
+<tr class="memdesc:af5507e7df10ccde92184e5b7d8d079d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">queues some text to draw  <br /></td></tr>
 <tr class="memitem:ac4794341715ec51dbb92ee5d02dd36c2" id="r_ac4794341715ec51dbb92ee5d02dd36c2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac4794341715ec51dbb92ee5d02dd36c2">AddOnClickFunction</a> (const OnClickType &amp;onClick, const <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Transform.html">Transform</a> &amp;transformOfTheQuad)</td></tr>
 <tr class="memdesc:ac4794341715ec51dbb92ee5d02dd36c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">it adds the specified call to a private array  <br /></td></tr>
 <tr class="memitem:ab4d8ee43d2cd9f6813be69a21eaa763f" id="r_ab4d8ee43d2cd9f6813be69a21eaa763f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4d8ee43d2cd9f6813be69a21eaa763f">CreateProgressBar</a> (const <a class="el" href="structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html">HUDQuadData</a> &amp;HUDQuad, <a class="el" href="classTRCN__CORE__NAMESPACE_1_1Texture.html">Texture</a> *fillTexture, float progress, const glm::vec4 &amp;fillColor)</td></tr>
@@ -340,8 +340,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b></td></t
 
 </div>
 </div>
-<a id="a48050af98fff42ec6274958d73f8b6f6" name="a48050af98fff42ec6274958d73f8b6f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48050af98fff42ec6274958d73f8b6f6">&#9670;&#160;</a></span>CreateText()</h2>
+<a id="af5507e7df10ccde92184e5b7d8d079d5" name="af5507e7df10ccde92184e5b7d8d079d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5507e7df10ccde92184e5b7d8d079d5">&#9670;&#160;</a></span>CreateText()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -377,6 +377,11 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b></td></t
         <tr>
           <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const glm::vec2 &amp;</td>          <td class="paramname"><span class="paramname"><em>spacing</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">const msdf_atlas::Charset &amp;</td>          <td class="paramname"><span class="paramname"><em>charset</em></span>&#160;)</td>
         </tr>
       </table>
@@ -395,8 +400,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>Renderer</b></td></t
     <tr><td class="paramname">color</td><td>the color of the text </td></tr>
     <tr><td class="paramname">inWorld</td><td>should the text scale, translates, etc.. based on the world? </td></tr>
     <tr><td class="paramname">fontPath</td><td>the path of the font </td></tr>
+    <tr><td class="paramname">spacing</td><td>the spacing between letters </td></tr>
     <tr><td class="paramname">charset</td><td>the charset to use for example msdf_atlas::Charset:ASCII </td></tr>
-    <tr><td class="paramname">windowDimensions</td><td></td></tr>
   </table>
   </dd>
 </dl>
