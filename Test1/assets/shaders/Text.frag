@@ -17,12 +17,9 @@ void main()
 {
     vec4 color = SampleTexture(int(TexIndex), TexCoord);
 
-    if(median(color.r, color.g, color.b) >= 0.5f)
-    {
-        FragColor = Color;
-    }
-    else
-    {
-        discard;
-    }
+    float m = median(color.r, color.g, color.b);
+
+    float w = fwidth(m);
+
+    FragColor = vec4(Color.rgb, smoothstep(0.5f - w, 0.5f + w, m));
 }

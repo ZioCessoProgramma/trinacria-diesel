@@ -80,9 +80,15 @@ uint32_t Trinacria::DSL::Shader::compileAndCreateShader(const char* source, uint
     {
         char infoLog[512];
 
+        std::string infoLogStr = infoLog;
+
         glGetShaderInfoLog(id, 512, nullptr, infoLog);
 
-        std::cout << "Vertex shader compilation failed:\n" << infoLog;
+        std::string shader_type = shaderType == GL_VERTEX_SHADER ? shaderType == GL_FRAGMENT_SHADER ? "Fragment Shader" : "Geometry Shader" : "Vertex Shader";
+
+        TRCN_LOG_COUT(shader_type + "compilation failed:\n" + infoLogStr);
+
+        TRCN_LOG_COUT(source);
     }
 
     return id;
