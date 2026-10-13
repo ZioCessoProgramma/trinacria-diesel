@@ -1,0 +1,165 @@
+\doxysection{Input\+Events.\+h}
+\hypertarget{InputEvents_8h_source}{}\label{InputEvents_8h_source}\index{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/InputEvents.h@{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/InputEvents.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Macros.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}Event.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}glm/vec2.hpp"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ KEY\_NUM\ 94}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{struct\ }GLFWwindow;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }TRCN\_CORE\_NAMESPACE}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{enum\ class}\ InputEventType}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ Pressed,}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ Clicked,}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ Released}
+\DoxyCodeLine{00023\ \ \ \ \ \};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{enum}\ KeyValue\ :\ uint32\_t}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ Key\_SPACE\ =\ 32,\ Key\_APOSTROPHE\ =\ 39,\ Key\_COMMA\ =\ 44,\ Key\_MINUS\ =\ 45,\ Key\_PERIOD\ =\ 46,\ Key\_SLASH\ =\ 47,}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ Key\_0\ =\ 48,\ Key\_1\ =\ 49,\ Key\_2\ =\ 50,\ Key\_3\ =\ 51,\ Key\_4\ =\ 52,\ Key\_5\ =\ 53,\ Key\_6\ =\ 54,\ Key\_7\ =\ 55,\ Key\_8\ =\ 56,\ Key\_9\ =\ 57,}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ Key\_EQUAL\ =\ 61,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ Key\_A\ =\ 65,\ Key\_B\ =\ 66,\ Key\_C\ =\ 67,\ Key\_D\ =\ 68,\ Key\_E\ =\ 69,\ Key\_F\ =\ 70,\ Key\_G\ =\ 71,\ Key\_H\ =\ 72,\ Key\_I\ =\ 73,\ Key\_J\ =\ 74,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ Key\_K\ =\ 75,\ Key\_L\ =\ 76,\ Key\_M\ =\ 77,\ Key\_N\ =\ 78,\ Key\_O\ =\ 79,\ Key\_P\ =\ 80,\ Key\_Q\ =\ 81,\ Key\_R\ =\ 82,\ Key\_S\ =\ 83,\ Key\_T\ =\ 84,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ Key\_U\ =\ 85,\ Key\_V\ =\ 86,\ Key\_W\ =\ 87,\ Key\_X\ =\ 88,\ Key\_Y\ =\ 89,\ Key\_Z\ =\ 90,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ Key\_LEFT\_BRACKET\ =\ 91,\ Key\_BACKSLASH\ =\ 92,\ Key\_RIGHT\_BRACKET\ =\ 93,}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ Key\_ESCAPE\ =\ 256,\ Key\_ENTER\ =\ 257,\ Key\_TAB\ =\ 258,\ Key\_BACKSPACE\ =\ 259,}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ Key\_INSERT\ =\ 260,\ Key\_DELETE\ =\ 261,\ Key\_RIGHT\ =\ 262,\ Key\_LEFT\ =\ 263,\ Key\_DOWN\ =\ 264,\ Key\_UP\ =\ 265,}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ Key\_PAGE\_UP\ =\ 266,\ Key\_PAGE\_DOWN\ =\ 267,\ Key\_HOME\ =\ 268,\ Key\_END\ =\ 269,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ Key\_CAPS\_LOCK\ =\ 280,\ Key\_SCROLL\_LOCK\ =\ 281,\ Key\_NUM\_LOCK\ =\ 282,\ Key\_PRINT\_SCREEN\ =\ 283,\ Key\_PAUSE\ =\ 284,}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ Key\_F1\ =\ 290,\ Key\_F2\ =\ 291,\ Key\_F3\ =\ 292,\ Key\_F4\ =\ 293,\ Key\_F5\ =\ 294,\ Key\_F6\ =\ 295,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ Key\_F7\ =\ 296,\ Key\_F8\ =\ 297,\ Key\_F9\ =\ 298,\ Key\_F10\ =\ 299,\ Key\_F11\ =\ 300,\ Key\_F12\ =\ 301,}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ Key\_NUMPAD\_0\ =\ 320,\ Key\_NUMPAD\_1\ =\ 321,\ Key\_NUMPAD\_2\ =\ 322,\ Key\_NUMPAD\_3\ =\ 323,}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ Key\_NUMPAD\_4\ =\ 324,\ Key\_NUMPAD\_5\ =\ 325,\ Key\_NUMPAD\_6\ =\ 326,\ Key\_NUMPAD\_7\ =\ 327,}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ Key\_NUMPAD\_8\ =\ 328,\ Key\_NUMPAD\_9\ =\ 329,\ Key\_NUMPAD\_DECIMAL\ =\ 330,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ Key\_NUMPAD\_DIVIDE\ =\ 331,\ Key\_NUMPAD\_MULTIPLY\ =\ 332,}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ Key\_NUMPAD\_SUBTRACT\ =\ 333,\ Key\_NUMPAD\_ADD\ =\ 334,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ Key\_NUMPAD\_ENTER\ =\ 335,\ Key\_NUMPAD\_EQUAL\ =\ 336}
+\DoxyCodeLine{00053\ \ \ \ \ \};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1KeyboardEvent_aa08c69f5286d457e61f10cd791094542}{KeyboardEvent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Event_a00ea9aeb5b27428bdc29480b7dd405b5}{Event}}<InputEventType>}
+\DoxyCodeLine{00060\ \ \ \ \ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1KeyboardEvent_aa08c69f5286d457e61f10cd791094542}{KeyboardEvent}}(KeyValue\ key,\ InputEventType\ type)\ :\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Event_a00ea9aeb5b27428bdc29480b7dd405b5}{Event}}(type),\ \_key(key)\ \{\}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ KeyValue\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1KeyboardEvent_ad0ba81140eb482ecd1a0d26a03d79a84}{GetKey}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_key;\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ KeyValue\ \_key;}
+\DoxyCodeLine{00079\ \ \ \ \ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{enum}\ MouseValue}
+\DoxyCodeLine{00086\ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ Mouse\_LEFT\ =\ 0,\ Mouse\_RIGHT\ =\ 1,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ Mouse\_SCROLLWHEEL\ =\ 2,}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ Mouse\_4\ =\ 3,\ Mouse\_5\ =\ 4}
+\DoxyCodeLine{00090\ \ \ \ \ \};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent_afd28c1a2ffadc2870053e8c9110214e2}{MouseKeyEvent}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Event_a00ea9aeb5b27428bdc29480b7dd405b5}{Event}}<InputEventType>}
+\DoxyCodeLine{00097\ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent_afd28c1a2ffadc2870053e8c9110214e2}{MouseKeyEvent}}(MouseValue\ mouseKey,\ InputEventType\ type)\ :\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Event_a00ea9aeb5b27428bdc29480b7dd405b5}{Event}}(type),\ \_mouseKey(mouseKey)\ \{\}}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ MouseValue\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent_a1e01f25bbe43f19a30b18d430d4b6a96}{GetKey}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \_mouseKey;\ \}}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ MouseValue\ \_mouseKey;}
+\DoxyCodeLine{00116\ \ \ \ \ \};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{comment}{/*enum\ class\ MouseMovedEventType\ \{\ Moved\ \};}}
+\DoxyCodeLine{00119\ \textcolor{comment}{\ \ \ \ enum\ class\ MouseScrolledEventType\ \{\ Moved\ \};*/}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{comment}{//\ Commented\ because\ glfw\ doesn't\ offer\ a\ way\ without\ his\ callbacks}}
+\DoxyCodeLine{00122\ \ \ \ \ \textcolor{comment}{//\ \ client\ will\ use\ directly\ glfw\ for\ mouse\ movement\ and\ scroll}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{comment}{/*class\ MouseMoveEvent\ :\ Event<MouseMovedEventType>}}
+\DoxyCodeLine{00125\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00126\ \textcolor{comment}{\ \ \ \ public:}}
+\DoxyCodeLine{00127\ \textcolor{comment}{\ \ \ \ \ \ \ \ MouseMoveEvent(uint32\_t\ xPos,\ uint32\_t\ yPos)\ :\ Event(MouseMovedEventType::Moved),\ \_xPos(xPos),\ \_yPos(yPos)\ \{\ \}}}
+\DoxyCodeLine{00128\ \textcolor{comment}{}}
+\DoxyCodeLine{00129\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint32\_t\ GetXPos()\ const\ \{\ return\ \_xPos;\ \}}}
+\DoxyCodeLine{00130\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint32\_t\ GetYPos()\ const\ \{\ return\ \_yPos;\ \}}}
+\DoxyCodeLine{00131\ \textcolor{comment}{}}
+\DoxyCodeLine{00132\ \textcolor{comment}{\ \ \ \ \ \ \ \ glm::vec2\ GetPosition()\ const\ \{\ return\ glm::vec2(\_xPos,\ \_yPos);\ \}}}
+\DoxyCodeLine{00133\ \textcolor{comment}{\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00134\ \textcolor{comment}{\ \ \ \ private:}}
+\DoxyCodeLine{00135\ \textcolor{comment}{\ \ \ \ \ \ \ \ uint32\_t\ \_xPos,\ \_yPos;}}
+\DoxyCodeLine{00136\ \textcolor{comment}{\ \ \ \ \};}}
+\DoxyCodeLine{00137\ \textcolor{comment}{}}
+\DoxyCodeLine{00138\ \textcolor{comment}{\ \ \ \ class\ MouseScrollEvent\ :\ Event<MouseScrolledEventType>}}
+\DoxyCodeLine{00139\ \textcolor{comment}{\ \ \ \ \{}}
+\DoxyCodeLine{00140\ \textcolor{comment}{\ \ \ \ public:}}
+\DoxyCodeLine{00141\ \textcolor{comment}{\ \ \ \ \ \ \ \ MouseScrollEvent(int\ yOffset)\ :\ Event(MouseScrolledEventType::Moved),\ \_yOffset(yOffset)\ \{\ \}}}
+\DoxyCodeLine{00142\ \textcolor{comment}{}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ private:}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ \ \ \ \ int\ \_yOffset;}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ \ \ \ \};*/}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1InputPollerLayer}{InputPollerLayer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Layer}{Layer}}}
+\DoxyCodeLine{00152\ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1InputPollerLayer_ad59c3f957298fc24b411a7a018ef1db4}{OnUpdate}}(\textcolor{keywordtype}{float}\ deltaTime)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1InputPollerLayer_a5563311800c8af919f86f82da3539926}{OnAttach}}()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1InputPollerLayer_a286943b5523a2ca7e1d62e200b5c2e88}{OnDetach}}()\textcolor{keyword}{\ override\ }\{\ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1InputPollerLayer_a51883c2e741e29869a29493ce66c92c1}{SetWindow}}(GLFWwindow*\ window,\ \textcolor{keyword}{const}\ glm::vec2\&\ windowDimensions)}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \_window\ =\ window;}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \_windowDimensions\ \ =\ windowDimensions;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1EventDispatcher}{EventDispatcher<KeyboardEvent>}}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1InputPollerLayer_a899618ee2dd2eff05839789e37055042}{KeyBoardDispatcher}};}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1EventDispatcher}{EventDispatcher<MouseKeyEvent>}}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1InputPollerLayer_a5e40b9077514155e4237c16432726b0d}{MouseDispatcher}};}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*EventDispatcher<MouseScrollEvent>\ MouseScrollDispatcher;}}
+\DoxyCodeLine{00197\ \textcolor{comment}{\ \ \ \ \ \ \ \ EventDispatcher<MouseMoveEvent>\ MouseMoveDispatcher;*/}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isPressed(\textcolor{keywordtype}{int}\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isReleased(\textcolor{keywordtype}{int}\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isMousePressed(\textcolor{keywordtype}{int}\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ isMouseReleased(\textcolor{keywordtype}{int}\ key)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ submitMouseEvent(\textcolor{keywordtype}{int}\ glfwKey,\ MouseValue\ mouseKey);}
+\DoxyCodeLine{00207\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ GLFWwindow*\ \_window\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ glm::vec2\ \_windowDimensions;}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ uint32\_t\ \_keys[KEY\_NUM]\ =\ \{\};}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_wasPressed[KEY\_NUM]\ =\ \{\};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_wasMousePressed[5]\ =\ \{\};}
+\DoxyCodeLine{00215\ \ \ \ \ \};}
+\DoxyCodeLine{00216\ \}}
+
+\end{DoxyCode}

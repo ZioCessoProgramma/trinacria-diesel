@@ -1,16 +1,16 @@
-#version 330
+#version 330 core
 
 layout(location = 0) in vec2 a_Pos;
 layout(location = 1) in int a_TextureIndex;
 layout(location = 2) in vec2 a_TexCoords;
-layout(location = 3) in vec3 a_Color;
+layout(location = 3) in vec4 a_Color;
 layout(location = 4) in int a_MaterialIndex;
 
 uniform mat4 u_View;
 
 out vec2 TexCoords;
 flat out int Index;
-out vec3 Color;
+out vec4 Color;
 out vec2 FragPos;
 flat out int MaterialIndex;
 

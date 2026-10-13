@@ -1,0 +1,88 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Animation\texorpdfstring{$<$}{<} Sprite\+Num \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classTRCN__CORE__NAMESPACE_1_1Animation}{}\label{classTRCN__CORE__NAMESPACE_1_1Animation}\index{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$@{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$}}
+
+
+plays an animation made of a fixed number of sprites  
+
+
+
+
+{\ttfamily \#include $<$Animation.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Animation_aee482ac1c338b82880c35af01ca96f5c}{Play}} (float delta\+Time, const glm\+::vec2 \&position, const glm\+::vec4 \&color=glm\+::vec4(1.f), int material\+Index=0)
+\begin{DoxyCompactList}\small\item\em advances the animation and draws the current frame \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Animation_adf6e328fe4776cb8eb9d1105c799765f}{Init}} (\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*}array, size\+\_\+t count, uint32\+\_\+t fps)
+\begin{DoxyCompactList}\small\item\em initializes the animation, can only be called once \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Animation_ac39562f6d066347be08e8591dd6fddc8}\label{classTRCN__CORE__NAMESPACE_1_1Animation_ac39562f6d066347be08e8591dd6fddc8} 
+uint32\+\_\+t {\bfseries Fps} = 0
+\begin{DoxyCompactList}\small\item\em frames per second of the animation \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$size\+\_\+t Sprite\+Num$>$\newline
+class TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Animation$<$ Sprite\+Num $>$}
+plays an animation made of a fixed number of sprites 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em Sprite\+Num} & the number of frames of the animation \\
+\hline
+\end{DoxyTemplParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Animation_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Animation_adf6e328fe4776cb8eb9d1105c799765f}\index{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$@{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$}!Init@{Init}}
+\index{Init@{Init}!TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$@{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Animation_adf6e328fe4776cb8eb9d1105c799765f} 
+template$<$size\+\_\+t Sprite\+Num$>$ \\
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Animation}{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Animation}}$<$ Sprite\+Num $>$\+::\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{array}{, }\item[{size\+\_\+t}]{count}{, }\item[{uint32\+\_\+t}]{fps}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+initializes the animation, can only be called once 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array} & the array of sprites (frames) of the animation \\
+\hline
+{\em count} & number of sprites in the array \\
+\hline
+{\em fps} & frames per second of the animation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Animation_aee482ac1c338b82880c35af01ca96f5c}\index{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$@{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$}!Play@{Play}}
+\index{Play@{Play}!TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$@{TRCN\_CORE\_NAMESPACE::Animation$<$ SpriteNum $>$}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Animation_aee482ac1c338b82880c35af01ca96f5c} 
+template$<$size\+\_\+t Sprite\+Num$>$ \\
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Animation}{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Animation}}$<$ Sprite\+Num $>$\+::\+Play (\begin{DoxyParamCaption}\item[{float}]{delta\+Time}{, }\item[{const glm\+::vec2 \&}]{position}{, }\item[{const glm\+::vec4 \&}]{color}{ = {\ttfamily glm\+:\+:vec4(1.f)}, }\item[{int}]{material\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+advances the animation and draws the current frame 
+
+
+\begin{DoxyParams}{Parameters}
+{\em delta\+Time} & time elapsed since the last call \\
+\hline
+{\em position} & where to draw the animation \\
+\hline
+{\em color} & tint of the animation, defaults to white \\
+\hline
+{\em material\+Index} & the material\textquotesingle{}s index to use, defaults to 0 \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/Animation.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,186 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Triangle\+Data Struct Reference}
+\hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData}{}\label{structTRCN__CORE__NAMESPACE_1_1TriangleData}\index{TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}}
+
+
+struct for representing triangles  
+
+
+
+
+{\ttfamily \#include $<$Shapes\+Data.\+h$>$}
+
+
+
+Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Triangle\+Data\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structTRCN__CORE__NAMESPACE_1_1TriangleData__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_af1da16f61da2f80779d661d3fa66ae0c}{Triangle\+Data}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_ab9afc1705a35002a2d8094d8de8f766a}{transform}}, \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_a99b1d4a682b42c700c0d05e3ac48aae5}{texture}}, int material\+Index=0, Triangle\+Orientation orientation=Triangle\+Orientation\+::\+Orientation\+\_\+\+RIGHT, const glm\+::vec4 \&color=glm\+::vec4(1.f))
+\begin{DoxyCompactList}\small\item\em constructor for triangle with textures \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_a9d7ba5ef3bed3e58f3379a85bdf022e0}{Triangle\+Data}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_ab9afc1705a35002a2d8094d8de8f766a}{transform}}, \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_a8e5554a53bbf2ad7861408a531d67bfa}{sprite}}, int material\+Index=0, Triangle\+Orientation orientation=Triangle\+Orientation\+::\+Orientation\+\_\+\+RIGHT, const glm\+::vec4 \&color=glm\+::vec4(1.f))
+\begin{DoxyCompactList}\small\item\em constructor for triangle with sprite \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_a60a8f51fedb29437d710ddaf9af05aef}{Triangle\+Data}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_ab9afc1705a35002a2d8094d8de8f766a}{transform}}, int material\+Index=0, Triangle\+Orientation orientation=Triangle\+Orientation\+::\+Orientation\+\_\+\+RIGHT, const glm\+::vec4 \&color=glm\+::vec4(1.f))
+\begin{DoxyCompactList}\small\item\em constructor for triangle with sprite \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_ab9afc1705a35002a2d8094d8de8f766a}\label{structTRCN__CORE__NAMESPACE_1_1TriangleData_ab9afc1705a35002a2d8094d8de8f766a} 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} {\bfseries transform}
+\begin{DoxyCompactList}\small\item\em the transform of the quad, it has position, scale, rotation etc... \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_a99b1d4a682b42c700c0d05e3ac48aae5}{texture}} = nullptr
+\begin{DoxyCompactList}\small\item\em the texture of the quad \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_a8e5554a53bbf2ad7861408a531d67bfa}{sprite}} = nullptr
+\begin{DoxyCompactList}\small\item\em the sprite of the triangle \end{DoxyCompactList}\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_aa8d918f7ee5b74ef62811b49d237bda3}\label{structTRCN__CORE__NAMESPACE_1_1TriangleData_aa8d918f7ee5b74ef62811b49d237bda3} 
+glm\+::vec4 {\bfseries Color}
+\begin{DoxyCompactList}\small\item\em color the color of the triangle, it\textquotesingle{}ll be multiplied with the sprite/texture color e.\+j. if the color is set to red the sprite/texture will appear red-\/ish \end{DoxyCompactList}\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_afcef3ab5a1673d7f3cdf9be52b4dad2b}\label{structTRCN__CORE__NAMESPACE_1_1TriangleData_afcef3ab5a1673d7f3cdf9be52b4dad2b} 
+int {\bfseries Material\+Index} = 0
+\begin{DoxyCompactList}\small\item\em the index of the desired material \end{DoxyCompactList}\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_a4f275596cb8019e63a11f35dbd82c2ea}\label{structTRCN__CORE__NAMESPACE_1_1TriangleData_a4f275596cb8019e63a11f35dbd82c2ea} 
+Triangle\+Orientation {\bfseries Orientation}
+\begin{DoxyCompactList}\small\item\em the orientation of the triangle \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords}{Triangle\+Tex\+Coords}} \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData_a6d48917185974c24b654318aa0857854}{Tex\+Coords}}
+\begin{DoxyCompactList}\small\item\em the texture coordinates of the triangle \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+struct for representing triangles 
+
+\label{doc-constructors}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_af1da16f61da2f80779d661d3fa66ae0c}\index{TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}!TriangleData@{TriangleData}}
+\index{TriangleData@{TriangleData}!TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}}
+\doxysubsubsection{\texorpdfstring{TriangleData()}{TriangleData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1TriangleData_af1da16f61da2f80779d661d3fa66ae0c} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Triangle\+Data\+::\+Triangle\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}} \texorpdfstring{$\ast$}{*}}]{texture}{, }\item[{int}]{material\+Index}{ = {\ttfamily 0}, }\item[{Triangle\+Orientation}]{orientation}{ = {\ttfamily TriangleOrientation\+:\+:Orientation\+\_\+RIGHT}, }\item[{const glm\+::vec4 \&}]{color}{ = {\ttfamily glm\+:\+:vec4(1.f)}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor for triangle with textures 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & the transform of the triangle, it contains position, scale, rotation etc... \\
+\hline
+{\em texture} & the texture of the triangle \\
+\hline
+{\em material\+Index} & the index of the desired material \\
+\hline
+{\em orientation} & the orientation of the triangle \\
+\hline
+{\em color} & the color of the triangle, it\textquotesingle{}ll be multiplied with the texture color e.\+j. if the color is set to red the texture will appear red-\/ish \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+use this only when dealing with textured triangles. If it is plain color omit the texture parameter, it has a special constructor 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_a9d7ba5ef3bed3e58f3379a85bdf022e0}\index{TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}!TriangleData@{TriangleData}}
+\index{TriangleData@{TriangleData}!TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}}
+\doxysubsubsection{\texorpdfstring{TriangleData()}{TriangleData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1TriangleData_a9d7ba5ef3bed3e58f3379a85bdf022e0} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Triangle\+Data\+::\+Triangle\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{sprite}{, }\item[{int}]{material\+Index}{ = {\ttfamily 0}, }\item[{Triangle\+Orientation}]{orientation}{ = {\ttfamily TriangleOrientation\+:\+:Orientation\+\_\+RIGHT}, }\item[{const glm\+::vec4 \&}]{color}{ = {\ttfamily glm\+:\+:vec4(1.f)}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor for triangle with sprite 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & the transform of the triangle, it contains position, scale, rotation etc... \\
+\hline
+{\em sprite} & the sprite of the triangle \\
+\hline
+{\em material\+Index} & the index of the desired material \\
+\hline
+{\em orientation} & the orientation of the triangle \\
+\hline
+{\em color} & the color of the triangle, it\textquotesingle{}ll be multiplied with the sprite color e.\+j. if the color is set to red the sprite will appear red-\/ish \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+use this only when dealing with sprite triangles. If it is plain color omit the sprite parameter, it has a special constructor 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_a60a8f51fedb29437d710ddaf9af05aef}\index{TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}!TriangleData@{TriangleData}}
+\index{TriangleData@{TriangleData}!TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}}
+\doxysubsubsection{\texorpdfstring{TriangleData()}{TriangleData()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1TriangleData_a60a8f51fedb29437d710ddaf9af05aef} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Triangle\+Data\+::\+Triangle\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{int}]{material\+Index}{ = {\ttfamily 0}, }\item[{Triangle\+Orientation}]{orientation}{ = {\ttfamily TriangleOrientation\+:\+:Orientation\+\_\+RIGHT}, }\item[{const glm\+::vec4 \&}]{color}{ = {\ttfamily glm\+:\+:vec4(1.f)}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor for triangle with sprite 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & the transform of the triangle, it contains position, scale, rotation etc... \\
+\hline
+{\em material\+Index} & the index of the desired material \\
+\hline
+{\em orientation} & the orientation of the triangle \\
+\hline
+{\em color} & the color of the triangle \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_a8e5554a53bbf2ad7861408a531d67bfa}\index{TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}!sprite@{sprite}}
+\index{sprite@{sprite}!TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1TriangleData_a8e5554a53bbf2ad7861408a531d67bfa} 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}}\texorpdfstring{$\ast$}{*} TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Triangle\+Data\+::sprite = nullptr}
+
+
+
+the sprite of the triangle 
+
+\begin{DoxyNote}{Note}
+if et to nullptr it\textquotesingle{}ll use plain color or texture 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_a6d48917185974c24b654318aa0857854}\index{TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}!TexCoords@{TexCoords}}
+\index{TexCoords@{TexCoords}!TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}}
+\doxysubsubsection{\texorpdfstring{TexCoords}{TexCoords}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1TriangleData_a6d48917185974c24b654318aa0857854} 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords}{Triangle\+Tex\+Coords}} TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Triangle\+Data\+::\+Tex\+Coords}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords}{TriangleTexCoords}}(glm::vec2(0.f),\ glm::vec2(1.f,\ 0.f),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2(0.f,\ 1.f))}
+
+\end{DoxyCode}
+
+
+the texture coordinates of the triangle 
+
+\begin{DoxyNote}{Note}
+change this only if you know what you\textquotesingle{}re doing 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1TriangleData_a99b1d4a682b42c700c0d05e3ac48aae5}\index{TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}!texture@{texture}}
+\index{texture@{texture}!TRCN\_CORE\_NAMESPACE::TriangleData@{TRCN\_CORE\_NAMESPACE::TriangleData}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1TriangleData_a99b1d4a682b42c700c0d05e3ac48aae5} 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}\texorpdfstring{$\ast$}{*} TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Triangle\+Data\+::texture = nullptr}
+
+
+
+the texture of the quad 
+
+\begin{DoxyNote}{Note}
+if set to nullptr it\textquotesingle{}ll use plain color or sprite 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/Shapes\+Data.\+h\end{DoxyCompactItemize}

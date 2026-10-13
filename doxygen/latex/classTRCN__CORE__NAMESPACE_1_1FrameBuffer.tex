@@ -1,0 +1,81 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Frame\+Buffer Class Reference}
+\hypertarget{classTRCN__CORE__NAMESPACE_1_1FrameBuffer}{}\label{classTRCN__CORE__NAMESPACE_1_1FrameBuffer}\index{TRCN\_CORE\_NAMESPACE::FrameBuffer@{TRCN\_CORE\_NAMESPACE::FrameBuffer}}
+
+
+class representing a framebuffer  
+
+
+
+
+{\ttfamily \#include $<$Frame\+Buffer.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_a451c42d9faaf829ba03ea39b75e63884}{Cleanup}} ()
+\begin{DoxyCompactList}\small\item\em deletes the framebuffer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_af22cbda0e96ea80a9d8a6c2f04551fdf}{Gen\+Frame\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em generates the framebuffer \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_ae7909bcd5b51548a9eaaf5aa2ca124cf}\label{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_ae7909bcd5b51548a9eaaf5aa2ca124cf} 
+void {\bfseries Bind} () const
+\begin{DoxyCompactList}\small\item\em binds the framebuffer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_a21a25a4e8250812c13839b4de1065f76}{Bind\+Attach\+Texture}} (uint32\+\_\+t attachment, uint32\+\_\+t texture\+Type, uint32\+\_\+t texture\+Id) const
+\begin{DoxyCompactList}\small\item\em binds the framebuffer and attaches a texture to it \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class representing a framebuffer 
+
+\label{doc-func-members}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_a21a25a4e8250812c13839b4de1065f76}\index{TRCN\_CORE\_NAMESPACE::FrameBuffer@{TRCN\_CORE\_NAMESPACE::FrameBuffer}!BindAttachTexture@{BindAttachTexture}}
+\index{BindAttachTexture@{BindAttachTexture}!TRCN\_CORE\_NAMESPACE::FrameBuffer@{TRCN\_CORE\_NAMESPACE::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{BindAttachTexture()}{BindAttachTexture()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_a21a25a4e8250812c13839b4de1065f76} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Frame\+Buffer\+::\+Bind\+Attach\+Texture (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{attachment}{, }\item[{uint32\+\_\+t}]{texture\+Type}{, }\item[{uint32\+\_\+t}]{texture\+Id}{}\end{DoxyParamCaption}) const}
+
+
+
+binds the framebuffer and attaches a texture to it 
+
+
+\begin{DoxyParams}{Parameters}
+{\em attachment} & the attachment point to attach the texture to \\
+\hline
+{\em texture\+Type} & the type of texture to attach \\
+\hline
+{\em texture\+Id} & the open\+GL id of the texture to attach \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_a451c42d9faaf829ba03ea39b75e63884}\index{TRCN\_CORE\_NAMESPACE::FrameBuffer@{TRCN\_CORE\_NAMESPACE::FrameBuffer}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!TRCN\_CORE\_NAMESPACE::FrameBuffer@{TRCN\_CORE\_NAMESPACE::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{Cleanup()}{Cleanup()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_a451c42d9faaf829ba03ea39b75e63884} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Frame\+Buffer\+::\+Cleanup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+deletes the framebuffer 
+
+\begin{DoxyNote}{Note}
+to call at the end of the application 
+\end{DoxyNote}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_af22cbda0e96ea80a9d8a6c2f04551fdf}\index{TRCN\_CORE\_NAMESPACE::FrameBuffer@{TRCN\_CORE\_NAMESPACE::FrameBuffer}!GenFrameBuffer@{GenFrameBuffer}}
+\index{GenFrameBuffer@{GenFrameBuffer}!TRCN\_CORE\_NAMESPACE::FrameBuffer@{TRCN\_CORE\_NAMESPACE::FrameBuffer}}
+\doxysubsubsection{\texorpdfstring{GenFrameBuffer()}{GenFrameBuffer()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1FrameBuffer_af22cbda0e96ea80a9d8a6c2f04551fdf} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Frame\+Buffer\+::\+Gen\+Frame\+Buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+generates the framebuffer 
+
+\begin{DoxyNote}{Note}
+use it only once before doing any operation 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/Frame\+Buffer.\+h\end{DoxyCompactItemize}

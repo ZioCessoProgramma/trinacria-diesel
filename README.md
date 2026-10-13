@@ -14,6 +14,10 @@ Trinacria Diesel (Trinacria::DSL) is a simple batch renderer made for flexibilit
 
 - **Math Library:** [glm](https://github.com/g-truc/glm)
 
+- **documentation library:** [doxygen](https://github.com/doxygen/doxygen)
+
+- **text library:** [msdf-atlas-gen](https://github.com/Chlumsky/msdf-atlas-gen)
+
 ## Theory
 
 Trinacria Diesel is a system standing using 2 major static classes:
@@ -27,6 +31,7 @@ Trinacria Diesel is a system standing using 2 major static classes:
 ## Build
 
 ```bash
+<<<<<<< HEAD
 git clone https://github.com/ZioCessoProgramma/trinacria-diesel.git --recursive
 cd trinacria-diesel
 cmake -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=ninja -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -B build
@@ -63,11 +68,11 @@ Unlike the renderer the `Init` function should be called every frame before addi
 
 To make every thing to draw correctly the user should call `Trinacria::DSL::Renderer::AddMaterial(Trinacria::DSL::SOLID_OPAQUE);`
 
-to create your own material or to understand more deeply how the Material system works in Trinacria Diesel check the incoming in-code documentation.
+to create your own material or to understand more deeply how the Material system works in Trinacria Diesel check the incoming documentation.
 
 ### Event System
 
-check the incoming in-code documentation.
+check the incoming documentation.
 
 ### Example of a RendererLayer using Trinacria Diesel
 
@@ -82,9 +87,11 @@ void RendererLayer::OnAttach()
     // The init function does not initialize the window
     Trinacria::DSL::Renderer::Init(glm::vec2(800, 600), window);
 
-    Trinacria::DSL::Renderer::ShaderProgram.LoadShader(
+    // Have to use LoadCoreShader for ShaderProgram
+
+    Trinacria::DSL::Renderer::ShaderProgram.LoadCoreShader(
     "path/to/vertex.vert", "path/to/fragment.frag");
-    
+
     screenShader.LoadShader("path/to/vertex.vert",
      "path/to/fragment.frag");
 }
@@ -109,11 +116,11 @@ void RendererLayer::OnUpdate()
 
     Trinacria::DSL::PointLightData pointLight(glm::vec3(1.f, 1.f, 1.f),
         glm::vec2(6.f, 7.f);
-        
+
     Trinacria::DSL::LightSystem::Done();
-    
+
     Trinacria::DSL::Renderer::Draw(screenShader);
-    
+
     Trinacria::DSL::Renderer::FlushBuffers();
 }
 

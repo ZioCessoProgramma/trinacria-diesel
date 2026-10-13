@@ -1,0 +1,177 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Quad\+Data Struct Reference}
+\hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData}{}\label{structTRCN__CORE__NAMESPACE_1_1QuadData}\index{TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}}
+
+
+struct for representing quads  
+
+
+
+
+{\ttfamily \#include $<$Shapes\+Data.\+h$>$}
+
+
+
+Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Quad\+Data\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{structTRCN__CORE__NAMESPACE_1_1QuadData__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_af19ec0566f350ac333ade139a4b802f1}{Quad\+Data}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a435aa1a521cc9fa5d4faf934bb44547b}{transform}}, \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a39854c583203c663dcf021ddda2fc266}{texture}}, int material\+Index=0, const glm\+::vec4 \&color=glm\+::vec4(1.f))
+\begin{DoxyCompactList}\small\item\em constructor for quad with textures \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a5c3bef80b0dd7154e5f045bc32facf97}{Quad\+Data}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a435aa1a521cc9fa5d4faf934bb44547b}{transform}}, \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a1f1356d6eda96487eb21fad20b41f68a}{sprite}}, int material\+Index=0, const glm\+::vec4 \&color=glm\+::vec4(1.f))
+\begin{DoxyCompactList}\small\item\em constructor for quad with sprites \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a8b17ff520406c174afd7ffef029fb604}{Quad\+Data}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a435aa1a521cc9fa5d4faf934bb44547b}{transform}}, const glm\+::vec4 \&color=glm\+::vec4(1.f), int material\+Index=0)
+\begin{DoxyCompactList}\small\item\em the constructor for plain color quads \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_a435aa1a521cc9fa5d4faf934bb44547b}\label{structTRCN__CORE__NAMESPACE_1_1QuadData_a435aa1a521cc9fa5d4faf934bb44547b} 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} {\bfseries transform}
+\begin{DoxyCompactList}\small\item\em the transform of the quad, it has position, scale, rotation etc... \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a39854c583203c663dcf021ddda2fc266}{texture}} = nullptr
+\begin{DoxyCompactList}\small\item\em the texture of the quad \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a1f1356d6eda96487eb21fad20b41f68a}{sprite}} = nullptr
+\begin{DoxyCompactList}\small\item\em the sprite of the quad \end{DoxyCompactList}\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_ad982610460eb55857f22fa2545e8c80e}\label{structTRCN__CORE__NAMESPACE_1_1QuadData_ad982610460eb55857f22fa2545e8c80e} 
+glm\+::vec4 {\bfseries Color}
+\begin{DoxyCompactList}\small\item\em the color of the quad, it\textquotesingle{}ll be multiplied with the sprite/texture color e.\+j. if the color is set to red the sprite/texture will appear red-\/ish \end{DoxyCompactList}\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_a66f950a11ca1c357618f809f823ef7df}\label{structTRCN__CORE__NAMESPACE_1_1QuadData_a66f950a11ca1c357618f809f823ef7df} 
+int {\bfseries Material\+Index}
+\begin{DoxyCompactList}\small\item\em the index of the desired material \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{Quad\+Tex\+Coords}} \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData_a79af84b45714e275df9c507974595b77}{Tex\+Coords}}
+\begin{DoxyCompactList}\small\item\em texture coordinates for quad \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+struct for representing quads 
+
+\label{doc-constructors}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_af19ec0566f350ac333ade139a4b802f1}\index{TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}!QuadData@{QuadData}}
+\index{QuadData@{QuadData}!TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}}
+\doxysubsubsection{\texorpdfstring{QuadData()}{QuadData()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1QuadData_af19ec0566f350ac333ade139a4b802f1} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Quad\+Data\+::\+Quad\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}} \texorpdfstring{$\ast$}{*}}]{texture}{, }\item[{int}]{material\+Index}{ = {\ttfamily 0}, }\item[{const glm\+::vec4 \&}]{color}{ = {\ttfamily glm\+:\+:vec4(1.f)}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor for quad with textures 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & the transform of the quad, it contains position, scale, rotation etc... \\
+\hline
+{\em texture} & the texture of the quad \\
+\hline
+{\em material\+Index} & the index of the desired material \\
+\hline
+{\em color} & the color of the quad, it\textquotesingle{}ll be multiplied with the texture color e.\+j. if the color is set to red the texture will appear red-\/ish \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+use this only when dealing with textured quads. If it is plain color omit the texture parameter, it has a special constructor 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_a5c3bef80b0dd7154e5f045bc32facf97}\index{TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}!QuadData@{QuadData}}
+\index{QuadData@{QuadData}!TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}}
+\doxysubsubsection{\texorpdfstring{QuadData()}{QuadData()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1QuadData_a5c3bef80b0dd7154e5f045bc32facf97} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Quad\+Data\+::\+Quad\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}} \texorpdfstring{$\ast$}{*}}]{sprite}{, }\item[{int}]{material\+Index}{ = {\ttfamily 0}, }\item[{const glm\+::vec4 \&}]{color}{ = {\ttfamily glm\+:\+:vec4(1.f)}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor for quad with sprites 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & the transform of the quad, it contains position, scale, rotation etc... \\
+\hline
+{\em sprite} & the sprite of the quad \\
+\hline
+{\em material\+Index} & the index of the desired material \\
+\hline
+{\em color} & the color of the quad, it\textquotesingle{}ll be multiplied with the sprite color e.\+j. if the color is set to red the sprite will appear red-\/ish \\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Note}
+use this only when dealing with sprite quads. If it is plain color omit the sprite parameter, it has a special constructor 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_a8b17ff520406c174afd7ffef029fb604}\index{TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}!QuadData@{QuadData}}
+\index{QuadData@{QuadData}!TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}}
+\doxysubsubsection{\texorpdfstring{QuadData()}{QuadData()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1QuadData_a8b17ff520406c174afd7ffef029fb604} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Quad\+Data\+::\+Quad\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform}{Transform}} \&}]{transform}{, }\item[{const glm\+::vec4 \&}]{color}{ = {\ttfamily glm\+:\+:vec4(1.f)}, }\item[{int}]{material\+Index}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+the constructor for plain color quads 
+
+
+\begin{DoxyParams}{Parameters}
+{\em transform} & the transform of the quad, it contains position, scale, rotation etc... \\
+\hline
+{\em color} & the color of the quad \\
+\hline
+{\em material\+Index} & the index of the desired material \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-variable-members}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_a1f1356d6eda96487eb21fad20b41f68a}\index{TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}!sprite@{sprite}}
+\index{sprite@{sprite}!TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}}
+\doxysubsubsection{\texorpdfstring{sprite}{sprite}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1QuadData_a1f1356d6eda96487eb21fad20b41f68a} 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}}\texorpdfstring{$\ast$}{*} TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Quad\+Data\+::sprite = nullptr}
+
+
+
+the sprite of the quad 
+
+\begin{DoxyNote}{Note}
+if set to nullptr it\textquotesingle{}ll use plain color or texture 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_a79af84b45714e275df9c507974595b77}\index{TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}!TexCoords@{TexCoords}}
+\index{TexCoords@{TexCoords}!TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}}
+\doxysubsubsection{\texorpdfstring{TexCoords}{TexCoords}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1QuadData_a79af84b45714e275df9c507974595b77} 
+\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{Quad\+Tex\+Coords}} TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Quad\+Data\+::\+Tex\+Coords}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}(glm::vec2(0.f),\ glm::vec2(1.f,\ 0.f),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2(1.f),\ glm::vec2(0.f,\ 1.f))}
+
+\end{DoxyCode}
+
+
+texture coordinates for quad 
+
+\begin{DoxyNote}{Note}
+change it only if you know what you are doing 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1QuadData_a39854c583203c663dcf021ddda2fc266}\index{TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}!texture@{texture}}
+\index{texture@{texture}!TRCN\_CORE\_NAMESPACE::QuadData@{TRCN\_CORE\_NAMESPACE::QuadData}}
+\doxysubsubsection{\texorpdfstring{texture}{texture}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1QuadData_a39854c583203c663dcf021ddda2fc266} 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}\texorpdfstring{$\ast$}{*} TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Quad\+Data\+::texture = nullptr}
+
+
+
+the texture of the quad 
+
+\begin{DoxyNote}{Note}
+if set to nullptr it\textquotesingle{}ll use plain color or sprite 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/Shapes\+Data.\+h\end{DoxyCompactItemize}

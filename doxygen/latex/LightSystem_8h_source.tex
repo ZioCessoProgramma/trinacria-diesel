@@ -1,0 +1,94 @@
+\doxysection{Light\+System.\+h}
+\hypertarget{LightSystem_8h_source}{}\label{LightSystem_8h_source}\index{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/LightSystem.h@{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/LightSystem.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Macros.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Texture.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }TRCN\_CORE\_NAMESPACE}
+\DoxyCodeLine{00009\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1PointLightData}{PointLightData}}}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1PointLightData_af5758c94ed4d85023779942bb766d8f7}{LightColor}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1PointLightData_a2601b95e0a80949893ab6dfd1f6e1747}{LightPosition}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1PointLightData_a0c7d10f43e2763f9eae1df3a3b4295d4}{Attenuation}};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1PointLightData_a1b1a60f7ec95a1670e3d233394e72018}{LightHeight}}\ =\ 2.f;}
+\DoxyCodeLine{00037\ \ \ \ \ \};\ \textcolor{comment}{//\ 7\ float\ -\/-\/-\/>\ 2\ texel}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData}{SpotLightData}}}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData_a74964adcdc7e5e46a607ad4fe56adeb4}{LightColor}};}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData_a520e44f37c9279895e0f8c33271a4b17}{LightPosition}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData_aaaa2ee45a8dabc17e7c4616b70fb6aac}{LightDirection}};}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData_a293b2c03b110452d5382bcee80124af9}{Attenuation}};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData_ae3cc45290954583be326f8720c6014b1}{InnerAngleInDegrees}};}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData_ab26e74c6f84184a3e6938dc095da72ef}{OuterAngleInDegrees}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData_a20dcfcf2caaa17f9c473c4577babe262}{LightHeight}}\ =\ 1.f;}
+\DoxyCodeLine{00076\ \ \ \ \ \};\ \textcolor{comment}{//\ 11\ float\ -\/-\/>\ 3\ texel}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1DirectionalLightData}{DirectionalLightData}}}
+\DoxyCodeLine{00083\ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1DirectionalLightData_a1584787bad73dfe7cc322c723f8c596d}{LightColor}};}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1DirectionalLightData_aaf56566cd34098365c2919e44a15b4a9}{LightDirection}};}
+\DoxyCodeLine{00092\ \ \ \ \ \};\ \textcolor{comment}{//\ 5\ float\ -\/-\/-\/>\ 2\ texel}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem}{LightSystem}}}
+\DoxyCodeLine{00098\ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_a42563a573425e82033511fc33aba6f12}{InitFrame}}(\textcolor{keywordtype}{float}\ strength);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_a08a32323a6eb1017487d4e8d1c2ba85f}{Init}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_ae2356e6dab6d0d97cacd2419f96d62dd}{SetViewPos}}(glm::vec2\ viewPos);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_a5557ee0c49c627e8d5fb3feae3ef6edf}{SetupLight}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1PointLightData}{PointLightData}}\&\ lightData);}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_a97b3556e1102df81cd69a58bb28b6f01}{SetupLight}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1SpotLightData}{SpotLightData}}\&\ lightData);}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_ab589b199202e4d558f7cc424e680753e}{SetupLight}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1DirectionalLightData}{DirectionalLightData}}\&\ lightData);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_a8c2f7ed728589ee5a16ee2a034dd809c}{Done}}();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1LightSystem_ac754fb8ea0e678c67a17c9b4ab74eeb3}{Cleanup}}();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ ambient\ strength\ provided\ values}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ WORLD\_NOT\_AFFECTED\_BY\_LIGHT\ =\ 1.f;}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ DEFAULT\_USE\_OF\_LIGHT\ =\ 0.1f;}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ BRIGHT\ =\ 0.2f;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ SUPER\_BRIGHT\ =\ 0.4f;}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ DARK\ =\ 0.06f;}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{float}\ SUPER\_DARK\ =\ 0.01f;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ MAX\_POINT\_LIGHTS\ =\ 64;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ MAX\_SPOT\_LIGHTS\ =\ 32;}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ uint32\_t\ MAX\_DIRECTIONAL\_LIGHTS\ =\ 8;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}\ \_pointTexture;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}\ \_spotTexture;}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture}{Texture}}\ \_directionalTexture;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::array<float,\ MAX\_POINT\_LIGHTS\ *\ 8>\ \_pointLights;}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::array<float,\ MAX\_SPOT\_LIGHTS\ *\ 12>\ \_spotLights;}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::array<float,\ MAX\_DIRECTIONAL\_LIGHTS\ *\ 8>\ \_dirLights;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_pointLightIndex;}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_spotLightIndex;}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \_dirLightIndex;}
+\DoxyCodeLine{00177\ \ \ \ \ \};}
+\DoxyCodeLine{00178\ \}}
+
+\end{DoxyCode}

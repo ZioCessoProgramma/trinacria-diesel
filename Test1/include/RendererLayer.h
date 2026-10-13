@@ -37,6 +37,8 @@ private:
 	Trinacria::DSL::Texture _purple;
 	Trinacria::DSL::Texture _wood;
 	Trinacria::DSL::Texture _triangleTex;
+	Trinacria::DSL::Texture _healthBar;
+	Trinacria::DSL::Texture _healthBarFillMap;
 
 	Trinacria::DSL::QuadTexCoords _lastCoords{ glm::vec2(0.f, 2.f / 3), glm::vec2(1.f / 3, 2.f / 3), glm::vec2(1.f / 3, 1.f), glm::vec2(0.f, 1.f) };
 
@@ -55,6 +57,12 @@ private:
 
 	CameraData _cameraData;
 
-	Trinacria::DSL::Shader screenShader;
+	Trinacria::DSL::Shader _screenShader;
+
+    Trinacria::DSL::Transform _buttonTransform = Trinacria::DSL::Transform(glm::vec2(-0.9f, 0.f),
+        glm::vec2(0.1f, 0.1f),0, glm::vec2(0.5f, 0.5f));
+
+    Trinacria::DSL::Transform _buttonTransform1 = Trinacria::DSL::Transform(glm::vec2(0.9f, 0.f),
+    glm::vec2(0.1f, 0.1f), 0, glm::vec2(1.f, 0.f));
 };
 

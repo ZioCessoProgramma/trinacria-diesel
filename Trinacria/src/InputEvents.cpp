@@ -1,4 +1,6 @@
 #include "Trinacria/InputEvents.h"
+#include "Trinacria/HUD.h"
+
 #include <GLFW/glfw3.h>
 
 void TRCN_CORE_NAMESPACE::InputPollerLayer::OnUpdate(float deltaTime)
@@ -30,6 +32,7 @@ void TRCN_CORE_NAMESPACE::InputPollerLayer::OnUpdate(float deltaTime)
 	submitMouseEvent(GLFW_MOUSE_BUTTON_4, Mouse_4);
 	submitMouseEvent(GLFW_MOUSE_BUTTON_5, Mouse_5);
 	
+	HUD::UpdateEvents(_window, _windowDimensions);
 }
 
 void TRCN_CORE_NAMESPACE::InputPollerLayer::OnAttach()

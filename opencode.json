@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai",
+  "provider": {
+    "lmstudio": {
+      "api": "openai",
+      "name": "LM Studio",
+      "options": {
+      	"baseURL": "http://localhost:1234/v1"
+      },
+      "models": {
+      	"google/gemma-4-12B-qat":{
+	    "name": "gemma-4-12B"
+	}
+      }
+    }
+  },
+  "permission": {
+  	"*": "ask",
+	"read": "allow",
+	"grep" : "allow",
+	"glob": "allow"
+  }
+}

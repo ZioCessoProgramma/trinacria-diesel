@@ -1,0 +1,256 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Renderer Class Reference}
+\hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer}{}\label{classTRCN__CORE__NAMESPACE_1_1Renderer}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+
+
+a static class deals with all the opengl and calculations  
+
+
+
+
+{\ttfamily \#include $<$Renderer.\+h$>$}
+
+
+
+Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Renderer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{classTRCN__CORE__NAMESPACE_1_1Renderer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a6dfb64b36179f695993d9341902abfbc}{Init}} (const glm\+::vec2 \&window\+Dimensions, GLFWwindow \texorpdfstring{$\ast$}{*}window)
+\begin{DoxyCompactList}\small\item\em a function that initializes the renderer \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a7e76d8dedb9fdd610f8620498a6bf437}{Clear\+Color\+Buffer}} (const glm\+::vec3 \&color=\{ 0.\+1f, 0.\+1f, 0.\+1f \})
+\begin{DoxyCompactList}\small\item\em clears the color buffer \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a156f9c0c378f4f6b17b04bf7a8937904}{Create\+Quad}} (const struct \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData}{Quad\+Data}} \&quad\+Data)
+\begin{DoxyCompactList}\small\item\em it queues a quad to be drawn \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_acd29fc8cff86f2e091294b8600e7e115}{Create\+Triangle}} (const struct \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData}{Triangle\+Data}} \&triangle\+Data)
+\begin{DoxyCompactList}\small\item\em it queues a triangle to be drawn \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a35e1b63a99bd72a6ea5109db0170410b}{End\+Scene}} ()
+\begin{DoxyCompactList}\small\item\em deals with open\+GL buffers \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a1bd661ee7f9d87b8ae0a541120c3e88c}{Draw}} (\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} \&screen\+Shader, const glm\+::vec2 \&window\+Dimensions, const glm\+::vec2 \&camera\+Pos, float zoom)
+\begin{DoxyCompactList}\small\item\em the function that draws all the quads and triangles queued \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a3963e7ca6e7f12b00a901ac69cd584b5}{Cleanup}} ()
+\begin{DoxyCompactList}\small\item\em the function that delete all the open\+GL objects \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a30f0310196db838e5758645b5a38ae41}{Flush\+Buffers}} ()
+\begin{DoxyCompactList}\small\item\em the function that clears all buffers \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a4e62e06595e1793466838acba708ea56}{Add\+Material}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Material}{Material}} \&material)
+\begin{DoxyCompactList}\small\item\em a function that adds a material to be used in the scene \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a3228543ebe79b8f354cbf8d210d9dfb5}{Search\+Material}} (const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Material}{Material}} \&material)
+\begin{DoxyCompactList}\small\item\em a function that searches the material \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Renderer_a8c547e1480d511ef822826277c55a30a}{On\+Resize}} (const glm\+::vec2 \&window\+Dimensions)
+\begin{DoxyCompactList}\small\item\em a function that deals with the resizing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a1d545d8c44ce53a50a0cbeb6ad2367a3}\label{classTRCN__CORE__NAMESPACE_1_1Renderer_a1d545d8c44ce53a50a0cbeb6ad2367a3} 
+static \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} {\bfseries Shader\+Program}
+\begin{DoxyCompactList}\small\item\em the shader\textquotesingle{}s \texorpdfstring{$<$}{<}$<$manager$>$\texorpdfstring{$>$}{>} \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a5f22c00655f466f3e07d2dcec74c8ef9}\label{classTRCN__CORE__NAMESPACE_1_1Renderer_a5f22c00655f466f3e07d2dcec74c8ef9} 
+static constexpr size\+\_\+t {\bfseries Max\+Quads} = 1000
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a181ddbdec1e1f749015c1cf3436233f4}\label{classTRCN__CORE__NAMESPACE_1_1Renderer_a181ddbdec1e1f749015c1cf3436233f4} 
+static constexpr size\+\_\+t {\bfseries Max\+Quad\+Vertices} = Max\+Quads \texorpdfstring{$\ast$}{*} 4
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a749cb1a9905c7abab4521543582adb3b}\label{classTRCN__CORE__NAMESPACE_1_1Renderer_a749cb1a9905c7abab4521543582adb3b} 
+static constexpr size\+\_\+t {\bfseries Max\+Quad\+Indices} = Max\+Quads \texorpdfstring{$\ast$}{*} 6
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a5c30ee51db1c365d0cadf3f34b95dc96}\label{classTRCN__CORE__NAMESPACE_1_1Renderer_a5c30ee51db1c365d0cadf3f34b95dc96} 
+static constexpr size\+\_\+t {\bfseries Max\+Triangles} = 1000
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a7259e110ace379bbe925b7ba93422ecd}\label{classTRCN__CORE__NAMESPACE_1_1Renderer_a7259e110ace379bbe925b7ba93422ecd} 
+static constexpr size\+\_\+t {\bfseries Max\+Triangles\+Vertices} = Max\+Triangles \texorpdfstring{$\ast$}{*} 3
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+a static class deals with all the opengl and calculations 
+
+\label{doc-func-members}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a4e62e06595e1793466838acba708ea56}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!AddMaterial@{AddMaterial}}
+\index{AddMaterial@{AddMaterial}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{AddMaterial()}{AddMaterial()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a4e62e06595e1793466838acba708ea56} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Add\+Material (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Material}{Material}} \&}]{material}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+a function that adds a material to be used in the scene 
+
+
+\begin{DoxyParams}{Parameters}
+{\em material} & the material to add to the scene \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a3963e7ca6e7f12b00a901ac69cd584b5}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{Cleanup()}{Cleanup()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a3963e7ca6e7f12b00a901ac69cd584b5} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Cleanup (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+the function that delete all the open\+GL objects 
+
+\begin{DoxyNote}{Note}
+to call at the end of the application 
+\end{DoxyNote}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a7e76d8dedb9fdd610f8620498a6bf437}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!ClearColorBuffer@{ClearColorBuffer}}
+\index{ClearColorBuffer@{ClearColorBuffer}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{ClearColorBuffer()}{ClearColorBuffer()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a7e76d8dedb9fdd610f8620498a6bf437} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Clear\+Color\+Buffer (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{color}{ = {\ttfamily \{~0.1f,~0.1f,~0.1f~\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+clears the color buffer 
+
+\begin{DoxyNote}{Note}
+to call at the start of the frame 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em color} & the color to put in the background \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a156f9c0c378f4f6b17b04bf7a8937904}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!CreateQuad@{CreateQuad}}
+\index{CreateQuad@{CreateQuad}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{CreateQuad()}{CreateQuad()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a156f9c0c378f4f6b17b04bf7a8937904} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Create\+Quad (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadData}{Quad\+Data}} \&}]{quad\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+it queues a quad to be drawn 
+
+
+\begin{DoxyParams}{Parameters}
+{\em quad\+Data} & data to create a quad \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_acd29fc8cff86f2e091294b8600e7e115}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!CreateTriangle@{CreateTriangle}}
+\index{CreateTriangle@{CreateTriangle}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{CreateTriangle()}{CreateTriangle()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_acd29fc8cff86f2e091294b8600e7e115} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Create\+Triangle (\begin{DoxyParamCaption}\item[{const struct \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleData}{Triangle\+Data}} \&}]{triangle\+Data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+it queues a triangle to be drawn 
+
+
+\begin{DoxyParams}{Parameters}
+{\em triangle\+Data} & data to create a triangle \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a1bd661ee7f9d87b8ae0a541120c3e88c}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!Draw@{Draw}}
+\index{Draw@{Draw}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a1bd661ee7f9d87b8ae0a541120c3e88c} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Draw (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Shader}{Shader}} \&}]{screen\+Shader}{, }\item[{const glm\+::vec2 \&}]{window\+Dimensions}{, }\item[{const glm\+::vec2 \&}]{camera\+Pos}{, }\item[{float}]{zoom}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+the function that draws all the quads and triangles queued 
+
+
+\begin{DoxyParams}{Parameters}
+{\em screen\+Shader} & the shader used to process the final texture \\
+\hline
+{\em window\+Dimensions} & the dimensions of the window \\
+\hline
+{\em camera\+Pos} & the position of the viewer or camera \\
+\hline
+{\em zoom} & zoom \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a35e1b63a99bd72a6ea5109db0170410b}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!EndScene@{EndScene}}
+\index{EndScene@{EndScene}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{EndScene()}{EndScene()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a35e1b63a99bd72a6ea5109db0170410b} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+End\+Scene (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+deals with open\+GL buffers 
+
+\begin{DoxyNote}{Note}
+to call when you finished the scene 
+\end{DoxyNote}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a30f0310196db838e5758645b5a38ae41}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!FlushBuffers@{FlushBuffers}}
+\index{FlushBuffers@{FlushBuffers}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{FlushBuffers()}{FlushBuffers()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a30f0310196db838e5758645b5a38ae41} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Flush\+Buffers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+the function that clears all buffers 
+
+\begin{DoxyNote}{Note}
+to call at the end of the frame after End\+Scene() 
+\end{DoxyNote}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a6dfb64b36179f695993d9341902abfbc}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!Init@{Init}}
+\index{Init@{Init}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a6dfb64b36179f695993d9341902abfbc} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Init (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{window\+Dimensions}{, }\item[{GLFWwindow \texorpdfstring{$\ast$}{*}}]{window}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+a function that initializes the renderer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em window\+Dimensions} & window dimensions \\
+\hline
+{\em window} & glfw window \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a8c547e1480d511ef822826277c55a30a}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!OnResize@{OnResize}}
+\index{OnResize@{OnResize}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{OnResize()}{OnResize()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a8c547e1480d511ef822826277c55a30a} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+On\+Resize (\begin{DoxyParamCaption}\item[{const glm\+::vec2 \&}]{window\+Dimensions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+a function that deals with the resizing 
+
+\begin{DoxyNote}{Note}
+to call when the window resizes 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em window\+Dimensions} & the new window dimensions \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Renderer_a3228543ebe79b8f354cbf8d210d9dfb5}\index{TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}!SearchMaterial@{SearchMaterial}}
+\index{SearchMaterial@{SearchMaterial}!TRCN\_CORE\_NAMESPACE::Renderer@{TRCN\_CORE\_NAMESPACE::Renderer}}
+\doxysubsubsection{\texorpdfstring{SearchMaterial()}{SearchMaterial()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Renderer_a3228543ebe79b8f354cbf8d210d9dfb5} 
+int TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Renderer\+::\+Search\+Material (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Material}{Material}} \&}]{material}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+a function that searches the material 
+
+
+\begin{DoxyParams}{Parameters}
+{\em material} & the material to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the index of the material 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/Renderer.\+h\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/src/Renderer.\+cpp\end{DoxyCompactItemize}

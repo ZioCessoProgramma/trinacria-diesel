@@ -1,0 +1,12 @@
+<map id="TRCN_CORE_NAMESPACE::TriangleData" name="TRCN_CORE_NAMESPACE::TriangleData">
+<area shape="rect" id="Node000001" title="struct for representing triangles" alt="" coords="316,157,503,202"/>
+<area shape="rect" id="Node000002" href="$classTRCN__CORE__NAMESPACE_1_1Transform.html" title="class containing all a model matrix could have: position, scale etc..." alt="" coords="5,5,193,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,54,194,59,291,108,373,156,368,157,289,113,192,63,183,59"/>
+<area shape="rect" id="Node000003" href="$classTRCN__CORE__NAMESPACE_1_1Texture.html" title="class representing a texture" alt="" coords="5,123,193,167"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,154,318,168,313,170,208,160"/>
+<area shape="poly" id="edge3_Node000003_Node000003" title=" " alt="" coords="71,105,82,98,99,96,115,98,125,104,130,113,129,123,124,121,125,114,122,108,113,103,99,101,84,103,75,109"/>
+<area shape="rect" id="Node000004" href="$classTRCN__CORE__NAMESPACE_1_1Sprite.html" title="class representing a sprite" alt="" coords="5,192,193,237"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="207,203,291,194,318,193,313,194,292,199,208,208"/>
+<area shape="rect" id="Node000005" href="$structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords.html" title="struct representing the tex coordinates of a triangle" alt="" coords="5,261,193,306"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="207,258,291,233,363,203,368,202,293,238,208,263"/>
+</map>

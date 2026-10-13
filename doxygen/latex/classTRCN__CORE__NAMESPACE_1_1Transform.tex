@@ -1,0 +1,85 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Transform Class Reference}
+\hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform}{}\label{classTRCN__CORE__NAMESPACE_1_1Transform}\index{TRCN\_CORE\_NAMESPACE::Transform@{TRCN\_CORE\_NAMESPACE::Transform}}
+
+
+class containing all a model matrix could have\+: position, scale etc...  
+
+
+
+
+{\ttfamily \#include $<$Transform.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform_a419c8406b9a4edb182feed958db365e2}{Transform}} (glm\+::vec2 position, glm\+::vec2 scale=glm\+::vec2(0.\+5f), float yaw\+Degrees\+Rotation=0.f, const glm\+::vec2 \&pivot=glm\+::vec2(0.\+5f))
+\begin{DoxyCompactList}\small\item\em constructor \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Transform_a74cc2963db4985fcd420fd73d034a1e4}{Get\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em returns the raw glm 4x4 matrix \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_aad53c8af56c663aaf43641603981ae66}\label{classTRCN__CORE__NAMESPACE_1_1Transform_aad53c8af56c663aaf43641603981ae66} 
+glm\+::vec2 {\bfseries Position} = glm\+::vec2(0.f)
+\begin{DoxyCompactList}\small\item\em the position of the object \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_a04c2956ef0d63fc67056e945361d2df4}\label{classTRCN__CORE__NAMESPACE_1_1Transform_a04c2956ef0d63fc67056e945361d2df4} 
+glm\+::vec2 {\bfseries Scale} = glm\+::vec2(0.\+5f)
+\begin{DoxyCompactList}\small\item\em the scale of the object \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_a93bc7587c96735d2121238fcd8f69daf}\label{classTRCN__CORE__NAMESPACE_1_1Transform_a93bc7587c96735d2121238fcd8f69daf} 
+float {\bfseries Yaw\+Degrees\+Rotation} = 0.f
+\begin{DoxyCompactList}\small\item\em the rotation in the yaw axis of the object \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_a495b2939a2d3298aa9528c81b67ec0a3}\label{classTRCN__CORE__NAMESPACE_1_1Transform_a495b2939a2d3298aa9528c81b67ec0a3} 
+glm\+::vec2 {\bfseries Pivot} = glm\+::vec2(0.\+5f)
+\begin{DoxyCompactList}\small\item\em the center for all transformation (in the center of the object is vec2(0.\+5f) in bottom-\/left is vec2(0.\+f), etc... \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class containing all a model matrix could have\+: position, scale etc... 
+
+\label{doc-constructors}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_a419c8406b9a4edb182feed958db365e2}\index{TRCN\_CORE\_NAMESPACE::Transform@{TRCN\_CORE\_NAMESPACE::Transform}!Transform@{Transform}}
+\index{Transform@{Transform}!TRCN\_CORE\_NAMESPACE::Transform@{TRCN\_CORE\_NAMESPACE::Transform}}
+\doxysubsubsection{\texorpdfstring{Transform()}{Transform()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Transform_a419c8406b9a4edb182feed958db365e2} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Transform\+::\+Transform (\begin{DoxyParamCaption}\item[{glm\+::vec2}]{position}{, }\item[{glm\+::vec2}]{scale}{ = {\ttfamily glm\+:\+:vec2(0.5f)}, }\item[{float}]{yaw\+Degrees\+Rotation}{ = {\ttfamily 0.f}, }\item[{const glm\+::vec2 \&}]{pivot}{ = {\ttfamily glm\+:\+:vec2(0.5f)}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of the object \\
+\hline
+{\em scale} & the scale of the object \\
+\hline
+{\em yaw\+Degrees\+Rotation} & the yaw rotation in degrees \\
+\hline
+{\em pivot} & the center for all transformation (in the center of the object is vec2(0.\+5f) in bottom-\/left is vec2(0.\+f), etc... \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Transform_a74cc2963db4985fcd420fd73d034a1e4}\index{TRCN\_CORE\_NAMESPACE::Transform@{TRCN\_CORE\_NAMESPACE::Transform}!GetMatrix@{GetMatrix}}
+\index{GetMatrix@{GetMatrix}!TRCN\_CORE\_NAMESPACE::Transform@{TRCN\_CORE\_NAMESPACE::Transform}}
+\doxysubsubsection{\texorpdfstring{GetMatrix()}{GetMatrix()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Transform_a74cc2963db4985fcd420fd73d034a1e4} 
+glm\+::mat4 TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Transform\+::\+Get\+Matrix (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns the raw glm 4x4 matrix 
+
+\begin{DoxyReturn}{Returns}
+returns the raw glm 4x4 matrix 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/Transform.\+h\end{DoxyCompactItemize}

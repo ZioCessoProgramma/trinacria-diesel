@@ -1,0 +1,36 @@
+var annotated_dup =
+[
+    [ "TRCN_CORE_NAMESPACE", null, [
+      [ "Animation", "classTRCN__CORE__NAMESPACE_1_1Animation.html", "classTRCN__CORE__NAMESPACE_1_1Animation" ],
+      [ "Event", "classTRCN__CORE__NAMESPACE_1_1Event.html", "classTRCN__CORE__NAMESPACE_1_1Event" ],
+      [ "EventDispatcher", "classTRCN__CORE__NAMESPACE_1_1EventDispatcher.html", "classTRCN__CORE__NAMESPACE_1_1EventDispatcher" ],
+      [ "FrameBuffer", "classTRCN__CORE__NAMESPACE_1_1FrameBuffer.html", "classTRCN__CORE__NAMESPACE_1_1FrameBuffer" ],
+      [ "HUDQuadData", "structTRCN__CORE__NAMESPACE_1_1HUDQuadData.html", "structTRCN__CORE__NAMESPACE_1_1HUDQuadData" ],
+      [ "HUDVertex", "structTRCN__CORE__NAMESPACE_1_1HUDVertex.html", "structTRCN__CORE__NAMESPACE_1_1HUDVertex" ],
+      [ "TextVertex", "structTRCN__CORE__NAMESPACE_1_1TextVertex.html", "structTRCN__CORE__NAMESPACE_1_1TextVertex" ],
+      [ "HUDShaderSet", "structTRCN__CORE__NAMESPACE_1_1HUDShaderSet.html", "structTRCN__CORE__NAMESPACE_1_1HUDShaderSet" ],
+      [ "HUD", "classTRCN__CORE__NAMESPACE_1_1HUD.html", null ],
+      [ "KeyboardEvent", "classTRCN__CORE__NAMESPACE_1_1KeyboardEvent.html", "classTRCN__CORE__NAMESPACE_1_1KeyboardEvent" ],
+      [ "MouseKeyEvent", "classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent.html", "classTRCN__CORE__NAMESPACE_1_1MouseKeyEvent" ],
+      [ "InputPollerLayer", "classTRCN__CORE__NAMESPACE_1_1InputPollerLayer.html", "classTRCN__CORE__NAMESPACE_1_1InputPollerLayer" ],
+      [ "Layer", "classTRCN__CORE__NAMESPACE_1_1Layer.html", "classTRCN__CORE__NAMESPACE_1_1Layer" ],
+      [ "PointLightData", "structTRCN__CORE__NAMESPACE_1_1PointLightData.html", "structTRCN__CORE__NAMESPACE_1_1PointLightData" ],
+      [ "SpotLightData", "structTRCN__CORE__NAMESPACE_1_1SpotLightData.html", "structTRCN__CORE__NAMESPACE_1_1SpotLightData" ],
+      [ "DirectionalLightData", "structTRCN__CORE__NAMESPACE_1_1DirectionalLightData.html", "structTRCN__CORE__NAMESPACE_1_1DirectionalLightData" ],
+      [ "LightSystem", "classTRCN__CORE__NAMESPACE_1_1LightSystem.html", null ],
+      [ "Material", "classTRCN__CORE__NAMESPACE_1_1Material.html", "classTRCN__CORE__NAMESPACE_1_1Material" ],
+      [ "QuadTexCoords", "structTRCN__CORE__NAMESPACE_1_1QuadTexCoords.html", "structTRCN__CORE__NAMESPACE_1_1QuadTexCoords" ],
+      [ "TriangleTexCoords", "structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords.html", "structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords" ],
+      [ "Vertex", "structTRCN__CORE__NAMESPACE_1_1Vertex.html", null ],
+      [ "Renderer", "classTRCN__CORE__NAMESPACE_1_1Renderer.html", null ],
+      [ "Shader", "classTRCN__CORE__NAMESPACE_1_1Shader.html", "classTRCN__CORE__NAMESPACE_1_1Shader" ],
+      [ "QuadData", "structTRCN__CORE__NAMESPACE_1_1QuadData.html", "structTRCN__CORE__NAMESPACE_1_1QuadData" ],
+      [ "TriangleData", "structTRCN__CORE__NAMESPACE_1_1TriangleData.html", "structTRCN__CORE__NAMESPACE_1_1TriangleData" ],
+      [ "SpriteSheet", "classTRCN__CORE__NAMESPACE_1_1SpriteSheet.html", "classTRCN__CORE__NAMESPACE_1_1SpriteSheet" ],
+      [ "Sprite", "classTRCN__CORE__NAMESPACE_1_1Sprite.html", "classTRCN__CORE__NAMESPACE_1_1Sprite" ],
+      [ "TextAtlas", "classTRCN__CORE__NAMESPACE_1_1TextAtlas.html", "classTRCN__CORE__NAMESPACE_1_1TextAtlas" ],
+      [ "Glyph", "classTRCN__CORE__NAMESPACE_1_1Glyph.html", "classTRCN__CORE__NAMESPACE_1_1Glyph" ],
+      [ "Texture", "classTRCN__CORE__NAMESPACE_1_1Texture.html", "classTRCN__CORE__NAMESPACE_1_1Texture" ],
+      [ "Transform", "classTRCN__CORE__NAMESPACE_1_1Transform.html", "classTRCN__CORE__NAMESPACE_1_1Transform" ]
+    ] ]
+];

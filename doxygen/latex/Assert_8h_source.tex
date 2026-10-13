@@ -1,0 +1,129 @@
+\doxysection{Assert.\+h}
+\hypertarget{Assert_8h_source}{}\label{Assert_8h_source}\index{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/Assert.h@{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/Assert.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#if\ TRINACRIA\_DEBUG}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ STRINGIFY\_MACRO(x)\ STRINGIFY\_MACRO2(x)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ STRINGIFY\_MACRO2(x)\ \#x}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{comment}{//\ Start}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_START(debugname)\ const\ std::string\ HIDDEN\_DEBUG\_NAME\_TN\ =\ (debugname)}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ With\ msgs\ \&\ exceptions}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERTEXP\_MSG(condition,\ msg)\ if(!(condition))\ throw\ std::runtime\_error((msg))}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERTEXP\_MSG(condition,\ msg)\ if(!(condition))\ throw\ std::runtime\_error(HIDDEN\_DEBUG\_NAME\_TN\ +\ '\ '\ +\ (msg))}}
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ With\ msgs}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERT\_MSG(condition,\ msg)\ if(!(condition))\ std::cerr\ <<\ (msg)\ <<\ '\(\backslash\)n'}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERT\_MSG(condition,\ msg)\ if(!(condition))\ std::cerr\ <<\ HIDDEN\_DEBUG\_NAME\_TN\ <<\ '\ '\ <<\ (msg)\ <<\ '\(\backslash\)n'}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//\ Without\ msgs,\ with\ exceptions}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERTEXP(condition)\ if(!(condition))\(\backslash\)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\ \ \ \ throw\ std::runtime\_error("{}The\ assertion\ "{}\ \#condition\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_)\ )}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERTEXP(condition)\(\backslash\)}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\(\backslash\)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ throw\ std::runtime\_error("{}The\ assertion\ "{}\ \#condition\ "{}\ in\ function\ "{}\ +\(\backslash\)}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ HIDDEN\_DEBUG\_NAME\_TN\ +\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_)\ )}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ Withot\ msgs}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERT(condition)\ if(!(condition))\(\backslash\)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\ \ \ \ std::cerr\ <<\ "{}The\ assertion\ "{}\ \#condition\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_)}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERT(condition)\(\backslash\)}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\ std::cerr\ <<\ "{}The\ assertion\ "{}\ \#condition\ "{}\ in\ function\ "{}\ <<\(\backslash\)}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ HIDDEN\_DEBUG\_NAME\_TN\ <<\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_)}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ With\ msg,\ with\ return}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT\_MSG(condition,\ msg,\ returnval)\(\backslash\)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\ \{\(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ (msg)\ <<\ '\(\backslash\)n';\(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ (returnval);\(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT\_MSG(condition,\ msg,\ returnval)\(\backslash\)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\{\(\backslash\)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ HIDDEN\_DEBUG\_NAME\_TN\ <<\ '\ '\ <<\ (msg)\ <<\ '\(\backslash\)n';\(\backslash\)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ (returnval);\(\backslash\)}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ Without\ msg,\ with\ return}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT(condition,\ returnval)\(\backslash\)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\ \{\(\backslash\)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ "{}The\ assertion\ "{}\ \#condition\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_);\(\backslash\)}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ (returnval);\(\backslash\)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT(condition,\ returnval)\(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\{\(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ "{}The\ assertion\ "{}\ \#condition\ "{}\ in\ function\ "{}\ <<\(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ HIDDEN\_DEBUG\_NAME\_TN\ <<\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_);\(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return\ (returnval);\(\backslash\)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{comment}{//\ With\ msg,\ with\ return\ void}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT\_MSG\_VOID(condition,\ msg)\(\backslash\)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\ \{\(\backslash\)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ (msg)\ <<\ '\(\backslash\)n';\(\backslash\)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return;\(\backslash\)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT\_MSG\_VOID(condition,\ msg)\(\backslash\)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\{\(\backslash\)}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ HIDDEN\_DEBUG\_NAME\_TN\ <<\ '\ '\ <<\ (msg)\ <<\ '\(\backslash\)n';\(\backslash\)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return;\(\backslash\)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ Without\ msg,\ with\ return\ void}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT\_VOID(condition)\(\backslash\)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\ \{\(\backslash\)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ "{}The\ assertion\ "{}\ \#condition\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_);\(\backslash\)}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return;\(\backslash\)}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT\_VOID(condition)\(\backslash\)}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ if(!(condition))\{\(\backslash\)}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ std::cerr\ <<\ "{}The\ assertion\ "{}\ \#condition\ "{}\ in\ function\ "{}\ <<\(\backslash\)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ HIDDEN\_DEBUG\_NAME\_TN\ <<\ "{}\ has\ failed\ in\ file\ "{}\ \_\_FILE\_\_\ "{},\ line\ :"{}\ STRINGIFY\_MACRO(\_\_LINE\_\_);\(\backslash\)}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ return;\(\backslash\)}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_START(debugname)}}
+\DoxyCodeLine{00095\ \textcolor{comment}{//\ With\ msgs\ \&\ exceptions}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERTEXP\_MSG(condition,\ msg)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERTEXP\_MSG(condition,\ msg)}}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ With\ msgs}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERT\_MSG(condition,\ msg)}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERT\_MSG(condition,\ msg)}}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ Without\ msgs,\ with\ exceptions}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERTEXP(condition)}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERTEXP(condition)}}
+\DoxyCodeLine{00104\ \textcolor{comment}{//\ Withot\ msgs}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#define\ TRCN\_ASSERT(condition)}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_ASSERT(condition)}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ With\ msg,\ with\ return}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT\_MSG(condition,\ msg,\ returnval)}}
+\DoxyCodeLine{00110\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT\_MSG(condition,\ msg,\ returnval)}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \textcolor{comment}{//\ Without\ msg,\ with\ return}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT(condition,\ returnval)}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT(condition,\ returnval)}}
+\DoxyCodeLine{00115\ \textcolor{comment}{//\ With\ msg,\ with\ return\ void}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT\_MSG\_VOID(condition,\ msg)}}
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT\_MSG\_VOID(condition,\ msg)}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \textcolor{comment}{//\ Without\ msg,\ with\ return\ void}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#define\ TRCN\_RETURN\_ASSERT\_VOID(condition)}}
+\DoxyCodeLine{00121\ \textcolor{preprocessor}{\#define\ TRCN\_DEPEND\_RETURN\_ASSERT\_VOID(condition)}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

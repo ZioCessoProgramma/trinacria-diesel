@@ -2,7 +2,7 @@
 .vs/
 bin/
 lib/
-cmake-build-debug/
+cmake-build-*/
 x64/
 x32/
 CMakeFiles/
@@ -21,3 +21,8 @@ CMakeCache.txt
 .lib
 .pdb
 *.cmake
+
+/compile_commands.json
+.cache/
+
+build/

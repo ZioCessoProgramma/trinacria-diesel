@@ -12,6 +12,9 @@
 
 #include <GLFW/glfw3.h>
 
+#include "Trinacria/HUD.h"
+#include "Trinacria/LightSystem.h"
+
 std::vector<TRCN_CORE_NAMESPACE::Vertex> TRCN_CORE_NAMESPACE::Renderer::_quadBuffer;
 std::vector<uint32_t> TRCN_CORE_NAMESPACE::Renderer::_quadIndexBuffer;
 
@@ -28,7 +31,7 @@ uint32_t TRCN_CORE_NAMESPACE::Renderer::_triangleVao;
 std::vector<std::pair<TRCN_CORE_NAMESPACE::Texture*, uint32_t>> TRCN_CORE_NAMESPACE::Renderer::_textures;
 
 std::array<TRCN_CORE_NAMESPACE::Material, 32> TRCN_CORE_NAMESPACE::Renderer::_materials;
-int TRCN_CORE_NAMESPACE::Renderer::materialCount = 0;
+int TRCN_CORE_NAMESPACE::Renderer::_materialCount = 0;
 
 TRCN_CORE_NAMESPACE::FrameBuffer TRCN_CORE_NAMESPACE::Renderer::_frameBuffer;
 TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::Renderer::_colorAttachment;
@@ -60,7 +63,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFW
     attribPointer(2, 2, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex),
         (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, TexCoords));
 
-    attribPointer(3, 3, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex),
+    attribPointer(3, 4, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex),
         (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, Color));
 
     glEnableVertexAttribArray(4);
@@ -85,32 +88,39 @@ void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFW
     glVertexAttribIPointer(1, sizeof(int), GL_INT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, TextureIndex));
 
     attribPointer(2, 2, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, TexCoords));
-    attribPointer(3, 3, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, Color));
+    attribPointer(3, 4, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, Color));
 
     _quadBuffer.reserve(MaxQuadVertices);
     _quadIndexBuffer.reserve(MaxQuadIndices);
 
     _triangleBuffer.reserve(MaxTrianglesVertices);
 
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+    initScreen();
+
     _colorAttachment.GenerateTexture();
-    _colorAttachment.BoundTexImage(GL_RGB, GL_RGB, windowDimensions.x, windowDimensions.y,
+    _colorAttachment.BoundTexImage(GL_RGBA, GL_RGBA, windowDimensions.x, windowDimensions.y,
         GL_UNSIGNED_BYTE, nullptr, GL_LINEAR);
 
     _frameBuffer.GenFrameBuffer();
     _frameBuffer.BindAttachTexture(GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _colorAttachment.GetId());
+
+    Shader::loadMaxTextures();
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::createQuad(const glm::vec2& position, Texture* texture, const glm::vec2& size,
-    const glm::vec3& color, int materialIndex, const glm::mat4& transform,
-    const QuadTexCoords& texCoords)
+                                               const glm::vec4& color, int materialIndex, const glm::mat4& transform,
+                                               const QuadTexCoords& texCoords)
 {
-    if (_quadBuffer.size() > MaxQuadVertices)
+    if (_quadBuffer.size() >= MaxQuadVertices)
     {
         TRCN_LOG("Vertex buffer overflowed please start a new batch!");
         return;
     }
 
-    if (_quadIndexBuffer.size() > MaxQuadIndices)
+    if (_quadIndexBuffer.size() >= MaxQuadIndices)
     {
         TRCN_LOG("Index buffer overflowed please start a new batch!");
         return;
@@ -122,6 +132,8 @@ void TRCN_CORE_NAMESPACE::Renderer::createQuad(const glm::vec2& position, Textur
     {
         if (!_textures.empty())
         {
+            // the index for the new texture is equal to the last index + 1
+
             textureIndex = _textures[_textures.size() - 1].second + 1;
         }
         else
@@ -159,7 +171,7 @@ void TRCN_CORE_NAMESPACE::Renderer::createQuad(const glm::vec2& position, Textur
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::createQuad(const glm::vec2& position, Sprite* sprite, const glm::vec2& size,
-                                               const glm::vec3& color, int materialIndex, const glm::mat4& transform)
+                                               const glm::vec4& color, int materialIndex, const glm::mat4& transform)
 {
     QuadTexCoords texCoords = sprite->GetTexCoords();
     texCoords.Normalize(sprite->GetParent()->GetWidth(), sprite->GetParent()->GetHeight());
@@ -167,38 +179,30 @@ void TRCN_CORE_NAMESPACE::Renderer::createQuad(const glm::vec2& position, Sprite
     createQuad(position, sprite->GetParent(), size, color, materialIndex, transform,texCoords);
 }
 
-void Trinacria::DSL::Renderer::createQuad(const Transform& transform, Sprite* texture, const glm::vec3& color, int materialIndex)
-{
-    createQuad(-transform.Pivot, texture, glm::vec2(1.f), color, materialIndex,transform.GetMatrix());
-}
-
-void Trinacria::DSL::Renderer::CreateTriangle(const struct TriangleData& triangleData)
+void TRCN_CORE_NAMESPACE::Renderer::CreateTriangle(const TriangleData& triangleData)
 {
     if (triangleData.texture != nullptr)
     {
-        createTriangle(triangleData.transform, triangleData.texture, triangleData.Orientation,
-                       triangleData.Color, triangleData.MaterialIndex, triangleData.TexCoords);
+        createTriangle(-triangleData.transform.Pivot, triangleData.texture, triangleData.Orientation,
+                       glm::vec2(1.f), triangleData.Color, triangleData.MaterialIndex,
+                       triangleData.transform.GetMatrix(), triangleData.TexCoords);
     }
     else if (triangleData.sprite != nullptr)
     {
-        createTriangle(triangleData.transform, triangleData.sprite, triangleData.Orientation,
-            triangleData.Color);
+        createTriangle(-triangleData.transform.Pivot, triangleData.sprite, triangleData.Orientation,
+                       glm::vec2(1.f), triangleData.Color, triangleData.MaterialIndex, triangleData.transform.GetMatrix());
     }
     // using plain color
     else
     {
-        createTriangle(triangleData.transform, Texture::NO_TEXTURE, triangleData.Orientation,
-                       triangleData.Color);
+        createTriangle(-triangleData.transform.Pivot, Texture::NO_TEXTURE, triangleData.Orientation,
+                       glm::vec2(1.f), triangleData.Color, triangleData.MaterialIndex,
+                       triangleData.transform.GetMatrix());
     }
 }
 
-void Trinacria::DSL::Renderer::createQuad(const Transform& transform, Texture* texture, const glm::vec3& color, int materialIndex, const QuadTexCoords& texCoords)
-{
-    createQuad(-transform.Pivot, texture, glm::vec2(1.f), color, materialIndex,transform.GetMatrix(), texCoords);
-}
-
 void TRCN_CORE_NAMESPACE::Renderer::createTriangle(const glm::vec2& position, Texture* texture, TriangleOrientation orientation, const glm::vec2& size,
-                                                   const glm::vec3& color, int materialIndex, const glm::mat4& transform, const TriangleTexCoords& texCoords)
+                                                   const glm::vec4& color, int materialIndex, const glm::mat4& transform, const TriangleTexCoords& texCoords)
 {
     if (_triangleBuffer.size() > MaxTrianglesVertices)
     {
@@ -250,8 +254,8 @@ void TRCN_CORE_NAMESPACE::Renderer::createTriangle(const glm::vec2& position, Te
         texCoords.Coord2, color, materialIndex);
 }
 
-void Trinacria::DSL::Renderer::createTriangle(const glm::vec2& position, Sprite* sprite,
-                                              TriangleOrientation orientation, const glm::vec2& size, const glm::vec3& color, int materialIndex, const glm::mat4& transform)
+void TRCN_CORE_NAMESPACE::Renderer::createTriangle(const glm::vec2& position, Sprite* sprite,
+                                              TriangleOrientation orientation, const glm::vec2& size, const glm::vec4& color, int materialIndex, const glm::mat4& transform)
 {
     TriangleTexCoords texCoords = sprite->GetTriangleTexCoords();
     texCoords.Normalize(sprite->GetParent()->GetWidth(), sprite->GetParent()->GetHeight());
@@ -259,32 +263,30 @@ void Trinacria::DSL::Renderer::createTriangle(const glm::vec2& position, Sprite*
     createTriangle(position, sprite->GetParent(), orientation, size, color, 0, transform, texCoords);
 }
 
-void Trinacria::DSL::Renderer::createTriangle(const Transform& transform, Texture* texture,
-                                              TriangleOrientation orientation, const glm::vec3& color, int materialIndex, const TriangleTexCoords& texCoords)
-{
-    createTriangle(-transform.Pivot, texture, orientation,
-                   glm::vec2(0.5f),color, 0, transform.GetMatrix(), texCoords);
-}
-
-void Trinacria::DSL::Renderer::createTriangle(const Transform& transform, Sprite* sprite,
-                                              TriangleOrientation orientation, const glm::vec3& color, int materialIndex)
-{
-    createTriangle(-transform.Pivot, sprite, orientation,
-                   glm::vec2(1.f), color, 0, transform.GetMatrix());
-}
-
-void Trinacria::DSL::Renderer::drawInScreen(Shader& screenShader)
+void TRCN_CORE_NAMESPACE::Renderer::drawInScreen(Shader& screenShader)
 {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glDisable(GL_BLEND);
 
     ClearColorBuffer(glm::vec3(1.f));
 
     screenShader.Bind();
 
+    glBindVertexArray(_vaoScreen);
+
     _colorAttachment.Bind(GL_TEXTURE0);
 
     screenShader.SetUniformInt("u_ColorAttachment", 0);
 
+    glDrawArrays(GL_TRIANGLES, 0, 6);
+
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    _frameBuffer.Bind();
+}
+
+void TRCN_CORE_NAMESPACE::Renderer::initScreen()
+{
     constexpr float screenQuadVertices[] = {
         -1.f, -1.f,
         1.f, -1.f,
@@ -294,25 +296,14 @@ void Trinacria::DSL::Renderer::drawInScreen(Shader& screenShader)
         -1.f, 1.f
     };
 
-    uint32_t vao;
+    glGenVertexArrays(1, &_vaoScreen);
+    glBindVertexArray(_vaoScreen);
 
-    glGenVertexArrays(1, &vao);
-    glBindVertexArray(vao);
-
-    uint32_t vbo;
-
-    glGenBuffers(1, &vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vbo);
+    glGenBuffers(1, &_vboScreen);
+    glBindBuffer(GL_ARRAY_BUFFER, _vboScreen);
     glBufferData(GL_ARRAY_BUFFER, sizeof(screenQuadVertices), screenQuadVertices, GL_STATIC_DRAW);
 
     attribPointer(0, 2, GL_FLOAT, 2 * sizeof(float), nullptr);
-
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-
-    glDeleteBuffers(1, &vbo);
-    glDeleteVertexArrays(1, &vao);
-
-    _frameBuffer.Bind();
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::EndScene()
@@ -327,7 +318,7 @@ void TRCN_CORE_NAMESPACE::Renderer::EndScene()
     glBufferSubData(GL_ARRAY_BUFFER, 0, _triangleBuffer.size() * sizeof(Vertex), _triangleBuffer.data());
 }
 
-void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader)
+void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
 {
     _frameBuffer.Bind();
 
@@ -338,12 +329,17 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader)
         std::string uniformName = std::string("u_Textures[") + std::to_string(element.second) + std::string("]");
 
         ShaderProgram.SetUniformInt(uniformName.c_str(), element.second - 1);
-    }
 
-    for (auto& element : _textures)
-    {
         element.first->Bind(element.second + GL_TEXTURE0 - 1);
     }
+
+    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
+
+    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
+    viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
+
+    ShaderProgram.Bind();
+    ShaderProgram.SetUniformMat4("u_View", viewProjection);
 
     glBindVertexArray(_vao);
 
@@ -354,8 +350,9 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader)
 
     Texture::ClearTextureSlots();
 
-    drawInScreen(screenShader);
+    HUD::draw(windowDimensions, cameraPos, zoom);
 
+    drawInScreen(screenShader);
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::FlushBuffers()
@@ -366,17 +363,17 @@ void TRCN_CORE_NAMESPACE::Renderer::FlushBuffers()
     _triangleBuffer.clear();
 }
 
-void Trinacria::DSL::Renderer::AddMaterial(const Material& material)
+void TRCN_CORE_NAMESPACE::Renderer::AddMaterial(const Material& material)
 {
-    if (materialCount >= 32) return;
+    if (_materialCount >= 32) return;
 
-    _materials[materialCount] = material;
-    material.SetUniforms(materialCount++);
+    _materials[_materialCount] = material;
+    material.SetUniforms(_materialCount++);
 }
 
-int Trinacria::DSL::Renderer::SearchMaterial(const Material& material)
+int TRCN_CORE_NAMESPACE::Renderer::SearchMaterial(const Material& material)
 {
-    for (int i = 0; i < materialCount; i++)
+    for (int i = 0; i < _materialCount; i++)
     {
         if (_materials[i] == material)
         {
@@ -387,12 +384,14 @@ int Trinacria::DSL::Renderer::SearchMaterial(const Material& material)
     return 0;
 }
 
-void Trinacria::DSL::Renderer::OnResize(const glm::vec2& windowDimensions)
+void TRCN_CORE_NAMESPACE::Renderer::OnResize(const glm::vec2& windowDimensions)
 {
     _colorAttachment.BoundTexImage(GL_RGB, GL_RGB, windowDimensions.x, windowDimensions.y,
     GL_UNSIGNED_BYTE, nullptr, GL_LINEAR);
 
     glViewport(0, 0, windowDimensions.x, windowDimensions.y);
+
+    HUD::onResize(windowDimensions);
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::Cleanup()
@@ -401,6 +400,9 @@ void TRCN_CORE_NAMESPACE::Renderer::Cleanup()
     glDeleteBuffers(1, &_ebo);
     glDeleteVertexArrays(1, &_vao);
 
+    glDeleteBuffers(1, &_vboScreen);
+    glDeleteVertexArrays(1, &_vaoScreen);
+
     glDeleteVertexArrays(1, &_triangleVao);
 
     glDeleteProgram(ShaderProgram.GetShaderProgram());
@@ -408,6 +410,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Cleanup()
     glDeleteBuffers(1, &_triangleVbo);
 
     _frameBuffer.Cleanup();
+    LightSystem::Cleanup();
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::attribPointer(uint32_t location, uint32_t nParameters, uint32_t parameterType,
@@ -439,20 +442,23 @@ void TRCN_CORE_NAMESPACE::Renderer::ClearColorBuffer(const glm::vec3& color)
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Trinacria::DSL::Renderer::CreateQuad(const QuadData& quadData)
+void TRCN_CORE_NAMESPACE::Renderer::CreateQuad(const QuadData& quadData)
 {
     if (quadData.texture != nullptr)
     {
-        createQuad(quadData.transform, quadData.texture, quadData.Color, quadData.MaterialIndex, quadData.TexCoords);
+        createQuad(-quadData.transform.Pivot, quadData.texture, glm::vec2(1.f),
+                   quadData.Color, quadData.MaterialIndex, quadData.transform.GetMatrix(), quadData.TexCoords);
     }
     else if (quadData.sprite != nullptr)
     {
-        createQuad(quadData.transform, quadData.sprite, quadData.Color, quadData.MaterialIndex);
+        createQuad(-quadData.transform.Pivot, quadData.sprite, glm::vec2(1.f),
+                   quadData.Color, quadData.MaterialIndex, quadData.transform.GetMatrix());
     }
     // using plain color
     else
     {
-        createQuad(quadData.transform, Texture::NO_TEXTURE, quadData.Color, quadData.MaterialIndex);
+        createQuad(-quadData.transform.Pivot, Texture::NO_TEXTURE, glm::vec2(1.f),
+                   quadData.Color, quadData.MaterialIndex, quadData.transform.GetMatrix());
     }
 }
 
@@ -471,7 +477,7 @@ void TRCN_CORE_NAMESPACE::QuadTexCoords::Normalize(uint32_t texWidth, uint32_t t
     Coord3.y = Coord3.y / texHeight;
 }
 
-void Trinacria::DSL::TriangleTexCoords::Normalize(uint32_t texWidth, uint32_t texHeight)
+void TRCN_CORE_NAMESPACE::TriangleTexCoords::Normalize(uint32_t texWidth, uint32_t texHeight)
 {
     Coord0.x = Coord0.x / texWidth;
     Coord0.y = Coord0.y / texHeight;

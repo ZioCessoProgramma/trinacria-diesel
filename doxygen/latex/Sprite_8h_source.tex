@@ -1,0 +1,63 @@
+\doxysection{Sprite.\+h}
+\hypertarget{Sprite_8h_source}{}\label{Sprite_8h_source}\index{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/Sprite.h@{/home/bigbenji/Documenti/cpp/trinacria-\/diesel/Trinacria/include/Trinacria/Sprite.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Texture.h"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}Renderer.h"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }TRCN\_CORE\_NAMESPACE}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet_ac5cb152af3e95997c14ec37c8279dfd1}{SpriteSheet}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a68bf51dc04eb164e87ae0e2f4f462953}{Texture}}}
+\DoxyCodeLine{00014\ \ \ \ \ \{}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet_ac5cb152af3e95997c14ec37c8279dfd1}{SpriteSheet}}(\textcolor{keywordtype}{float}\ cellWidth,\ \textcolor{keywordtype}{float}\ cellHeight)\ :\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet_aef3d3dcbc3863831cb4bfdf2430c15a8}{CellWidth}}(cellWidth),\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet_ae2073717f9af9f596c4c5cedd938b490}{CellHeight}}(cellHeight)\ \{\ \}}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\ GetCell(uint32\_t\ xIndex,\ uint32\_t\ yIndex);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet_aef3d3dcbc3863831cb4bfdf2430c15a8}{CellWidth}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet_ae2073717f9af9f596c4c5cedd938b490}{CellHeight}};}
+\DoxyCodeLine{00043\ \ \ \ \ \};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite_a3ff258f65843cd5eb9fa55c349d592c8}{Sprite}}}
+\DoxyCodeLine{00050\ \ \ \ \ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite_a3ff258f65843cd5eb9fa55c349d592c8}{Sprite}}(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet}{SpriteSheet}}*\ parent,\ uint32\_t\ xIndex,\ uint32\_t\ yIndex,\ uint32\_t\ xExtent\ =\ 1,\ uint32\_t\ yExtent\ =\ 1)\ :}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \_parent(parent),\ \_xIndex(xIndex),\ \_yIndex(yIndex),\ \_xExtent(xExtent),\ \_yExtent(yExtent)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \_initialized\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite}{Sprite}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ Init(\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet}{SpriteSheet}}*\ parent,\ uint32\_t\ xIndex,\ uint32\_t\ yIndex,\ uint32\_t\ xExtent\ =\ 1,\ uint32\_t\ yExtent\ =\ 1);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1QuadTexCoords}{QuadTexCoords}}\ GetTexCoords();}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1TriangleTexCoords}{TriangleTexCoords}}\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite_aac03c86c4aa1c46d52d34c86c30daa58}{GetTriangleTexCoords}}();}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet}{SpriteSheet}}*\ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Sprite_a17ba4ec924670c3aa5f1c99d2141ab25}{GetParent}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1SpriteSheet}{SpriteSheet}}*\ \_parent;}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ uint32\_t\ \_xIndex,\ \_yIndex;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ uint32\_t\ \_xExtent,\ \_yExtent;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \_initialized\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00108\ \ \ \ \ \};}
+\DoxyCodeLine{00109\ \}}
+
+\end{DoxyCode}

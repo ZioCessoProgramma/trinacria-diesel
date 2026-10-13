@@ -3,6 +3,7 @@
 #include "Macros.h"
 
 #include "Event.h"
+#include "glm/vec2.hpp"
 
 #define KEY_NUM 94
 
@@ -10,14 +11,22 @@ struct GLFWwindow;
 
 namespace TRCN_CORE_NAMESPACE
 {
-    enum class InputEventType
-    {
-        Pressed,
-        Clicked,
-        Released
-    };
+	/**
+	 * @brief the possible states of an input event
+	 */
 
-    enum KeyValue : uint32_t
+	enum class InputEventType
+	{
+		Pressed,
+		Clicked,
+		Released
+	};
+
+	/**
+	 * @brief the value of every supported key, based on GLFW key codes
+	 */
+
+	enum KeyValue : uint32_t
     {
         Key_SPACE = 32, Key_APOSTROPHE = 39, Key_COMMA = 44, Key_MINUS = 45, Key_PERIOD = 46, Key_SLASH = 47,
         Key_0 = 48, Key_1 = 49, Key_2 = 50, Key_3 = 51, Key_4 = 52, Key_5 = 53, Key_6 = 54, Key_7 = 55, Key_8 = 56, Key_9 = 57,
@@ -43,34 +52,68 @@ namespace TRCN_CORE_NAMESPACE
         Key_NUMPAD_ENTER = 335, Key_NUMPAD_EQUAL = 336
     };
 
-    class KeyboardEvent : public Event<InputEventType>
-    {
-    public:
-        KeyboardEvent(KeyValue key, InputEventType type) : Event(type), _key(key) {}
+	/**
+	 * @brief event raised when a keyboard key is pressed, clicked or released
+	 */
 
-        KeyValue GetKey() const { return _key; }
+	class KeyboardEvent : public Event<InputEventType>
+	{
+	public:
+		/**
+		 * @brief constructor of the event
+		 * @param key the key involved in the event
+		 * @param type the state of the key (Pressed, Clicked, Released)
+		 */
 
-    private:
-        KeyValue _key;
-    };
+		KeyboardEvent(KeyValue key, InputEventType type) : Event(type), _key(key) {}
 
-    enum MouseValue
-    {
-        Mouse_LEFT = 0, Mouse_RIGHT = 1,
-        Mouse_SCROLLWHEEL = 2,
-        Mouse_4 = 3, Mouse_5 = 4
-    };
+		/**
+		 * @brief get the key involved in the event
+		 * @return the key involved in the event
+		 */
 
-    class MouseKeyEvent : public Event<InputEventType>
-    {
-    public:
-        MouseKeyEvent(MouseValue mouseKey, InputEventType type) : Event(type), _mouseKey(mouseKey) {}
+		KeyValue GetKey() const { return _key; }
 
-        MouseValue GetKey() const { return _mouseKey; }
+	private:
+		KeyValue _key;
+	};
 
-    private:
-        MouseValue _mouseKey;
-    };
+	/**
+	 * @brief the value of every supported mouse button
+	 */
+
+	enum MouseValue
+	{
+		Mouse_LEFT = 0, Mouse_RIGHT = 1,
+		Mouse_SCROLLWHEEL = 2,
+		Mouse_4 = 3, Mouse_5 = 4
+	};
+
+	/**
+	 * @brief event raised when a mouse button is pressed, clicked or released
+	 */
+
+	class MouseKeyEvent : public Event<InputEventType>
+	{
+	public:
+		/**
+		 * @brief constructor of the event
+		 * @param mouseKey the mouse button involved in the event
+		 * @param type the state of the button (Pressed, Clicked, Released)
+		 */
+
+		MouseKeyEvent(MouseValue mouseKey, InputEventType type) : Event(type), _mouseKey(mouseKey) {}
+
+		/**
+		 * @brief get the mouse button involved in the event
+		 * @return the mouse button involved in the event
+		 */
+
+		MouseValue GetKey() const { return _mouseKey; }
+
+	private:
+		MouseValue _mouseKey;
+	};
 
     /*enum class MouseMovedEventType { Moved };
     enum class MouseScrolledEventType { Moved };*/
@@ -101,18 +144,55 @@ namespace TRCN_CORE_NAMESPACE
         int _yOffset;
     };*/
 
-    class InputPollerLayer : public Layer
-    {
-    public:
-        virtual void OnUpdate(float deltaTime) override;
+	/**
+	 * @brief layer that polls keyboard and mouse state and dispatches the resulting events
+	 */
 
-        virtual void OnAttach() override;
-        virtual void OnDetach() override { }
+	class InputPollerLayer : public Layer
+	{
+	public:
+		/**
+		 * @brief polls input state each frame and submits keyboard/mouse events
+		 * @param deltaTime time elapsed since the last frame
+		 */
 
-        void SetWindow(GLFWwindow* window) { _window = window; }
+		virtual void OnUpdate(float deltaTime) override;
 
-        EventDispatcher<KeyboardEvent> KeyBoardDispatcher;
-        EventDispatcher<MouseKeyEvent> MouseDispatcher;
+		/**
+		 * @brief called when the layer is attached to the application
+		 */
+
+		virtual void OnAttach() override;
+
+		/**
+		 * @brief called when the layer is detached from the application
+		 */
+
+		virtual void OnDetach() override { }
+
+		/**
+		 * @brief sets the window used to poll input state
+		 * @param window the GLFW window
+		 * @param windowDimensions
+		 */
+
+		void SetWindow(GLFWwindow* window, const glm::vec2& windowDimensions)
+		{
+		    _window = window;
+		    _windowDimensions  = windowDimensions;
+		}
+
+		/**
+		 * @brief dispatcher of keyboard events
+		 */
+
+		EventDispatcher<KeyboardEvent> KeyBoardDispatcher;
+
+		/**
+		 * @brief dispatcher of mouse button events
+		 */
+
+		EventDispatcher<MouseKeyEvent> MouseDispatcher;
         /*EventDispatcher<MouseScrollEvent> MouseScrollDispatcher;
         EventDispatcher<MouseMoveEvent> MouseMoveDispatcher;*/
 
@@ -126,6 +206,7 @@ namespace TRCN_CORE_NAMESPACE
         void submitMouseEvent(int glfwKey, MouseValue mouseKey);
 
         GLFWwindow* _window = nullptr;
+	    glm::vec2 _windowDimensions;
 
         uint32_t _keys[KEY_NUM] = {};
         bool _wasPressed[KEY_NUM] = {};

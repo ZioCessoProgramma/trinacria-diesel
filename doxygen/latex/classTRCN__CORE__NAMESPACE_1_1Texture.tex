@@ -1,0 +1,353 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Texture Class Reference}
+\hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture}{}\label{classTRCN__CORE__NAMESPACE_1_1Texture}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+
+
+class representing a texture  
+
+
+
+
+{\ttfamily \#include $<$Texture.\+h$>$}
+
+
+
+Inheritance diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Texture\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=221pt]{classTRCN__CORE__NAMESPACE_1_1Texture__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Texture\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=310pt]{classTRCN__CORE__NAMESPACE_1_1Texture__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a68bf51dc04eb164e87ae0e2f4f462953}{Texture}} (uint32\+\_\+t id, int width, int height, int channels)
+\begin{DoxyCompactList}\small\item\em constructor for client initialization \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_aedc8fbdf28e50493d32ecbc488c74f45}{Get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em returns the open\+GL id of the texture \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_ae9b7027f6466017074d4c35d82e217c9}{Get\+Width}} ()
+\begin{DoxyCompactList}\small\item\em returns the width of the texture \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a487c212d81917a78a0a9084c4abdb3d9}{Get\+Height}} ()
+\begin{DoxyCompactList}\small\item\em returns the height of the texture \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_afb6b5823da8d46a05d52b3c82c79a187}{Get\+Channels}} ()
+\begin{DoxyCompactList}\small\item\em returns the channels of the texture \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_aa40efbd5ef21d12a7a446e5081b3a402}{Load\+Texture}} (const std\+::string \&path, uint32\+\_\+t filter=GL\+\_\+\+LINEAR)
+\begin{DoxyCompactList}\small\item\em it loads the texture from a specified path \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_ad22e7eabae9c3a723ec53143d96179e7}{Generate\+Texture}} ()
+\begin{DoxyCompactList}\small\item\em it generates the open\+GL texture \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a4be2954b19b9955e17942807d941e2f0}{Tex\+Image}} (uint32\+\_\+t internal\+Format, uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t filter)
+\begin{DoxyCompactList}\small\item\em static function that allocates the data of the texture \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a8ee48d1276813287e479155078e10731}{Bound\+Tex\+Image}} (uint32\+\_\+t internal\+Format, uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data, uint32\+\_\+t filter)
+\begin{DoxyCompactList}\small\item\em static function that allocates the data of the texture \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_af64f6dba505f3dfbbbafd2a93a75dea0}{Bound\+Sub\+Image}} (uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em static function that changes the data of the texture \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a0cf1fc54e18f69d47631a77905933f64}{Bind}} (uint32\+\_\+t texture\+Slot)
+\begin{DoxyCompactList}\small\item\em binds the texture \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a87f94f1389bee935dbe218c317e9020d}\label{classTRCN__CORE__NAMESPACE_1_1Texture_a87f94f1389bee935dbe218c317e9020d} 
+virtual void {\bfseries Bind} ()
+\begin{DoxyCompactList}\small\item\em binds the texture to first available texture slot \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a885a7047dca74e5bb8b927fac11d2add}\label{classTRCN__CORE__NAMESPACE_1_1Texture_a885a7047dca74e5bb8b927fac11d2add} 
+virtual void {\bfseries Cleanup} ()
+\begin{DoxyCompactList}\small\item\em clean up the texture \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a47447853a2672a493593610dfef66131}{Unbind}} ()
+\begin{DoxyCompactList}\small\item\em unbinds the texture \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a5aa6dba3501f3affebc818c4514f39e2}{Get\+Texture\+Chosen\+Slot}} () const
+\begin{DoxyCompactList}\small\item\em the chosen slot by the texture is the slot it will bind to when the texture slot is not specified \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_ae3c489e97ac0d7795a66a1816a45d47a}{Sub\+Image}} (uint32\+\_\+t format, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t type, void \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em static function that changes the data of the texture \end{DoxyCompactList}\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_af81a570e083612990c0f1ff6802a1c12}\label{classTRCN__CORE__NAMESPACE_1_1Texture_af81a570e083612990c0f1ff6802a1c12} 
+static void {\bfseries Clear\+Texture\+Slots} ()
+\begin{DoxyCompactList}\small\item\em static function that refresh the texture slots \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a73bebad1a7e0dbade4eab53893807320}\label{classTRCN__CORE__NAMESPACE_1_1Texture_a73bebad1a7e0dbade4eab53893807320} 
+static constexpr \mbox{\hyperlink{classTRCN__CORE__NAMESPACE_1_1Texture_a68bf51dc04eb164e87ae0e2f4f462953}{Texture}} \texorpdfstring{$\ast$}{*} {\bfseries NO\+\_\+\+TEXTURE} = nullptr
+\begin{DoxyCompactList}\small\item\em a pointer representing no texture \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class representing a texture 
+
+\label{doc-constructors}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a68bf51dc04eb164e87ae0e2f4f462953}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!Texture@{Texture}}
+\index{Texture@{Texture}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{Texture()}{Texture()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a68bf51dc04eb164e87ae0e2f4f462953} 
+TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Texture (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{, }\item[{int}]{width}{, }\item[{int}]{height}{, }\item[{int}]{channels}{}\end{DoxyParamCaption})}
+
+
+
+constructor for client initialization 
+
+\begin{DoxyNote}{Note}
+use this only if you know what you\textquotesingle{}re doing 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & the open\+GL id for the texture \\
+\hline
+{\em width} & the width of the texture \\
+\hline
+{\em height} & the height of the texture \\
+\hline
+{\em channels} & the color channels of a texture \\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a0cf1fc54e18f69d47631a77905933f64}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!Bind@{Bind}}
+\index{Bind@{Bind}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a0cf1fc54e18f69d47631a77905933f64} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Bind (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{texture\+Slot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+binds the texture 
+
+
+\begin{DoxyParams}{Parameters}
+{\em texture\+Slot} & the texture slot to bind the texture \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_af64f6dba505f3dfbbbafd2a93a75dea0}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!BoundSubImage@{BoundSubImage}}
+\index{BoundSubImage@{BoundSubImage}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{BoundSubImage()}{BoundSubImage()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_af64f6dba505f3dfbbbafd2a93a75dea0} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Bound\+Sub\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{format}{, }\item[{uint32\+\_\+t}]{width}{, }\item[{uint32\+\_\+t}]{height}{, }\item[{uint32\+\_\+t}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+static function that changes the data of the texture 
+
+\begin{DoxyNote}{Note}
+it binds the texture 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em format} & the format viewed \\
+\hline
+{\em width} & the width of the texture \\
+\hline
+{\em height} & the height of the texture \\
+\hline
+{\em type} & the type of data to store in the texture \\
+\hline
+{\em data} & the data to store in the texture \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a8ee48d1276813287e479155078e10731}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!BoundTexImage@{BoundTexImage}}
+\index{BoundTexImage@{BoundTexImage}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{BoundTexImage()}{BoundTexImage()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a8ee48d1276813287e479155078e10731} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Bound\+Tex\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{internal\+Format}{, }\item[{uint32\+\_\+t}]{format}{, }\item[{uint32\+\_\+t}]{width}{, }\item[{uint32\+\_\+t}]{height}{, }\item[{uint32\+\_\+t}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{filter}{}\end{DoxyParamCaption})}
+
+
+
+static function that allocates the data of the texture 
+
+\begin{DoxyNote}{Note}
+it binds the texture 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em internal\+Format} & the format used to store the data \\
+\hline
+{\em format} & the format viewed \\
+\hline
+{\em width} & the width of the texture \\
+\hline
+{\em height} & the height of the texture \\
+\hline
+{\em type} & the type of data to store in the texture \\
+\hline
+{\em data} & the data to store in the texture \\
+\hline
+{\em filter} & the filter to use. See khronos open\+GL documentation to know more of the filters \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_ad22e7eabae9c3a723ec53143d96179e7}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!GenerateTexture@{GenerateTexture}}
+\index{GenerateTexture@{GenerateTexture}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{GenerateTexture()}{GenerateTexture()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_ad22e7eabae9c3a723ec53143d96179e7} 
+virtual void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Generate\+Texture (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+it generates the open\+GL texture 
+
+\begin{DoxyNote}{Note}
+use it only once before doing any operation that isn\textquotesingle{}t Load\+Texture() 
+\end{DoxyNote}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_afb6b5823da8d46a05d52b3c82c79a187}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!GetChannels@{GetChannels}}
+\index{GetChannels@{GetChannels}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{GetChannels()}{GetChannels()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_afb6b5823da8d46a05d52b3c82c79a187} 
+virtual int TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Get\+Channels (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the channels of the texture 
+
+\begin{DoxyReturn}{Returns}
+returns the channels of the texture 
+\end{DoxyReturn}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a487c212d81917a78a0a9084c4abdb3d9}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a487c212d81917a78a0a9084c4abdb3d9} 
+virtual int TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Get\+Height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the height of the texture 
+
+\begin{DoxyReturn}{Returns}
+returns the height of the texture 
+\end{DoxyReturn}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_aedc8fbdf28e50493d32ecbc488c74f45}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!GetId@{GetId}}
+\index{GetId@{GetId}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{GetId()}{GetId()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_aedc8fbdf28e50493d32ecbc488c74f45} 
+virtual int TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the open\+GL id of the texture 
+
+\begin{DoxyReturn}{Returns}
+returns the open\+GL id of the texture 
+\end{DoxyReturn}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a5aa6dba3501f3affebc818c4514f39e2}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!GetTextureChosenSlot@{GetTextureChosenSlot}}
+\index{GetTextureChosenSlot@{GetTextureChosenSlot}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{GetTextureChosenSlot()}{GetTextureChosenSlot()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a5aa6dba3501f3affebc818c4514f39e2} 
+uint32\+\_\+t TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Get\+Texture\+Chosen\+Slot (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+the chosen slot by the texture is the slot it will bind to when the texture slot is not specified 
+
+\begin{DoxyReturn}{Returns}
+the chosen slot for the texture 
+\end{DoxyReturn}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_ae9b7027f6466017074d4c35d82e217c9}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_ae9b7027f6466017074d4c35d82e217c9} 
+virtual int TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Get\+Width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+returns the width of the texture 
+
+\begin{DoxyReturn}{Returns}
+returns the width of the texture 
+\end{DoxyReturn}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_aa40efbd5ef21d12a7a446e5081b3a402}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!LoadTexture@{LoadTexture}}
+\index{LoadTexture@{LoadTexture}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{LoadTexture()}{LoadTexture()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_aa40efbd5ef21d12a7a446e5081b3a402} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Load\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path}{, }\item[{uint32\+\_\+t}]{filter}{ = {\ttfamily GL\+\_\+LINEAR}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+it loads the texture from a specified path 
+
+\begin{DoxyNote}{Note}
+it generates the open\+GL texture no need to do it manually 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em path} & the path to load texture from \\
+\hline
+{\em filter} & the filter to use. See khronos open\+GL documentation to know more of the filters \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_ae3c489e97ac0d7795a66a1816a45d47a}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!SubImage@{SubImage}}
+\index{SubImage@{SubImage}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{SubImage()}{SubImage()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_ae3c489e97ac0d7795a66a1816a45d47a} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Sub\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{format}{, }\item[{uint32\+\_\+t}]{width}{, }\item[{uint32\+\_\+t}]{height}{, }\item[{uint32\+\_\+t}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+static function that changes the data of the texture 
+
+
+\begin{DoxyParams}{Parameters}
+{\em format} & the format viewed \\
+\hline
+{\em width} & the width of the texture \\
+\hline
+{\em height} & the height of the texture \\
+\hline
+{\em type} & the type of data to store in the texture \\
+\hline
+{\em data} & the data to store in the texture \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a4be2954b19b9955e17942807d941e2f0}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!TexImage@{TexImage}}
+\index{TexImage@{TexImage}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{TexImage()}{TexImage()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a4be2954b19b9955e17942807d941e2f0} 
+void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Tex\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{internal\+Format}{, }\item[{uint32\+\_\+t}]{format}{, }\item[{uint32\+\_\+t}]{width}{, }\item[{uint32\+\_\+t}]{height}{, }\item[{uint32\+\_\+t}]{type}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{uint32\+\_\+t}]{filter}{}\end{DoxyParamCaption})}
+
+
+
+static function that allocates the data of the texture 
+
+
+\begin{DoxyParams}{Parameters}
+{\em internal\+Format} & the format used to store the data \\
+\hline
+{\em format} & the format viewed \\
+\hline
+{\em width} & the width of the texture \\
+\hline
+{\em height} & the height of the texture \\
+\hline
+{\em type} & the type of data to store in the texture \\
+\hline
+{\em data} & the data to store in the texture \\
+\hline
+{\em filter} & the filter to use. See khronos open\+GL documentation to know more of the filters \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTRCN__CORE__NAMESPACE_1_1Texture_a47447853a2672a493593610dfef66131}\index{TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}!Unbind@{Unbind}}
+\index{Unbind@{Unbind}!TRCN\_CORE\_NAMESPACE::Texture@{TRCN\_CORE\_NAMESPACE::Texture}}
+\doxysubsubsection{\texorpdfstring{Unbind()}{Unbind()}}
+{\footnotesize\ttfamily \label{classTRCN__CORE__NAMESPACE_1_1Texture_a47447853a2672a493593610dfef66131} 
+virtual void TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Texture\+::\+Unbind (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+unbinds the texture 
+
+\begin{DoxyNote}{Note}
+this function doesn\textquotesingle{}t need to be done before binding another texture 
+\end{DoxyNote}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/Texture.\+h\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/src/Texture.\+cpp\end{DoxyCompactItemize}

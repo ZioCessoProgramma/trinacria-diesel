@@ -1,0 +1,98 @@
+\doxysection{TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::Progress\+Bar\+Vertex Struct Reference}
+\hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex}{}\label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex}\index{TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}}
+
+
+\doxylink{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex}{Progress\+Bar\+Vertex} is the vertex that is used by the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} to make progress bars.  
+
+
+
+
+{\ttfamily \#include $<$HUD.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a762fd5edebd47f19fa0f12c0c574cad0}\label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a762fd5edebd47f19fa0f12c0c574cad0} 
+glm\+::vec2 {\bfseries Position}
+\begin{DoxyCompactList}\small\item\em position in screen in range \mbox{[}0, 1\mbox{]} \mbox{[}0, 1\mbox{]}, pivot is at bottom left \end{DoxyCompactList}\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a84c00d1933e0ad34962593f808098de0}\label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a84c00d1933e0ad34962593f808098de0} 
+glm\+::vec4 {\bfseries Color}
+\begin{DoxyCompactList}\small\item\em the color the vertex should have \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a63d95f107fa533bacf31c1b7b37b3f7d}{Texture\+Index}}
+\begin{DoxyCompactList}\small\item\em texture index in texture array \end{DoxyCompactList}\item 
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_aec43333bcf134633aae06e59201b1b18}\label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_aec43333bcf134633aae06e59201b1b18} 
+glm\+::vec2 {\bfseries Tex\+Coord}
+\begin{DoxyCompactList}\small\item\em the tex coordinate (range \mbox{[}0; 1\mbox{]} \mbox{[}0; 1\mbox{]}) associated with this vertex \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_ae08cda8817a4a70d28f2160716770938}{Fill\+Texture\+Index}}
+\begin{DoxyCompactList}\small\item\em the fill texture index in the texture array \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a89e59e5b10cc5dd544e44f767dcb5aa6}{Progress}}
+\begin{DoxyCompactList}\small\item\em the progress of the progress bar \end{DoxyCompactList}\item 
+glm\+::vec4 \mbox{\hyperlink{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a58d8d46b43e8ebcdedc85a4dd362f7e7}{Fill\+Color}}
+\begin{DoxyCompactList}\small\item\em the color to fill the progress bar with \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex}{Progress\+Bar\+Vertex} is the vertex that is used by the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} to make progress bars. 
+
+\label{doc-variable-members}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a58d8d46b43e8ebcdedc85a4dd362f7e7}\index{TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}!FillColor@{FillColor}}
+\index{FillColor@{FillColor}!TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}}
+\doxysubsubsection{\texorpdfstring{FillColor}{FillColor}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a58d8d46b43e8ebcdedc85a4dd362f7e7} 
+glm\+::vec4 TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Progress\+Bar\+Vertex\+::\+Fill\+Color}
+
+
+
+the color to fill the progress bar with 
+
+\begin{DoxyNote}{Note}
+don\textquotesingle{}t worry about it if are drawing just a quad 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_ae08cda8817a4a70d28f2160716770938}\index{TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}!FillTextureIndex@{FillTextureIndex}}
+\index{FillTextureIndex@{FillTextureIndex}!TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}}
+\doxysubsubsection{\texorpdfstring{FillTextureIndex}{FillTextureIndex}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_ae08cda8817a4a70d28f2160716770938} 
+uint32\+\_\+t TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Progress\+Bar\+Vertex\+::\+Fill\+Texture\+Index}
+
+
+
+the fill texture index in the texture array 
+
+\begin{DoxyNote}{Note}
+it shares the same array with the other textures
+\end{DoxyNote}
+it\textquotesingle{}s used to know where to fill the progress bar. It replaces magenta with the color to fill \Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a89e59e5b10cc5dd544e44f767dcb5aa6}\index{TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}!Progress@{Progress}}
+\index{Progress@{Progress}!TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}}
+\doxysubsubsection{\texorpdfstring{Progress}{Progress}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a89e59e5b10cc5dd544e44f767dcb5aa6} 
+float TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Progress\+Bar\+Vertex\+::\+Progress}
+
+
+
+the progress of the progress bar 
+
+\begin{DoxyNote}{Note}
+-\/1 when no progress 
+\end{DoxyNote}
+\Hypertarget{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a63d95f107fa533bacf31c1b7b37b3f7d}\index{TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}!TextureIndex@{TextureIndex}}
+\index{TextureIndex@{TextureIndex}!TRCN\_CORE\_NAMESPACE::ProgressBarVertex@{TRCN\_CORE\_NAMESPACE::ProgressBarVertex}}
+\doxysubsubsection{\texorpdfstring{TextureIndex}{TextureIndex}}
+{\footnotesize\ttfamily \label{structTRCN__CORE__NAMESPACE_1_1ProgressBarVertex_a63d95f107fa533bacf31c1b7b37b3f7d} 
+uint32\+\_\+t TRCN\+\_\+\+CORE\+\_\+\+NAMESPACE\+::\+Progress\+Bar\+Vertex\+::\+Texture\+Index}
+
+
+
+texture index in texture array 
+
+\begin{DoxyNote}{Note}
+0 for none 
+
+the texture array for the \doxylink{classTRCN__CORE__NAMESPACE_1_1HUD}{HUD} is different from the one of the \doxylink{classTRCN__CORE__NAMESPACE_1_1Renderer}{Renderer} 
+\end{DoxyNote}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/bigbenji/\+Documenti/cpp/trinacria-\/diesel/\+Trinacria/include/\+Trinacria/HUD.\+h\end{DoxyCompactItemize}

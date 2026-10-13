@@ -60,12 +60,11 @@ void TRCN_CORE_NAMESPACE::Texture::LoadTexture(const std::string& path, uint32_t
 	}
 
 	glTexImage2D(GL_TEXTURE_2D, 0, format, _width, _height, 0, format, GL_UNSIGNED_BYTE, data);
-	
 
 	glGenerateMipmap(GL_TEXTURE_2D);
 
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);  // Trilinear filtering
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filter == GL_LINEAR ? GL_LINEAR_MIPMAP_LINEAR : GL_NEAREST_MIPMAP_LINEAR);  // Trilinear filtering
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter);
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -73,8 +72,6 @@ void TRCN_CORE_NAMESPACE::Texture::LoadTexture(const std::string& path, uint32_t
 	stbi_image_free(data);
 
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
-
-	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
 void Trinacria::DSL::Texture::GenerateTexture()
@@ -85,6 +82,9 @@ void Trinacria::DSL::Texture::GenerateTexture()
 void Trinacria::DSL::Texture::TexImage(uint32_t internalFormat, uint32_t format, uint32_t width, uint32_t height, uint32_t type, void* data, uint32_t filter)
 {
 	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, width, height, 0, format, type, data);
+
+    _width = width;
+    _height = height;
 
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, filter);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, filter);
@@ -143,9 +143,4 @@ void Trinacria::DSL::Texture::ClearTextureSlots()
 	{
 		_isTextureSlotOccupied[i] = false;
 	}
-}
-
-void Trinacria::DSL::Texture::Init()
-{
-	glGenTextures(1, &_id);
 }
