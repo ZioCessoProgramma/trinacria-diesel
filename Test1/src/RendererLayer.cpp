@@ -24,21 +24,21 @@ void RendererLayer::OnUpdate(float deltaTime)
     Trinacria::DSL::HUDQuadData progressBar (Trinacria::DSL::Transform(glm::vec2(0.f, -0.9f),
 		glm::vec2(0.8f, 0.1f), 0, glm::vec2(0.5f)), &_healthBar, glm::vec4(1.f, 1.f, 1.f, 1.f));
 
-    Trinacria::DSL::hud::CreateProgressBar(progressBar, &_healthBarFillMap, (glm::sin(glfwGetTime()) + 1) / 2,
+    Trinacria::DSL::HUD::CreateProgressBar(progressBar, &_healthBarFillMap, (glm::sin(glfwGetTime()) + 1) / 2,
 	    glm::vec4(0.2f, 0.7f, 0.2f, 0.7f));
 
     Trinacria::DSL::HUDQuadData quad(_buttonTransform, glm::vec4(0.7f, 0.2f, 0.2f, 1.f));
 
-    Trinacria::DSL::hud::CreateButton(quad, quad.Color - glm::vec4(0.1f, 0.1f, 0.1f, 0.f), quad.Color - glm::vec4(0.2f, 0.2f, 0.2f, 0.f), Application::Get()->GetWindow(), Application::Get()->GetWindowDimensions());
+    Trinacria::DSL::HUD::CreateButton(quad, quad.Color - glm::vec4(0.1f, 0.1f, 0.1f, 0.f), quad.Color - glm::vec4(0.2f, 0.2f, 0.2f, 0.f), Application::Get()->GetWindow(), Application::Get()->GetWindowDimensions());
 
     Trinacria::DSL::HUDQuadData quad_(_buttonTransform1, glm::vec4(0.2f, 0.7f, 0.2f, 1.f));
 
-    Trinacria::DSL::hud::CreateButton(quad_, quad_.Color - glm::vec4(0.1f, 0.1f, 0.1f, 0.f), quad_.Color - glm::vec4(0.2f, 0.2f, 0.2f, 0.f), Application::Get()->GetWindow(), Application::Get()->GetWindowDimensions());
+    Trinacria::DSL::HUD::CreateButton(quad_, quad_.Color - glm::vec4(0.1f, 0.1f, 0.1f, 0.f), quad_.Color - glm::vec4(0.2f, 0.2f, 0.2f, 0.f), Application::Get()->GetWindow(), Application::Get()->GetWindowDimensions());
 
     Trinacria::DSL::HUDQuadData progressBar1 (Trinacria::DSL::Transform(glm::vec2(0.f, -0.8f),
 		glm::vec2(0.6f, 0.1f), 0, glm::vec2(0.5f)), &_healthBar, glm::vec4(1.f, 1.f, 1.f, 1.f));
 
-    Trinacria::DSL::hud::CreateProgressBar(progressBar1, &_healthBarFillMap, (glm::cos(glfwGetTime()) + 1) / 2,
+    Trinacria::DSL::HUD::CreateProgressBar(progressBar1, &_healthBarFillMap, (glm::cos(glfwGetTime()) + 1) / 2,
 	    glm::vec4(0.2f, 0.2f, 0.6f, 1.f));
 
 
@@ -147,14 +147,17 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::Renderer::EndScene();
 
-    Trinacria::DSL::hud::CreateText("Health", {{0.f, -0.9f}, {0.05f, 0.05f}},
+    Trinacria::DSL::HUD::CreateText("Health", {{0.f, -0.9f}, {0.05f, 0.05f}},
                                     glm::vec4(1.f, 1.f, 1.f, 1.f),
                                     false, "assets/fonts/Orbitron/Orbitron-Medium.ttf",
                                     {1.f, 1.f}, msdf_atlas::Charset::ASCII);
 
-    Trinacria::DSL::hud::EndHUD();
+    Trinacria::DSL::HUD::DisplayFPS(deltaTime, "assets/fonts/OpenSans/OpenSans-ExtraBoldItalic.ttf",
+        glm::vec2(1.f));
 
-     Trinacria::DSL::lightSystem::InitFrame(Trinacria::DSL::lightSystem::DEFAULT_USE_OF_LIGHT);
+    Trinacria::DSL::HUD::EndHUD();
+
+     Trinacria::DSL::LightSystem::InitFrame(Trinacria::DSL::LightSystem::DEFAULT_USE_OF_LIGHT);
 
     Trinacria::DSL::PointLightData pointLight( glm::vec3(1.f, 1.f, 1.f),
 	    pointLightTransform.Position, 1.f);
@@ -172,13 +175,13 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::DirectionalLightData dirLight(glm::vec3(0.1f), glm::vec2(0.1f, 0.4f));
 
-    Trinacria::DSL::lightSystem::SetViewPos(_cameraData.CameraPos);
+    Trinacria::DSL::LightSystem::SetViewPos(_cameraData.CameraPos);
 
-    Trinacria::DSL::lightSystem::SetupLight(pointLight1);
-    Trinacria::DSL::lightSystem::SetupLight(pointLight);
-    Trinacria::DSL::lightSystem::SetupLight(spotLight1);
-    Trinacria::DSL::lightSystem::SetupLight(spotLight);
-    Trinacria::DSL::lightSystem::SetupLight(dirLight);
+    Trinacria::DSL::LightSystem::SetupLight(pointLight1);
+    Trinacria::DSL::LightSystem::SetupLight(pointLight);
+    Trinacria::DSL::LightSystem::SetupLight(spotLight1);
+    Trinacria::DSL::LightSystem::SetupLight(spotLight);
+    Trinacria::DSL::LightSystem::SetupLight(dirLight);
 
     Trinacria::DSL::Renderer::AddMaterial(Trinacria::DSL::SOLID_OPAQUE);
     Trinacria::DSL::Renderer::AddMaterial(Trinacria::DSL::METAL);
@@ -187,11 +190,11 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::Renderer::AddMaterial(groundMaterial);
 
-    Trinacria::DSL::lightSystem::Done();
+    Trinacria::DSL::LightSystem::Done();
 
     Trinacria::DSL::Renderer::Draw(_screenShader, Application::Get()->GetWindowDimensions(), _cameraData.CameraPos, _cameraData.Zoom);
     Trinacria::DSL::Renderer::FlushBuffers();
-    Trinacria::DSL::hud::FlushBuffers();
+    Trinacria::DSL::HUD::FlushBuffers();
 }
 
 void RendererLayer::OnAttach()
@@ -233,21 +236,21 @@ void RendererLayer::OnAttach()
 
     _screenShader.LoadShader("assets/shaders/Screen.vert", "assets/shaders/Screen.frag");
 
-    Trinacria::DSL::lightSystem::Init();
+    Trinacria::DSL::LightSystem::Init();
 
-    Trinacria::DSL::hud::Init({"assets/shaders/HUD.vert",
+    Trinacria::DSL::HUD::Init({"assets/shaders/HUD.vert",
         "assets/shaders/HUD.frag", "assets/shaders/Text.vert",
         "assets/shaders/Text.frag"},
         Application::Get()->GetWindowDimensions());
 
-    Trinacria::DSL::hud::AddOnClickFunction([] {TRCN_LOG("Hello Guys!");}, _buttonTransform);
-    Trinacria::DSL::hud::AddOnClickFunction([] {TRCN_LOG("Hello Girls!");}, _buttonTransform1);
+    Trinacria::DSL::HUD::AddOnClickFunction([] {TRCN_LOG("Hello Guys!");}, _buttonTransform);
+    Trinacria::DSL::HUD::AddOnClickFunction([] {TRCN_LOG("Hello Girls!");}, _buttonTransform1);
 }
 
 void RendererLayer::OnDetach()
 {
     Trinacria::DSL::Renderer::Cleanup();
-    Trinacria::DSL::hud::Cleanup();
+    Trinacria::DSL::HUD::Cleanup();
 }
 
 void RendererLayer::SetCameraData(const CameraData& cameraData)

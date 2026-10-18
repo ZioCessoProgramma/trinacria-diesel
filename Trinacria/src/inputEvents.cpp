@@ -32,7 +32,7 @@ void TRCN_CORE_NAMESPACE::InputPollerLayer::OnUpdate(float deltaTime)
 	submitMouseEvent(GLFW_MOUSE_BUTTON_4, Mouse_4);
 	submitMouseEvent(GLFW_MOUSE_BUTTON_5, Mouse_5);
 	
-	hud::UpdateEvents(_window, _windowDimensions);
+	HUD::UpdateEvents(_window, _windowDimensions);
 }
 
 void TRCN_CORE_NAMESPACE::InputPollerLayer::OnAttach()

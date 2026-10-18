@@ -94,7 +94,7 @@ namespace TRCN_CORE_NAMESPACE
     /**
      * @brief static class dealing with light
      */
-    class lightSystem
+    class LightSystem
     {
     public:
         /**

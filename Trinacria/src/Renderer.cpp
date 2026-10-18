@@ -350,7 +350,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& 
 
     Texture::ClearTextureSlots();
 
-    hud::draw(windowDimensions, cameraPos, zoom);
+    HUD::draw(windowDimensions, cameraPos, zoom);
 
     drawInScreen(screenShader);
 }
@@ -391,7 +391,7 @@ void TRCN_CORE_NAMESPACE::Renderer::OnResize(const glm::vec2& windowDimensions)
 
     glViewport(0, 0, windowDimensions.x, windowDimensions.y);
 
-    hud::onResize(windowDimensions);
+    HUD::onResize(windowDimensions);
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::Cleanup()
@@ -410,7 +410,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Cleanup()
     glDeleteBuffers(1, &_triangleVbo);
 
     _frameBuffer.Cleanup();
-    lightSystem::Cleanup();
+    LightSystem::Cleanup();
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::attribPointer(uint32_t location, uint32_t nParameters, uint32_t parameterType,

@@ -28,7 +28,6 @@ void TRCN_CORE_NAMESPACE::TextAtlas::LoadAtlas(const char* fontPath, const msdf_
 
     _alreadyLoaded = true;
 
-
     _fontGeometry = std::make_unique<msdf_atlas::FontGeometry>(&_glyphs);
     _fontGeometry->loadCharset(font, 1.0, charSet);
 

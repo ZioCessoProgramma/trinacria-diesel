@@ -207,7 +207,7 @@ namespace TRCN_CORE_NAMESPACE
 
     using OnClickType = std::function<void()>;
 
-    class hud
+    class HUD
     {
     public:
 
@@ -302,6 +302,19 @@ namespace TRCN_CORE_NAMESPACE
 
         static void UpdateEvents(GLFWwindow* window, const glm::vec2& windowDimensions);
 
+        /**
+         * @brief function to call every frame that displays fps
+         * @param deltaTime the time step between frames in seconds
+         * @param fontPath the font path to use when displaying the fps
+         * @param spacing the space between letters in x and the space between rows in y
+         * @param transform the transform to how and where display the fps
+         * @param color the color of the fps text
+         */
+
+        static void DisplayFPS(float deltaTime, const std::string& fontPath,
+                               const glm::vec2& spacing,
+                               const Transform& transform = {glm::vec2(-0.9f, 0.9f), glm::vec2(0.05f, 0.05f)}, const glm::vec4& color = {0.2f, 0.8f, 0.2f, 1.f});
+
 
         static constexpr size_t MaxHUDQuads    =            100;
         static constexpr size_t MaxHUDVertices = MaxHUDQuads * 4;
@@ -339,7 +352,13 @@ namespace TRCN_CORE_NAMESPACE
 
         inline static float _aspectRatio;
 
-        inline static std::vector<TextAtlas> _textAtlases;
+        inline static std::vector<TextAtlas*> _textAtlases;
+
+        inline static float _deltaSum = 0;
+
+        inline static uint32_t _framesCount = 0;
+
+        inline static uint32_t _previousFPS = 0;
 
         static void draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom);
 

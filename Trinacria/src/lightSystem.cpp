@@ -6,19 +6,19 @@
 #include <cstring>
 
 
-TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::lightSystem::_pointTexture;
-TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::lightSystem::_spotTexture;
-TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::lightSystem::_directionalTexture;
+TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::LightSystem::_pointTexture;
+TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::LightSystem::_spotTexture;
+TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::LightSystem::_directionalTexture;
 
-int TRCN_CORE_NAMESPACE::lightSystem::_pointLightIndex;
-int TRCN_CORE_NAMESPACE::lightSystem::_spotLightIndex;
-int TRCN_CORE_NAMESPACE::lightSystem::_dirLightIndex;
+int TRCN_CORE_NAMESPACE::LightSystem::_pointLightIndex;
+int TRCN_CORE_NAMESPACE::LightSystem::_spotLightIndex;
+int TRCN_CORE_NAMESPACE::LightSystem::_dirLightIndex;
 
-std::array<float, TRCN_CORE_NAMESPACE::lightSystem::MAX_POINT_LIGHTS * 8> TRCN_CORE_NAMESPACE::lightSystem::_pointLights;
-std::array<float, TRCN_CORE_NAMESPACE::lightSystem::MAX_SPOT_LIGHTS * 12> TRCN_CORE_NAMESPACE::lightSystem::_spotLights;
-std::array<float, TRCN_CORE_NAMESPACE::lightSystem::MAX_DIRECTIONAL_LIGHTS * 8> TRCN_CORE_NAMESPACE::lightSystem::_dirLights;
+std::array<float, TRCN_CORE_NAMESPACE::LightSystem::MAX_POINT_LIGHTS * 8> TRCN_CORE_NAMESPACE::LightSystem::_pointLights;
+std::array<float, TRCN_CORE_NAMESPACE::LightSystem::MAX_SPOT_LIGHTS * 12> TRCN_CORE_NAMESPACE::LightSystem::_spotLights;
+std::array<float, TRCN_CORE_NAMESPACE::LightSystem::MAX_DIRECTIONAL_LIGHTS * 8> TRCN_CORE_NAMESPACE::LightSystem::_dirLights;
 
-void Trinacria::DSL::lightSystem::InitFrame(float strength)
+void Trinacria::DSL::LightSystem::InitFrame(float strength)
 {
     Renderer::ShaderProgram.Bind();
     Renderer::ShaderProgram.SetUniformFloat("u_AmbientStrength", strength);
@@ -34,7 +34,7 @@ void Trinacria::DSL::lightSystem::InitFrame(float strength)
     _pointLightIndex = 0;
 }
 
-void Trinacria::DSL::lightSystem::Init()
+void Trinacria::DSL::LightSystem::Init()
 {
     _pointTexture.GenerateTexture();
 
@@ -52,12 +52,12 @@ void Trinacria::DSL::lightSystem::Init()
                                 GL_FLOAT, _dirLights.data(), GL_NEAREST);
 }
 
-void Trinacria::DSL::lightSystem::SetViewPos(glm::vec2 viewPos)
+void Trinacria::DSL::LightSystem::SetViewPos(glm::vec2 viewPos)
 {
     Renderer::ShaderProgram.SetUniformVec2("u_ViewPos", viewPos);
 }
 
-void Trinacria::DSL::lightSystem::SetupLight(const PointLightData& lightData)
+void Trinacria::DSL::LightSystem::SetupLight(const PointLightData& lightData)
 {
     if (_pointLightIndex + 8 > _pointLights.size()) return;
 
@@ -72,7 +72,7 @@ void Trinacria::DSL::lightSystem::SetupLight(const PointLightData& lightData)
     _pointLightIndex += 8;
 }
 
-void Trinacria::DSL::lightSystem::SetupLight(const SpotLightData& lightData)
+void Trinacria::DSL::LightSystem::SetupLight(const SpotLightData& lightData)
 {
     if (_spotLightIndex + 12 > _spotLights.size()) return;
 
@@ -92,7 +92,7 @@ void Trinacria::DSL::lightSystem::SetupLight(const SpotLightData& lightData)
     _spotLightIndex += 12;
 }
 
-void Trinacria::DSL::lightSystem::SetupLight(const DirectionalLightData& lightData)
+void Trinacria::DSL::LightSystem::SetupLight(const DirectionalLightData& lightData)
 {
     if (_dirLightIndex + 8 > _dirLights.size()) return;
 
@@ -108,7 +108,7 @@ void Trinacria::DSL::lightSystem::SetupLight(const DirectionalLightData& lightDa
     _dirLightIndex += 8;
 }
 
-void Trinacria::DSL::lightSystem::Done()
+void Trinacria::DSL::LightSystem::Done()
 {
     _pointTexture.BoundSubImage(GL_RGBA, MAX_POINT_LIGHTS * 2, 1, GL_FLOAT, _pointLights.data());
 
@@ -133,7 +133,7 @@ void Trinacria::DSL::lightSystem::Done()
 
 }
 
-void Trinacria::DSL::lightSystem::Cleanup()
+void Trinacria::DSL::LightSystem::Cleanup()
 {
     {
         uint32_t id = _pointTexture.GetId();
