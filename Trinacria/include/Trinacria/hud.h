@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Macros.h"
+#include "defs.h"
 #include "Renderer.h"
 #include "Shader.h"
 #include "Text.h"
 #include "Texture.h"
 #include "Transform.h"
-#include "Trinacria/InputEvents.h"
+#include "Trinacria/inputEvents.h"
 #include "glm/glm.hpp"
 
 #include <msdf-atlas-gen/msdf-atlas-gen.h>
@@ -207,7 +207,7 @@ namespace TRCN_CORE_NAMESPACE
 
     using OnClickType = std::function<void()>;
 
-    class HUD
+    class hud
     {
     public:
 

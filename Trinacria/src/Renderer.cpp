@@ -6,14 +6,14 @@
 
 #include "Trinacria/Animation.h"
 #include "Trinacria/Sprite.h"
-#include "Trinacria/Log.h"
+#include "Trinacria/log.h"
 
-#include "Trinacria/ShapesData.h"
+#include "Trinacria/shapesDatas.h"
 
 #include <GLFW/glfw3.h>
 
-#include "Trinacria/HUD.h"
-#include "Trinacria/LightSystem.h"
+#include "Trinacria/hud.h"
+#include "Trinacria/lightSystem.h"
 
 std::vector<TRCN_CORE_NAMESPACE::Vertex> TRCN_CORE_NAMESPACE::Renderer::_quadBuffer;
 std::vector<uint32_t> TRCN_CORE_NAMESPACE::Renderer::_quadIndexBuffer;
@@ -350,7 +350,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& 
 
     Texture::ClearTextureSlots();
 
-    HUD::draw(windowDimensions, cameraPos, zoom);
+    hud::draw(windowDimensions, cameraPos, zoom);
 
     drawInScreen(screenShader);
 }
@@ -391,7 +391,7 @@ void TRCN_CORE_NAMESPACE::Renderer::OnResize(const glm::vec2& windowDimensions)
 
     glViewport(0, 0, windowDimensions.x, windowDimensions.y);
 
-    HUD::onResize(windowDimensions);
+    hud::onResize(windowDimensions);
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::Cleanup()
@@ -410,7 +410,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Cleanup()
     glDeleteBuffers(1, &_triangleVbo);
 
     _frameBuffer.Cleanup();
-    LightSystem::Cleanup();
+    lightSystem::Cleanup();
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::attribPointer(uint32_t location, uint32_t nParameters, uint32_t parameterType,

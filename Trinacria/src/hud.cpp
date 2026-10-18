@@ -1,12 +1,12 @@
-#include "Trinacria/HUD.h"
+#include "Trinacria/hud.h"
 #include <glad/glad.h>
 
 #include "GLFW/glfw3.h"
-#include "Trinacria/Assert.h"
-#include "Trinacria/Macros.h"
+#include "Trinacria/assert.h"
+#include "Trinacria/defs.h"
 #include "Trinacria/Renderer.h"
 
-void TRCN_CORE_NAMESPACE::HUD::Init(const HUDShaderSet& shaderSet, const glm::vec2& windowDimensions)
+void TRCN_CORE_NAMESPACE::hud::Init(const HUDShaderSet& shaderSet, const glm::vec2& windowDimensions)
 {
     setupQuads();
     setupText();
@@ -23,7 +23,7 @@ void TRCN_CORE_NAMESPACE::HUD::Init(const HUDShaderSet& shaderSet, const glm::ve
     _textIndices.reserve(MaxTextIndices);
 }
 
-uint32_t Trinacria::DSL::HUD::setupAtlas(const std::string& path, const msdf_atlas::Charset &charset)
+uint32_t Trinacria::DSL::hud::setupAtlas(const std::string& path, const msdf_atlas::Charset &charset)
 {
     uint32_t index = 0;
 
@@ -40,7 +40,7 @@ uint32_t Trinacria::DSL::HUD::setupAtlas(const std::string& path, const msdf_atl
     return index;
 }
 
-bool Trinacria::DSL::HUD::findAtlasIndex(const std::string& path, uint32_t& outIndex)
+bool Trinacria::DSL::hud::findAtlasIndex(const std::string& path, uint32_t& outIndex)
 {
     for (int i = 0; i < _textAtlases.size(); i++)
     {
@@ -56,14 +56,14 @@ bool Trinacria::DSL::HUD::findAtlasIndex(const std::string& path, uint32_t& outI
     return false;
 }
 
-void TRCN_CORE_NAMESPACE::HUD::Cleanup()
+void TRCN_CORE_NAMESPACE::hud::Cleanup()
 {
     glDeleteVertexArrays(1, &_vao);
     glDeleteBuffers(1, &_vbo);
     glDeleteBuffers(1, &_ebo);
 }
 
-void TRCN_CORE_NAMESPACE::HUD::EndHUD()
+void TRCN_CORE_NAMESPACE::hud::EndHUD()
 {
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
     glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(HUDVertex) * _vertices.size(), _vertices.data());
@@ -84,7 +84,7 @@ void TRCN_CORE_NAMESPACE::HUD::EndHUD()
         sizeof(uint32_t) * _textIndices.size(), _textIndices.data());
 }
 
-void TRCN_CORE_NAMESPACE::HUD::CreateHUDQuad(const HUDQuadData& HUDQuad)
+void TRCN_CORE_NAMESPACE::hud::CreateHUDQuad(const HUDQuadData& HUDQuad)
 {
     TRCN_DEPEND_START("Create HUD Quad");
 
@@ -97,12 +97,12 @@ void TRCN_CORE_NAMESPACE::HUD::CreateHUDQuad(const HUDQuadData& HUDQuad)
                   HUDQuad.transform.GetMatrix(), HUDQuad.TexCoords, 0, -1.f, glm::vec4(0.f));
 }
 
-void Trinacria::DSL::HUD::AddOnClickFunction(const OnClickType& onClick, const Transform& transformOfTheQuad)
+void Trinacria::DSL::hud::AddOnClickFunction(const OnClickType& onClick, const Transform& transformOfTheQuad)
 {
     _onClickAndTransform.emplace_back(onClick, transformOfTheQuad);
 }
 
-void TRCN_CORE_NAMESPACE::HUD::CreateProgressBar(const HUDQuadData& HUDQuad, Texture* fillTexture, float progress, const glm::vec4& fillColor)
+void TRCN_CORE_NAMESPACE::hud::CreateProgressBar(const HUDQuadData& HUDQuad, Texture* fillTexture, float progress, const glm::vec4& fillColor)
 {
     TRCN_DEPEND_START("Create Progress Bar");
 
@@ -116,7 +116,7 @@ void TRCN_CORE_NAMESPACE::HUD::CreateProgressBar(const HUDQuadData& HUDQuad, Tex
                   HUDQuad.transform.GetMatrix(), HUDQuad.TexCoords, fillTexIndex, progress, fillColor);
 }
 
-void TRCN_CORE_NAMESPACE::HUD::FlushBuffers()
+void TRCN_CORE_NAMESPACE::hud::FlushBuffers()
 {
     _vertices.clear();
     _indices.clear();
@@ -124,7 +124,7 @@ void TRCN_CORE_NAMESPACE::HUD::FlushBuffers()
     _textIndices.clear();
 }
 
-void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
+void TRCN_CORE_NAMESPACE::hud::draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
 {
     _shader.Bind();
 
@@ -170,7 +170,7 @@ void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm
     Texture::ClearTextureSlots();
 }
 
-void TRCN_CORE_NAMESPACE::HUD::createHUDQuad(const glm::vec2& position, const glm::vec4& color, uint32_t textureIndex,
+void TRCN_CORE_NAMESPACE::hud::createHUDQuad(const glm::vec2& position, const glm::vec4& color, uint32_t textureIndex,
                                              const glm::vec2& scale, glm::mat4 matrix, const QuadTexCoords& coord, uint32_t fillTextureIndex, float progress, const
                                              glm::vec4& fillColor)
 {
@@ -197,7 +197,7 @@ void TRCN_CORE_NAMESPACE::HUD::createHUDQuad(const glm::vec2& position, const gl
     _indices.push_back(offset);
 }
 
-void Trinacria::DSL::HUD::createText(const glm::vec3& position, const glm::vec4& color,
+void Trinacria::DSL::hud::createText(const glm::vec3& position, const glm::vec4& color,
                                      uint32_t textureIndex, const glm::vec2& scale, glm::mat4 matrix,
                                      const QuadTexCoords& coord)
 {
@@ -223,7 +223,7 @@ void Trinacria::DSL::HUD::createText(const glm::vec3& position, const glm::vec4&
     _textIndices.push_back(offset);
 }
 
-bool TRCN_CORE_NAMESPACE::HUD::findTextureIndex(uint32_t& out, const Texture* textureToFind)
+bool TRCN_CORE_NAMESPACE::hud::findTextureIndex(uint32_t& out, const Texture* textureToFind)
 {
     for (auto& tex : _textures)
     {
@@ -239,7 +239,7 @@ bool TRCN_CORE_NAMESPACE::HUD::findTextureIndex(uint32_t& out, const Texture* te
     return false;
 }
 
-uint32_t TRCN_CORE_NAMESPACE::HUD::setupTexture(Texture* texture)
+uint32_t TRCN_CORE_NAMESPACE::hud::setupTexture(Texture* texture)
 {
     uint32_t index = 0;
 
@@ -257,7 +257,7 @@ uint32_t TRCN_CORE_NAMESPACE::HUD::setupTexture(Texture* texture)
     return index;
 }
 
-void TRCN_CORE_NAMESPACE::HUD::UpdateEvents(GLFWwindow* window, const glm::vec2& windowDimensions)
+void TRCN_CORE_NAMESPACE::hud::UpdateEvents(GLFWwindow* window, const glm::vec2& windowDimensions)
 {
     // cannot subscribe to input poller layer because it is a layer and it is logically incorrect
 
@@ -278,7 +278,7 @@ void TRCN_CORE_NAMESPACE::HUD::UpdateEvents(GLFWwindow* window, const glm::vec2&
     }
 }
 
-bool Trinacria::DSL::HUD::isInRange(const Transform& transform, GLFWwindow* window, const glm::vec2& windowDimensions)
+bool Trinacria::DSL::hud::isInRange(const Transform& transform, GLFWwindow* window, const glm::vec2& windowDimensions)
 {
     double _xPos, _yPos;
     glfwGetCursorPos(window, &_xPos, &_yPos);
@@ -317,7 +317,7 @@ bool Trinacria::DSL::HUD::isInRange(const Transform& transform, GLFWwindow* wind
     return b && b1;
 }
 
-void Trinacria::DSL::HUD::setupQuads()
+void Trinacria::DSL::hud::setupQuads()
 {
     glGenVertexArrays(1, &_vao);
     glBindVertexArray(_vao);
@@ -358,7 +358,7 @@ void Trinacria::DSL::HUD::setupQuads()
     glEnableVertexAttribArray(6);
 }
 
-void Trinacria::DSL::HUD::setupText()
+void Trinacria::DSL::hud::setupText()
 {
     glGenVertexArrays(1, &_textVao);
     glBindVertexArray(_textVao);
@@ -387,13 +387,13 @@ void Trinacria::DSL::HUD::setupText()
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(uint32_t) * MaxTextIndices, nullptr, GL_DYNAMIC_DRAW);
 }
 
-void Trinacria::DSL::HUD::onResize(const glm::vec2& windowDimensions)
+void Trinacria::DSL::hud::onResize(const glm::vec2& windowDimensions)
 {
 
     _aspectRatio = windowDimensions.x / windowDimensions.y;
 }
 
-void TRCN_CORE_NAMESPACE::HUD::CreateButton(const HUDQuadData& HUDQuad, const glm::vec4& hoveredColor, const glm::vec4& pressedColor, GLFWwindow* window, const glm::vec2& windowDimensions)
+void TRCN_CORE_NAMESPACE::hud::CreateButton(const HUDQuadData& HUDQuad, const glm::vec4& hoveredColor, const glm::vec4& pressedColor, GLFWwindow* window, const glm::vec2& windowDimensions)
 {
     TRCN_DEPEND_START("Create Button");
     TRCN_DEPEND_ASSERT(_vertices.size() <= MaxHUDVertices);
@@ -418,7 +418,7 @@ void TRCN_CORE_NAMESPACE::HUD::CreateButton(const HUDQuadData& HUDQuad, const gl
     createHUDQuad(-HUDQuad.transform.Pivot, color, index, glm::vec2(1.f), HUDQuad.transform.GetMatrix(), HUDQuad.TexCoords, 0, 0, glm::vec4(0.f));
 }
 
-void Trinacria::DSL::HUD::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, bool inWorld, const std::string &fontPath, const
+void Trinacria::DSL::hud::CreateText(const std::string& text, const Transform& transform, const glm::vec4& color, bool inWorld, const std::string &fontPath, const
                                      glm::vec2 &spacing, const
                                      msdf_atlas::Charset& charset)
 {

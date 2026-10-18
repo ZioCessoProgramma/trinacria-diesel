@@ -2,7 +2,7 @@
 
 #include <cstdint>
 
-#include "Macros.h"
+#include "defs.h"
 
 namespace TRCN_CORE_NAMESPACE
 {

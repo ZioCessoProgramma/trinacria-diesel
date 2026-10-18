@@ -4,7 +4,7 @@
 #include "Texture.h"
 #include <vector>
 
-#include "Log.h"
+#include "log.h"
 #include "Materials.h"
 #include "Shader.h"
 #include "Transform.h"

@@ -2,7 +2,7 @@
 #include "Application.h"
 #include "RendererLayer.h"
 #include "GameLogicLayer.h"
-#include <Trinacria/InputEvents.h>
+#include <Trinacria/inputEvents.h>
 
 void ApplicationLayer::OnAttach()
 {

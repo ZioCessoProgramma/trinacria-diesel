@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Macros.h"
+#include "defs.h"
 #include "Sprite.h"
 #include "Texture.h"
 #include "Transform.h"

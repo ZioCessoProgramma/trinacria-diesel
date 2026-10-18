@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Macros.h"
+#include "defs.h"
 #include <glm/glm.hpp>
 
 #include "Texture.h"
@@ -94,7 +94,7 @@ namespace TRCN_CORE_NAMESPACE
     /**
      * @brief static class dealing with light
      */
-    class LightSystem
+    class lightSystem
     {
     public:
         /**

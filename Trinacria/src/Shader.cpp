@@ -6,7 +6,7 @@
 #include <fstream>
 #include <iostream>
 
-#include "Trinacria/Log.h"
+#include "Trinacria/log.h"
 
 void TRCN_CORE_NAMESPACE::Shader::Bind()
 {

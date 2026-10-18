@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Trinacria/Macros.h"
+#include "Trinacria/defs.h"
 
 namespace TRCN_CORE_NAMESPACE
 {

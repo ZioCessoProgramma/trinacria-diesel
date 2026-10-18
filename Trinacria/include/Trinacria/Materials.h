@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "Macros.h"
+#include "defs.h"
 #include <glm/glm.hpp>
 
 namespace TRCN_CORE_NAMESPACE

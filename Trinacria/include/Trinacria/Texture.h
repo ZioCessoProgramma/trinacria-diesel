@@ -4,7 +4,7 @@
 #include <string>
 
 #include <glad/glad.h>
-#include "Trinacria/Macros.h"
+#include "Trinacria/defs.h"
 
 namespace TRCN_CORE_NAMESPACE
 {

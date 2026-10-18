@@ -2,7 +2,7 @@
 
 #include <string>
 #include <glm/glm.hpp>
-#include "Trinacria/Macros.h"
+#include "Trinacria/defs.h"
 
 namespace TRCN_CORE_NAMESPACE
 {

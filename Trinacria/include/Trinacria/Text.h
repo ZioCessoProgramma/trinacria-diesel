@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-#include "Macros.h"
+#include "defs.h"
 #include "Texture.h"
 #include <glm/glm.hpp>
 

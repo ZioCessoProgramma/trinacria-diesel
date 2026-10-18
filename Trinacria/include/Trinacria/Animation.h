@@ -1,11 +1,11 @@
 #pragma once
 
 #include "Sprite.h"
-#include "Assert.h"
+#include "assert.h"
 #include "Renderer.h"
-#include "ShapesData.h"
+#include "shapesDatas.h"
 
-#include "Trinacria/Macros.h"
+#include "Trinacria/defs.h"
 #include <cstring>
 
 namespace TRCN_CORE_NAMESPACE

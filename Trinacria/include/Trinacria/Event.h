@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Trinacria/Macros.h"
-#include "Log.h"
+#include "Trinacria/defs.h"
+#include "log.h"
 #include "Layer.h"
 #include <functional>
 #include <vector>

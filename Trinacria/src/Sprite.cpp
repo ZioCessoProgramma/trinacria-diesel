@@ -1,5 +1,5 @@
 #include "Trinacria/Sprite.h"
-#include "Trinacria/Log.h"
+#include "Trinacria/log.h"
 
 TRCN_CORE_NAMESPACE::QuadTexCoords TRCN_CORE_NAMESPACE::SpriteSheet::GetCell(uint32_t xIndex, uint32_t yIndex)
 {

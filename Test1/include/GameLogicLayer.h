@@ -4,7 +4,7 @@
 #include "DangerZoneEvent.h"
 #include <cassert>
 #include <glm/glm.hpp>
-#include <Trinacria/InputEvents.h>
+#include <Trinacria/inputEvents.h>
 
 class GameLogicLayer : public Trinacria::DSL::Layer
 {

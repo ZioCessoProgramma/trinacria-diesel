@@ -1,7 +1,7 @@
 #include <Trinacria/Text.h>
-#include <Trinacria/Macros.h>
+#include <Trinacria/defs.h>
 
-#include "Trinacria/Log.h"
+#include "Trinacria/log.h"
 #include "glad/glad.h"
 
 #include <msdf-atlas-gen/msdf-atlas-gen.h>
