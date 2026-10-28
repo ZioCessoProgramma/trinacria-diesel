@@ -141,18 +141,7 @@ void TRCN_CORE_NAMESPACE::Shader::LoadShader(const std::string& vert, const std:
     std::string vertexSource = getStringFromFile(vert);
     std::string fragmentSource = getStringFromFile(frag);
 
-    const char* vertexSource_ = vertexSource.c_str();
-    const char* fragmentSource_ = fragmentSource.c_str();
-
-    uint32_t vertexID = compileAndCreateShader(vertexSource_, GL_VERTEX_SHADER);
-    uint32_t fragmentID = compileAndCreateShader(fragmentSource_, GL_FRAGMENT_SHADER);
-
-    uint32_t out = linkAndCreateProgram(fragmentID, vertexID);
-
-    glDeleteShader(fragmentID);
-    glDeleteShader(vertexID);
-
-    _shaderProgram = out;
+    LoadStringAsShader(vertexSource, fragmentSource);
 }
 
 void Trinacria::DSL::Shader::LoadCoreShader(const std::string& vert, const std::string& frag)
@@ -204,16 +193,24 @@ void Trinacria::DSL::Shader::LoadCoreShader(const std::string& vert, const std::
 
     fragmentSource.insert(texturesUniformPosLineEnd, function);
 
-    const char* vertexSource_ = vertexSource.c_str();
-    const char* fragmentSource_ = fragmentSource.c_str();
+    LoadStringAsShader(vertexSource, fragmentSource);
+}
 
-    uint32_t vertexID = compileAndCreateShader(vertexSource_, GL_VERTEX_SHADER);
-    uint32_t fragmentID = compileAndCreateShader(fragmentSource_, GL_FRAGMENT_SHADER);
+void Trinacria::DSL::Shader::LoadStringAsShader(const std::string& vert, const std::string& frag)
+{
+    const char* vertexSrc = vert.c_str();
+    const char* fragmentSrc = frag.c_str();
 
-    uint32_t out = linkAndCreateProgram(fragmentID, vertexID);
+    uint32_t vertexID = compileAndCreateShader(vertexSrc, GL_VERTEX_SHADER);
+    uint32_t fragmentID = compileAndCreateShader(fragmentSrc, GL_FRAGMENT_SHADER);
+
+    _shaderProgram = linkAndCreateProgram(fragmentID, vertexID);
 
     glDeleteShader(fragmentID);
     glDeleteShader(vertexID);
+}
 
-    _shaderProgram = out;
+void Trinacria::DSL::Shader::LoadDefaultShader()
+{
+    
 }

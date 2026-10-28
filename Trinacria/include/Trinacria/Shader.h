@@ -32,6 +32,20 @@ namespace TRCN_CORE_NAMESPACE
         void LoadCoreShader(const std::string& vert, const std::string& frag);
 
         /**
+         * @brief it loads a shader from a string
+         * @param vert the vertex shader
+         * @param frag the fragment shader
+         */
+
+        void LoadStringAsShader(const std::string& vert, const std::string& frag);
+
+        /**
+         * @brief it loads the shader given from the engine
+         */
+
+        void LoadDefaultShader();
+
+        /**
          * @brief bind a shader
          * @note has to be done before setting uniforms
          */
