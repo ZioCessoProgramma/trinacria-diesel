@@ -30,6 +30,7 @@ add_compile_definitions(
 )
 
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/Trinacria")
+add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/Source-Generator")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/glfw")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/glm")
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/vendor/glad")
