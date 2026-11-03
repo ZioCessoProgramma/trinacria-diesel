@@ -1,7 +1,7 @@
-set(Generated_Files_Directory ${CMAKE_BINARY_DIR}/generated)
-set(Generated_Files ${Generated_Files_Directory}/shaders.h ${Generated_Files_Directory}/shaders.cpp)
+set(Generated_Files_Directory ${CMAKE_BINARY_DIR}/generated/)
+set(Generated_Files ${Generated_Files_Directory}/shaders.h ${Generated_Files_Directory}/generated/shaders.cpp)
 set(Clean_Generated_Files_Command ${CMAKE_COMMAND} -E rm -rf ${Generated_Files_Directory})
-set(Shader_Folder, ${CMAKE_SOURCE_DIR}/Test1/assets/shaders/)
+set(Shader_Folder, "${CMAKE_SOURCE_DIR}/Test1/assets/shaders")
 
 find_package(Python3 COMPONENTS Interpreter REQUIRED)
 
@@ -11,8 +11,7 @@ add_custom_command(
     DEPENDS ${CMAKE_SOURCE_DIR}/generate_header_shader.py
     COMMAND ${Clean_Generated_Files_Command}
 
-    COMMAND Python3::Interpreter
-    ${CMAKE_SOURCE_DIR}/generate_header_shader.py --folder ${Generated_Files_Directory} --working_folder ${Shader_Folder}
+    COMMAND Python3::Interpreter ${CMAKE_SOURCE_DIR}/generate_header_shader.py -f ${Generated_Files_Directory} -w "${CMAKE_SOURCE_DIR}/Test1/assets/shaders"
 
     VERBATIM
 )
@@ -23,4 +22,4 @@ set_target_properties(CLEAN_GENERATOR PROPERTIES EXCLUDE_FROM_ALL ON)
 
 add_library(Generated_Sources ${Generated_Files})
 add_dependencies(Generated_Sources SOURCE_GENERATOR)
-target_include_directories(Generated_Sources INTERFACE ${Generated_Files_Directory})
+target_include_directories(Generated_Sources PUBLIC ${Generated_Files_Directory})
