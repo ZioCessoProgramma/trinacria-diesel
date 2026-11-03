@@ -7,6 +7,7 @@
 #include <iostream>
 
 #include "Trinacria/log.h"
+#include <generated/shaders.h>
 
 void TRCN_CORE_NAMESPACE::Shader::Bind()
 {
@@ -131,9 +132,56 @@ uint32_t Trinacria::DSL::Shader::getSamplersInShader(const std::string& shader)
     return count;
 }
 
+void Trinacria::DSL::Shader::applyCoreTransformation(std::string& shader)
+{
+    size_t versionPos = shader.find("#version");
+    if (versionPos == std::string::npos)
+    {
+        TRCN_LOG("TRINACRIA_SHADER_ERROR: no #version directive found");
+        return;
+    }
+
+    size_t versionLineEnd = shader.find('\n', versionPos);
+
+    if (versionLineEnd == std::string::npos)
+    {
+        TRCN_LOG("TRINACRIA_SHADER_ERROR: unexpected end of file after #version");
+        return;
+    }
+
+    versionLineEnd++; // go forward of one character
+
+    textureUsedInNonArrayUniforms = getSamplersInShader(shader) - 1;
+
+    if (textureUsedInNonArrayUniforms == -1)
+    {
+        TRCN_LOG("TRINACRIA_SHADER_ERROR: do not use LoadCoreShader for shaders without a uniform sampler2D array[]");
+        return;
+    }
+
+    _maxTextures -= textureUsedInNonArrayUniforms;
+
+    shader.insert(versionLineEnd, std::format("\n#define MAX_TEXTURE_SLOTS {}\n", _maxTextures));
+
+    size_t texturesUniformPos = shader.find("uniform sampler2D u_Textures[MAX_TEXTURE_SLOTS", versionLineEnd);
+    size_t texturesUniformPosLineEnd = shader.find("\n", texturesUniformPos);
+    texturesUniformPosLineEnd++;
+
+    std::string function = "\nvec4 SampleTexture(int index, vec2 uv) {\n"
+                           "switch (index) {\n";
+
+    for (int i = 0; i < _maxTextures; i++)
+    {
+        function.append(std::format("case {}: return texture(u_Textures[{}], uv);", i, i));
+    }
+    function.append("}}\n");
+
+    shader.insert(texturesUniformPosLineEnd, function);
+}
+
 void Trinacria::DSL::Shader::loadMaxTextures()
 {
-    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &maxTextures);
+    glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &_maxTextures);
 }
 
 void TRCN_CORE_NAMESPACE::Shader::LoadShader(const std::string& vert, const std::string& frag)
@@ -149,49 +197,7 @@ void Trinacria::DSL::Shader::LoadCoreShader(const std::string& vert, const std::
     std::string vertexSource = getStringFromFile(vert);
     std::string fragmentSource = getStringFromFile(frag);
 
-    size_t versionPos = fragmentSource.find("#version");
-    if (versionPos == std::string::npos)
-    {
-        TRCN_LOG("TRINACRIA_SHADER_ERROR: no #version directive found");
-        return;
-    }
-
-    size_t versionLineEnd = fragmentSource.find('\n', versionPos);
-
-    if (versionLineEnd == std::string::npos)
-    {
-        TRCN_LOG("TRINACRIA_SHADER_ERROR: unexpected end of file after #version");
-        return;
-    }
-
-    versionLineEnd++; // go forward of one character
-
-    textureUsedInNonArrayUniforms = getSamplersInShader(fragmentSource) - 1;
-
-    if (textureUsedInNonArrayUniforms == -1)
-    {
-        TRCN_LOG("TRINACRIA_SHADER_ERROR: do not use LoadCoreShader for shaders without a uniform sampler2D array[]");
-        return;
-    }
-
-    maxTextures -= textureUsedInNonArrayUniforms;
-
-    fragmentSource.insert(versionLineEnd, std::format("\n#define MAX_TEXTURE_SLOTS {}\n", maxTextures));
-
-    size_t texturesUniformPos = fragmentSource.find("uniform sampler2D u_Textures[MAX_TEXTURE_SLOTS", versionLineEnd);
-    size_t texturesUniformPosLineEnd = fragmentSource.find("\n", texturesUniformPos);
-    texturesUniformPosLineEnd++;
-
-    std::string function = "\nvec4 SampleTexture(int index, vec2 uv) {\n"
-                           "switch (index) {\n";
-
-    for (int i = 0; i < maxTextures; i++)
-    {
-        function.append(std::format("case {}: return texture(u_Textures[{}], uv);", i, i));
-    }
-    function.append("}}\n");
-
-    fragmentSource.insert(texturesUniformPosLineEnd, function);
+    applyCoreTransformation(fragmentSource);
 
     LoadStringAsShader(vertexSource, fragmentSource);
 }
@@ -210,7 +216,35 @@ void Trinacria::DSL::Shader::LoadStringAsShader(const std::string& vert, const s
     glDeleteShader(vertexID);
 }
 
-void Trinacria::DSL::Shader::LoadDefaultShader()
+void Trinacria::DSL::Shader::LoadDefaultShader(ShaderType shader)
 {
-    
+    switch (shader)
+    {
+    case ShaderType::Quad:
+    {
+        std::string newSrc = ShaderSet::GetquadFrag();
+        applyCoreTransformation(newSrc);
+        LoadStringAsShader(ShaderSet::GetquadVert(), newSrc);
+        break;
+    }
+    case ShaderType::HUD:
+    {
+        std::string newSrc = ShaderSet::GetHUDFrag();
+        applyCoreTransformation(newSrc);
+        LoadStringAsShader(ShaderSet::GetHUDVert(), newSrc);
+        break;
+    }
+    case ShaderType::Text:
+    {
+        std::string newSrc = ShaderSet::GetTextFrag();
+        applyCoreTransformation(newSrc);
+        LoadStringAsShader(ShaderSet::GetTextVert(), newSrc);
+        break;
+    }
+    case ShaderType::Screen:
+    {
+        LoadStringAsShader(ShaderSet::GetScreenVert(), ShaderSet::GetScreenFrag());
+        break;
+    }
+    }
 }

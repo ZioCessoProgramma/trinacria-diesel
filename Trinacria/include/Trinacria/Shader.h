@@ -6,6 +6,16 @@
 
 namespace TRCN_CORE_NAMESPACE
 {
+
+    /**
+    * @brief the enum class for the default shader set
+    */
+
+    enum class ShaderType
+    {
+        HUD, Quad, Text, Screen
+    };
+
     /**
      * @brief class dealing with shader pipeline, uniforms, linking, etc..
      */
@@ -43,7 +53,7 @@ namespace TRCN_CORE_NAMESPACE
          * @brief it loads the shader given from the engine
          */
 
-        void LoadDefaultShader();
+        void LoadDefaultShader(ShaderType shader);
 
         /**
          * @brief bind a shader
@@ -114,10 +124,11 @@ namespace TRCN_CORE_NAMESPACE
         static uint32_t compileAndCreateShader(const char* source, uint32_t shaderType);
         static uint32_t linkAndCreateProgram(uint32_t fragID, uint32_t vertID);
         static uint32_t getSamplersInShader(const std::string& shader);
+        static void applyCoreTransformation(std::string &shader);
 
         inline static uint32_t textureUsedInNonArrayUniforms;
 
-        inline static int maxTextures;
+        inline static int _maxTextures;
 
         static void loadMaxTextures();
 

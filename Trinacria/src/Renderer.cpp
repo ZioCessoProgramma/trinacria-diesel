@@ -110,6 +110,12 @@ void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFW
     Shader::loadMaxTextures();
 }
 
+void Trinacria::DSL::Renderer::LoadDefaultShaders()
+{
+    ShaderProgram.LoadDefaultShader(ShaderType::Quad);
+    _screenShader.LoadDefaultShader(ShaderType::Screen);
+}
+
 void TRCN_CORE_NAMESPACE::Renderer::createQuad(const glm::vec2& position, Texture* texture, const glm::vec2& size,
                                                const glm::vec4& color, int materialIndex, const glm::mat4& transform,
                                                const QuadTexCoords& texCoords)
@@ -322,7 +328,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& 
 {
     _frameBuffer.Bind();
 
-    glUseProgram(ShaderProgram.GetShaderProgram());
+    ShaderProgram.Bind();
  
     for (auto& element : _textures)
     {
@@ -353,6 +359,44 @@ void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& 
     HUD::draw(windowDimensions, cameraPos, zoom);
 
     drawInScreen(screenShader);
+}
+
+void Trinacria::DSL::Renderer::Draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
+{
+
+    _frameBuffer.Bind();
+
+    glUseProgram(ShaderProgram.GetShaderProgram());
+
+    for (auto& element : _textures)
+    {
+        std::string uniformName = std::string("u_Textures[") + std::to_string(element.second) + std::string("]");
+
+        ShaderProgram.SetUniformInt(uniformName.c_str(), element.second - 1);
+
+        element.first->Bind(element.second + GL_TEXTURE0 - 1);
+    }
+
+    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
+
+    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
+    viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
+
+    ShaderProgram.Bind();
+    ShaderProgram.SetUniformMat4("u_View", viewProjection);
+
+    glBindVertexArray(_vao);
+
+    glDrawElements(GL_TRIANGLES, _quadIndexBuffer.size(), GL_UNSIGNED_INT, nullptr);
+
+    glBindVertexArray(_triangleVao);
+    glDrawArrays(GL_TRIANGLES, 0, _triangleBuffer.size());
+
+    Texture::ClearTextureSlots();
+
+    HUD::draw(windowDimensions, cameraPos, zoom);
+
+    drawInScreen(_screenShader);
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::FlushBuffers()

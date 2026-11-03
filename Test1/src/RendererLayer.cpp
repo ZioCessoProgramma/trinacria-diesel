@@ -192,7 +192,7 @@ void RendererLayer::OnUpdate(float deltaTime)
 
     Trinacria::DSL::LightSystem::Done();
 
-    Trinacria::DSL::Renderer::Draw(_screenShader, Application::Get()->GetWindowDimensions(), _cameraData.CameraPos, _cameraData.Zoom);
+    Trinacria::DSL::Renderer::Draw(Application::Get()->GetWindowDimensions(), _cameraData.CameraPos, _cameraData.Zoom);
     Trinacria::DSL::Renderer::FlushBuffers();
     Trinacria::DSL::HUD::FlushBuffers();
 }
@@ -229,19 +229,11 @@ void RendererLayer::OnAttach()
     }
 
     Trinacria::DSL::Renderer::Init(Application::Get()->GetWindowDimensions(), Application::Get()->GetWindow());
-
-    Trinacria::DSL::Renderer::ShaderProgram.LoadCoreShader("assets/shaders/Quad.vert",
-	    "assets/shaders/Quad.frag");
-
-
-    _screenShader.LoadShader("assets/shaders/Screen.vert", "assets/shaders/Screen.frag");
+    Trinacria::DSL::Renderer::LoadDefaultShaders();
 
     Trinacria::DSL::LightSystem::Init();
 
-    Trinacria::DSL::HUD::Init({"assets/shaders/HUD.vert",
-        "assets/shaders/HUD.frag", "assets/shaders/Text.vert",
-        "assets/shaders/Text.frag"},
-        Application::Get()->GetWindowDimensions());
+    Trinacria::DSL::HUD::Init(Application::Get()->GetWindowDimensions());
 
     Trinacria::DSL::HUD::AddOnClickFunction([] {TRCN_LOG("Hello Guys!");}, _buttonTransform);
     Trinacria::DSL::HUD::AddOnClickFunction([] {TRCN_LOG("Hello Girls!");}, _buttonTransform1);

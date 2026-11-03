@@ -23,6 +23,23 @@ void TRCN_CORE_NAMESPACE::HUD::Init(const HUDShaderSet& shaderSet, const glm::ve
     _textIndices.reserve(MaxTextIndices);
 }
 
+void Trinacria::DSL::HUD::Init(const glm::vec2& windowDimensions)
+{
+    setupQuads();
+    setupText();
+
+    _shader.LoadDefaultShader(ShaderType::HUD);
+    _textShader.LoadDefaultShader(ShaderType::Text);
+
+    onResize(windowDimensions);
+
+    _vertices.reserve(MaxHUDVertices);
+    _indices.reserve(MaxHUDIndices);
+
+    _textVertices.reserve(MaxTextVertices);
+    _textIndices.reserve(MaxTextIndices);
+}
+
 uint32_t Trinacria::DSL::HUD::setupAtlas(const std::string& path, const msdf_atlas::Charset& charset)
 {
     uint32_t index = 0;

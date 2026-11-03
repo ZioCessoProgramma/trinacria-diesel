@@ -129,6 +129,12 @@ namespace TRCN_CORE_NAMESPACE
 		 */
 		static void Init(const glm::vec2& windowDimensions, GLFWwindow* window);
 
+        /**
+         * @brief a function that loads the default set of shaders
+         */
+
+        static void LoadDefaultShaders();
+
 		/**
 		 * @brief clears the color buffer
 		 * @note to call at the start of the frame
@@ -167,6 +173,16 @@ namespace TRCN_CORE_NAMESPACE
 		 */
 
 		static void Draw(Shader& screenShader, const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom);
+
+	    /**
+         * @brief the function that draws all the quads and triangles queued
+         * @param screenShader the shader used to process the final texture
+                 * @param windowDimensions the dimensions of the window
+                 * @param cameraPos the position of the viewer or camera
+                 * @param zoom zoom
+         */
+
+	    static void Draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom);
 
 		/**
 		 * @brief the function that delete all the openGL objects
@@ -235,6 +251,8 @@ namespace TRCN_CORE_NAMESPACE
 
 	    inline static uint32_t _vboScreen;
 	    inline static uint32_t _vaoScreen;
+
+	    inline static Shader _screenShader;
 
 		static void attribPointer(uint32_t location, uint32_t nParameters, uint32_t parameterType,
 			size_t stride, void* offsetFromOrigin);

@@ -199,10 +199,6 @@ namespace TRCN_CORE_NAMESPACE
          */
 
         std::string TextFragPath;
-
-        // TODO: Define
-
-        static const HUDShaderSet DEFAULT;
     };
 
     using OnClickType = std::function<void()>;
@@ -219,6 +215,7 @@ namespace TRCN_CORE_NAMESPACE
          */
 
         static void Init(const HUDShaderSet& shaderSet, const glm::vec2& windowDimensions);
+        static void Init(const glm::vec2& windowDimensions);
 
         /**
         * @brief cleans up the HUD
