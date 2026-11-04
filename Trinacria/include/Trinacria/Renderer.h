@@ -304,5 +304,8 @@ namespace TRCN_CORE_NAMESPACE
 
 		static void drawInScreen(Shader& screenShader);
 	    static void initScreen();
+
+        static void drawHelper(float zoom, const glm::vec2& windowDimensions, const glm::vec2& cameraPos);
 	};
+
 }

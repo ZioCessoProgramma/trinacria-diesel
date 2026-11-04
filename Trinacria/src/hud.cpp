@@ -14,13 +14,7 @@ void TRCN_CORE_NAMESPACE::HUD::Init(const HUDShaderSet& shaderSet, const glm::ve
     _shader.LoadCoreShader(shaderSet.HUDQuadVertPath, shaderSet.HUDQuadFragPath);
     _textShader.LoadCoreShader(shaderSet.TextVertPath, shaderSet.TextFragPath);
 
-    onResize(windowDimensions);
-
-    _vertices.reserve(MaxHUDVertices);
-    _indices.reserve(MaxHUDIndices);
-
-    _textVertices.reserve(MaxTextVertices);
-    _textIndices.reserve(MaxTextIndices);
+    initHelper(windowDimensions);
 }
 
 void Trinacria::DSL::HUD::Init(const glm::vec2& windowDimensions)
@@ -31,13 +25,7 @@ void Trinacria::DSL::HUD::Init(const glm::vec2& windowDimensions)
     _shader.LoadDefaultShader(ShaderType::HUD);
     _textShader.LoadDefaultShader(ShaderType::Text);
 
-    onResize(windowDimensions);
-
-    _vertices.reserve(MaxHUDVertices);
-    _indices.reserve(MaxHUDIndices);
-
-    _textVertices.reserve(MaxTextVertices);
-    _textIndices.reserve(MaxTextIndices);
+    initHelper(windowDimensions);
 }
 
 uint32_t Trinacria::DSL::HUD::setupAtlas(const std::string& path, const msdf_atlas::Charset& charset)
@@ -71,6 +59,17 @@ bool Trinacria::DSL::HUD::findAtlasIndex(const std::string& path, uint32_t& outI
     outIndex = 0;
 
     return false;
+}
+
+void Trinacria::DSL::HUD::initHelper(const glm::vec2 &windowDimensions)
+{
+    onResize(windowDimensions);
+
+    _vertices.reserve(MaxHUDVertices);
+    _indices.reserve(MaxHUDIndices);
+
+    _textVertices.reserve(MaxTextVertices);
+    _textIndices.reserve(MaxTextIndices);
 }
 
 void TRCN_CORE_NAMESPACE::HUD::Cleanup()

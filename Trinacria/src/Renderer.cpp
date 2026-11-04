@@ -312,6 +312,41 @@ void TRCN_CORE_NAMESPACE::Renderer::initScreen()
     attribPointer(0, 2, GL_FLOAT, 2 * sizeof(float), nullptr);
 }
 
+void Trinacria::DSL::Renderer::drawHelper(float zoom, const glm::vec2& windowDimensions, const glm::vec2& cameraPos)
+{
+    _frameBuffer.Bind();
+
+    ShaderProgram.Bind();
+
+    for (auto& element : _textures)
+    {
+        std::string uniformName = std::string("u_Textures[") + std::to_string(element.second) + std::string("]");
+
+        ShaderProgram.SetUniformInt(uniformName.c_str(), element.second - 1);
+
+        element.first->Bind(element.second + GL_TEXTURE0 - 1);
+    }
+
+    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
+
+    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
+    viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
+
+    ShaderProgram.Bind();
+    ShaderProgram.SetUniformMat4("u_View", viewProjection);
+
+    glBindVertexArray(_vao);
+
+    glDrawElements(GL_TRIANGLES, _quadIndexBuffer.size(), GL_UNSIGNED_INT, nullptr);
+
+    glBindVertexArray(_triangleVao);
+    glDrawArrays(GL_TRIANGLES, 0, _triangleBuffer.size());
+
+    Texture::ClearTextureSlots();
+
+    HUD::draw(windowDimensions, cameraPos, zoom);
+}
+
 void TRCN_CORE_NAMESPACE::Renderer::EndScene()
 {
     glBindBuffer(GL_ARRAY_BUFFER, _vbo);
@@ -326,76 +361,13 @@ void TRCN_CORE_NAMESPACE::Renderer::EndScene()
 
 void TRCN_CORE_NAMESPACE::Renderer::Draw(Shader& screenShader, const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
 {
-    _frameBuffer.Bind();
-
-    ShaderProgram.Bind();
- 
-    for (auto& element : _textures)
-    {
-        std::string uniformName = std::string("u_Textures[") + std::to_string(element.second) + std::string("]");
-
-        ShaderProgram.SetUniformInt(uniformName.c_str(), element.second - 1);
-
-        element.first->Bind(element.second + GL_TEXTURE0 - 1);
-    }
-
-    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
-
-    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
-    viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
-
-    ShaderProgram.Bind();
-    ShaderProgram.SetUniformMat4("u_View", viewProjection);
-
-    glBindVertexArray(_vao);
-
-    glDrawElements(GL_TRIANGLES, _quadIndexBuffer.size(), GL_UNSIGNED_INT, nullptr);
-
-    glBindVertexArray(_triangleVao);
-    glDrawArrays(GL_TRIANGLES, 0, _triangleBuffer.size());
-
-    Texture::ClearTextureSlots();
-
-    HUD::draw(windowDimensions, cameraPos, zoom);
-
+    drawHelper(zoom, windowDimensions, cameraPos);
     drawInScreen(screenShader);
 }
 
 void Trinacria::DSL::Renderer::Draw(const glm::vec2& windowDimensions, const glm::vec2& cameraPos, float zoom)
 {
-
-    _frameBuffer.Bind();
-
-    glUseProgram(ShaderProgram.GetShaderProgram());
-
-    for (auto& element : _textures)
-    {
-        std::string uniformName = std::string("u_Textures[") + std::to_string(element.second) + std::string("]");
-
-        ShaderProgram.SetUniformInt(uniformName.c_str(), element.second - 1);
-
-        element.first->Bind(element.second + GL_TEXTURE0 - 1);
-    }
-
-    glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
-
-    viewProjection = glm::scale(viewProjection, glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
-    viewProjection = glm::translate(viewProjection, glm::vec3(-cameraPos.x, -cameraPos.y, 0.f));
-
-    ShaderProgram.Bind();
-    ShaderProgram.SetUniformMat4("u_View", viewProjection);
-
-    glBindVertexArray(_vao);
-
-    glDrawElements(GL_TRIANGLES, _quadIndexBuffer.size(), GL_UNSIGNED_INT, nullptr);
-
-    glBindVertexArray(_triangleVao);
-    glDrawArrays(GL_TRIANGLES, 0, _triangleBuffer.size());
-
-    Texture::ClearTextureSlots();
-
-    HUD::draw(windowDimensions, cameraPos, zoom);
-
+    drawHelper(zoom, windowDimensions, cameraPos);
     drawInScreen(_screenShader);
 }
 

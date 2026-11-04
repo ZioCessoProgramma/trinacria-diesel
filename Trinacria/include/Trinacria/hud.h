@@ -383,5 +383,7 @@ namespace TRCN_CORE_NAMESPACE
         static uint32_t setupAtlas(const std::string& path, const msdf_atlas::Charset &charset);
 
         static bool findAtlasIndex(const std::string& path, uint32_t &outIndex);
+
+        static void initHelper(const glm::vec2 &windowDimensions);
     };
 }
