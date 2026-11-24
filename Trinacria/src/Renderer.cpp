@@ -1,8 +1,10 @@
 #include "Trinacria/Renderer.h"
-#include <glad/glad.h>
-#include <sstream>
-#include <glm/gtc/type_ptr.hpp>
+
+#include <array>
 #include <format>
+#include <glad/glad.h>
+#include <glm/gtc/type_ptr.hpp>
+#include <sstream>
 
 #include "Trinacria/Animation.h"
 #include "Trinacria/Sprite.h"
