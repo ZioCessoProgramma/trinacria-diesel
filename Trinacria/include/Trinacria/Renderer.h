@@ -126,8 +126,9 @@ namespace TRCN_CORE_NAMESPACE
 		 * @brief a function that initializes the renderer
 		 * @param windowDimensions window dimensions
 		 * @param window glfw window
+		 * @param antiAliasing anti aliasing enabled if true, disabled if false
 		 */
-		static void Init(const glm::vec2& windowDimensions, GLFWwindow* window);
+		static void Init(const glm::vec2& windowDimensions, GLFWwindow* window, bool antiAliasing = false);
 
         /**
          * @brief a function that loads the default set of shaders
@@ -253,6 +254,13 @@ namespace TRCN_CORE_NAMESPACE
 	    inline static uint32_t _vaoScreen;
 
 	    inline static Shader _screenShader;
+
+	    inline bool static _antiAliasing;
+
+	    inline static Texture _multiSampledTexture;
+	    inline static FrameBuffer _multiSampledFrameBuffer;
+
+	    inline static uint32_t _samplesUsed;
 
 		static void attribPointer(uint32_t location, uint32_t nParameters, uint32_t parameterType,
 			size_t stride, void* offsetFromOrigin);

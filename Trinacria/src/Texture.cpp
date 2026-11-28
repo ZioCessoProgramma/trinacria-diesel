@@ -1,7 +1,9 @@
 #include "Trinacria/Texture.h"
-#include <stb_image/stb_image.h>
+
+#include <algorithm>
 #include <glad/glad.h>
 #include <iostream>
+#include <stb_image/stb_image.h>
 
 bool TRCN_CORE_NAMESPACE::Texture::_isTextureSlotOccupied[32];
 
@@ -38,7 +40,7 @@ void TRCN_CORE_NAMESPACE::Texture::LoadTexture(const std::string& path, uint32_t
 
 	glGenTextures(1, &_id);
 
-	Bind();
+	Bind(GL_TEXTURE_2D);
 
 	uint32_t format = 0;
 
@@ -93,9 +95,19 @@ void Trinacria::DSL::Texture::TexImage(uint32_t internalFormat, uint32_t format,
 void Trinacria::DSL::Texture::BoundTexImage(uint32_t internalFormat, uint32_t format,
 	uint32_t width, uint32_t height, uint32_t type, void* data, uint32_t filter)
 {
-	Bind();
+	Bind(GL_TEXTURE_2D);
 	TexImage(internalFormat, format, width, height, type, data, filter);
 }
+void Trinacria::DSL::Texture::MultiSampleTexImage(
+    uint32_t samples, uint32_t format, uint32_t width, uint32_t height)
+{
+    glTexImage2DMultisample(GL_TEXTURE_2D_MULTISAMPLE, samples, format,
+        width, height, GL_TRUE);
+
+    _width = width;
+    _height = height;
+}
+
 
 void Trinacria::DSL::Texture::SubImage(uint32_t format, uint32_t width, uint32_t height,
 	uint32_t type, void* data)
@@ -105,25 +117,25 @@ void Trinacria::DSL::Texture::SubImage(uint32_t format, uint32_t width, uint32_t
 
 void Trinacria::DSL::Texture::BoundSubImage(uint32_t format, uint32_t width, uint32_t height, uint32_t type, void* data)
 {
-	Bind();
+	Bind(GL_TEXTURE_2D);
 	SubImage(format, width, height, type, data);
 }
 
-void TRCN_CORE_NAMESPACE::Texture::Bind(uint32_t textureSlot)
+void TRCN_CORE_NAMESPACE::Texture::Bind(uint32_t textureSlot, uint32_t slot)
 {
 	glActiveTexture(textureSlot);
-	glBindTexture(GL_TEXTURE_2D, _id);
+	glBindTexture(slot, _id);
 
 	_isTextureSlotOccupied[textureSlot - GL_TEXTURE0] = true;
 
 	_textureSlotChosenIndex = textureSlot;
 }
 
-void Trinacria::DSL::Texture::Bind()
+void Trinacria::DSL::Texture::Bind(uint32_t slot)
 {
 	if (_textureSlotChosenIndex != -1)
 	{
-		Bind(_textureSlotChosenIndex);
+		Bind(_textureSlotChosenIndex, slot);
 		return;
 	}
 
@@ -131,7 +143,7 @@ void Trinacria::DSL::Texture::Bind()
 	{
 		if (!_isTextureSlotOccupied[i])
 		{
-			Bind(i + GL_TEXTURE0);
+			Bind(i + GL_TEXTURE0, slot);
 			break;
 		}
 	}

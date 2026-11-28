@@ -39,7 +39,7 @@ TRCN_CORE_NAMESPACE::FrameBuffer TRCN_CORE_NAMESPACE::Renderer::_frameBuffer;
 TRCN_CORE_NAMESPACE::Texture TRCN_CORE_NAMESPACE::Renderer::_colorAttachment;
 
 
-void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFWwindow* window)
+void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFWwindow* window, bool antiAliasing)
 {
     glGenVertexArrays(1, &_vao);
     glBindVertexArray(_vao);
@@ -59,7 +59,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFW
  
     glEnableVertexAttribArray(1);
 
-    glVertexAttribIPointer(1, sizeof(int), GL_INT, sizeof(TRCN_CORE_NAMESPACE::Vertex),
+    glVertexAttribIPointer(1, 1, GL_INT, sizeof(TRCN_CORE_NAMESPACE::Vertex),
         (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, TextureIndex));
 
     attribPointer(2, 2, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex),
@@ -87,7 +87,7 @@ void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFW
     attribPointer(0, 2, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, Position));
 
     glEnableVertexAttribArray(1);
-    glVertexAttribIPointer(1, sizeof(int), GL_INT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, TextureIndex));
+    glVertexAttribIPointer(1, 1, GL_INT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, TextureIndex));
 
     attribPointer(2, 2, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, TexCoords));
     attribPointer(3, 4, GL_FLOAT, sizeof(TRCN_CORE_NAMESPACE::Vertex), (void*)offsetof(TRCN_CORE_NAMESPACE::Vertex, Color));
@@ -102,12 +102,42 @@ void TRCN_CORE_NAMESPACE::Renderer::Init(const glm::vec2& windowDimensions, GLFW
 
     initScreen();
 
+    _antiAliasing = antiAliasing;
+
     _colorAttachment.GenerateTexture();
-    _colorAttachment.BoundTexImage(GL_RGBA, GL_RGBA, windowDimensions.x, windowDimensions.y,
+    _frameBuffer.GenFrameBuffer();
+
+    if (!antiAliasing)
+    {
+        _colorAttachment.BoundTexImage(GL_RGBA, GL_RGBA, windowDimensions.x, windowDimensions.y,
+           GL_UNSIGNED_BYTE, nullptr, GL_LINEAR);
+
+        _frameBuffer.BindAttachTexture(GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _colorAttachment.GetId());
+        glBindTexture(GL_TEXTURE_2D, _colorAttachment.GetId());
+    }
+    else
+    {
+        _samplesUsed = 4;
+
+        glEnable(GL_MULTISAMPLE);
+
+        _multiSampledTexture.GenerateTexture();
+        _multiSampledTexture.Bind(GL_TEXTURE_2D_MULTISAMPLE);
+
+        _multiSampledTexture.MultiSampleTexImage(_samplesUsed, GL_RGBA,
+        windowDimensions.x, windowDimensions.y);
+
+        _multiSampledFrameBuffer.GenFrameBuffer();
+        _multiSampledFrameBuffer.BindAttachTexture(GL_COLOR_ATTACHMENT0,
+            GL_TEXTURE_2D_MULTISAMPLE, _multiSampledTexture.GetId());
+
+        _colorAttachment.BoundTexImage(GL_RGBA, GL_RGBA, windowDimensions.x, windowDimensions.y,
         GL_UNSIGNED_BYTE, nullptr, GL_LINEAR);
 
-    _frameBuffer.GenFrameBuffer();
-    _frameBuffer.BindAttachTexture(GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _colorAttachment.GetId());
+        _frameBuffer.BindAttachTexture(GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,
+            _colorAttachment.GetId());
+
+    }
 
     Shader::loadMaxTextures();
 }
@@ -273,24 +303,46 @@ void TRCN_CORE_NAMESPACE::Renderer::createTriangle(const glm::vec2& position, Sp
 
 void TRCN_CORE_NAMESPACE::Renderer::drawInScreen(Shader& screenShader)
 {
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glDisable(GL_BLEND);
+    if (_antiAliasing)
+    {
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, _multiSampledFrameBuffer.GetId());
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, _frameBuffer.GetId());
 
-    ClearColorBuffer(glm::vec3(1.f));
+        glBlitFramebuffer(0, 0, _multiSampledTexture.GetWidth(), _multiSampledTexture.GetHeight(),
+            0, 0, _colorAttachment.GetWidth(), _colorAttachment.GetHeight(), GL_COLOR_BUFFER_BIT, GL_NEAREST);
 
-    screenShader.Bind();
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glDisable(GL_BLEND);
 
-    glBindVertexArray(_vaoScreen);
+        ClearColorBuffer(glm::vec3(1.f));
 
-    _colorAttachment.Bind(GL_TEXTURE0);
+        _colorAttachment.Bind(GL_TEXTURE0, GL_TEXTURE_2D);
 
-    screenShader.SetUniformInt("u_ColorAttachment", 0);
+        screenShader.Bind();
+        screenShader.SetUniformInt("u_ColorAttachment", 0);
+
+        glBindVertexArray(_vaoScreen);
+    }
+    else
+    {
+        glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        glDisable(GL_BLEND);
+
+        ClearColorBuffer(glm::vec3(1.f));
+
+        screenShader.Bind();
+
+        glBindVertexArray(_vaoScreen);
+
+        _colorAttachment.Bind(GL_TEXTURE0, GL_TEXTURE_2D);
+
+        screenShader.SetUniformInt("u_ColorAttachment", 0);
+    }
 
     glDrawArrays(GL_TRIANGLES, 0, 6);
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    _frameBuffer.Bind();
 }
 
 void TRCN_CORE_NAMESPACE::Renderer::initScreen()
@@ -316,7 +368,9 @@ void TRCN_CORE_NAMESPACE::Renderer::initScreen()
 
 void Trinacria::DSL::Renderer::drawHelper(float zoom, const glm::vec2& windowDimensions, const glm::vec2& cameraPos)
 {
-    _frameBuffer.Bind();
+
+    if (_antiAliasing) _multiSampledFrameBuffer.Bind();
+    else _frameBuffer.Bind();
 
     ShaderProgram.Bind();
 
@@ -326,7 +380,7 @@ void Trinacria::DSL::Renderer::drawHelper(float zoom, const glm::vec2& windowDim
 
         ShaderProgram.SetUniformInt(uniformName.c_str(), element.second - 1);
 
-        element.first->Bind(element.second + GL_TEXTURE0 - 1);
+        element.first->Bind(element.second + GL_TEXTURE0 - 1, GL_TEXTURE_2D);
     }
 
     glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
@@ -404,8 +458,14 @@ int TRCN_CORE_NAMESPACE::Renderer::SearchMaterial(const Material& material)
 
 void TRCN_CORE_NAMESPACE::Renderer::OnResize(const glm::vec2& windowDimensions)
 {
-    _colorAttachment.BoundTexImage(GL_RGB, GL_RGB, windowDimensions.x, windowDimensions.y,
+    _colorAttachment.BoundTexImage(GL_RGBA, GL_RGBA, windowDimensions.x, windowDimensions.y,
     GL_UNSIGNED_BYTE, nullptr, GL_LINEAR);
+
+    if (_antiAliasing)
+    {
+        _multiSampledTexture.Bind(GL_TEXTURE_2D_MULTISAMPLE);
+        _multiSampledTexture.MultiSampleTexImage(_samplesUsed, GL_RGBA, windowDimensions.x, windowDimensions.y);
+    }
 
     glViewport(0, 0, windowDimensions.x, windowDimensions.y);
 

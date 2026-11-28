@@ -42,6 +42,13 @@ namespace TRCN_CORE_NAMESPACE
 
 		void BindAttachTexture(uint32_t attachment, uint32_t textureType, uint32_t textureId) const;
 
+        /**
+	     *
+	     * @return the openGL id of the framebuffer
+	     */
+
+        uint32_t GetId() const { return _frameBufferId; }
+
 	private:
 		uint32_t _frameBufferId = 0;
 	};

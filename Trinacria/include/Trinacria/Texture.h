@@ -103,6 +103,16 @@ namespace TRCN_CORE_NAMESPACE
 		void BoundTexImage(uint32_t
 		                   internalFormat, uint32_t format, uint32_t width, uint32_t height, uint32_t type, void* data, uint32_t filter);
 
+	    /**
+         * @brief static function that allocates the data of the texture
+         * @param samples the amount of samples used per pixel
+         * @param format the format viewed
+         * @param width the width of the texture
+         * @param height the height of the texture
+         */
+
+	    void MultiSampleTexImage(uint32_t samples, uint32_t format, uint32_t width, uint32_t height);
+
 		/**
 		 * @brief static function that changes the data of the texture
 		 * @param format the format viewed
@@ -129,15 +139,16 @@ namespace TRCN_CORE_NAMESPACE
 		/**
 		 * @brief binds the texture
 		 * @param textureSlot the texture slot to bind the texture
+		 * @param slot where to bind the texture
 		 */
 
-		virtual void Bind(uint32_t textureSlot);
+		virtual void Bind(uint32_t textureSlot, uint32_t slot);
 
 		/**
 		 * @brief binds the texture to first available texture slot
 		 */
 
-		virtual void Bind();
+		virtual void Bind(uint32_t slot);
 
 		/**
 		 * @brief clean up the texture

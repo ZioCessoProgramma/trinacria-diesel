@@ -60,7 +60,7 @@ void TRCN_CORE_NAMESPACE::TextAtlas::LoadAtlas(const char* fontPath, const msdf_
     generator.generate(_glyphs.data(), _glyphs.size());
 
     _atlasTexture.GenerateTexture();
-    _atlasTexture.Bind();
+    _atlasTexture.Bind(GL_TEXTURE_2D);
 
     const msdfgen::BitmapConstRef<unsigned char, 4> bitmap = generator.atlasStorage();
 

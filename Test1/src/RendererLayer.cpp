@@ -228,7 +228,8 @@ void RendererLayer::OnAttach()
 		});
     }
 
-    Trinacria::DSL::Renderer::Init(Application::Get()->GetWindowDimensions(), Application::Get()->GetWindow());
+    Trinacria::DSL::Renderer::Init(Application::Get()->GetWindowDimensions(),
+        Application::Get()->GetWindow(), true);
     Trinacria::DSL::Renderer::LoadDefaultShaders();
 
     Trinacria::DSL::LightSystem::Init();

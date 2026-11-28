@@ -80,7 +80,7 @@ void scrollCallback(GLFWwindow* window, double xOffset, double yOffset)
 		zOffset /= zoomFactor;
 	}
 
-	zOffset = glm::clamp(zOffset, 0.01f, 10.f);
+	zOffset = glm::clamp(zOffset, 0.01f, 1000000.f);
 }
 
 glm::vec2 Application::GetWindowDimensions()

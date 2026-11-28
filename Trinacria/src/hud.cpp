@@ -159,7 +159,7 @@ void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm
 
         _shader.SetUniformInt(format.c_str(), tex.second - 1);
 
-        tex.first->Bind(tex.second + GL_TEXTURE0 - 1);
+        tex.first->Bind(tex.second + GL_TEXTURE0 - 1, GL_TEXTURE_2D);
     }
 
     glm::mat4 proj = glm::scale(glm::mat4(1.f), glm::vec3(windowDimensions.y / windowDimensions.x, 1.f, 1.f));
@@ -179,7 +179,7 @@ void TRCN_CORE_NAMESPACE::HUD::draw(const glm::vec2& windowDimensions, const glm
 
         _textShader.SetUniformInt(format.c_str(), i);
 
-        _textAtlases[i]->GetTexture().Bind(i + GL_TEXTURE0);
+        _textAtlases[i]->GetTexture().Bind(i + GL_TEXTURE0, GL_TEXTURE_2D);
     }
 
     glm::mat4 viewProjection = glm::scale(glm::mat4(1.f), glm::vec3(zoom, zoom, 1.f));
